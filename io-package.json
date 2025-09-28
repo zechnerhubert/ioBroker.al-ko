@@ -1,0 +1,52 @@
+{
+  "common": {
+    "name": "al-ko",
+    "version": "0.1.0",
+    "title": "AL-KO Robolinho",
+    "desc": {
+      "en": "Adapter for AL-KO Robolinho lawnmowers",
+      "de": "Adapter für AL-KO Robolinho Rasenmäher"
+    },
+    "authors": [
+      "Hubertiob"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "type": "hardware",
+    "loglevel": "info",
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "mode": "daemon",
+    "compact": true,
+    "icon": "al-ko.png",
+    "news": {
+      "0.1.0": {
+        "en": "Initial release",
+        "de": "Erste Veröffentlichung"
+      }
+    }
+  },
+  "native": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "default": ""
+      },
+      "password": {
+        "type": "string",
+        "default": ""
+      },
+      "clientId": {
+        "type": "string",
+        "default": ""
+      },
+      "clientSecret": {
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+  "objects": [],
+  "instanceObjects": []
+}
