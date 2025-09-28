@@ -1,22 +1,28 @@
 {
-  "type": "panel",
+  "type": "tabs",
   "items": {
-    "username": {
-      "type": "text",
-      "label": "Username",
-      "placeholder": "Enter your AL-KO account username"
-    },
-    "password": {
-      "type": "password",
-      "label": "Password"
-    },
-    "clientId": {
-      "type": "text",
-      "label": "Client ID"
-    },
-    "clientSecret": {
-      "type": "password",
-      "label": "Client Secret"
+    "general": {
+      "type": "panel",
+      "label": "Allgemein",
+      "items": {
+        "username": {
+          "type": "text",
+          "label": "Username",
+          "placeholder": "Enter your AL-KO account username"
+        },
+        "password": {
+          "type": "password",
+          "label": "Password"
+        },
+        "clientId": {
+          "type": "text",
+          "label": "Client ID"
+        },
+        "clientSecret": {
+          "type": "password",
+          "label": "Client Secret"
+        }
+      }
     }
   }
 }
