@@ -19,32 +19,32 @@
     "desc": {
       "en": "Adapter for AL-KO Robolinho lawnmowers",
       "de": "Adapter für AL-KO Robolinho Rasenmäher",
-      "ru": "Adapter for AL-KO Robolinho lawnmowers",
-      "pt": "Adapter for AL-KO Robolinho lawnmowers",
-      "nl": "Adapter for AL-KO Robolinho lawnmowers",
-      "fr": "Adapter for AL-KO Robolinho lawnmowers",
-      "it": "Adapter for AL-KO Robolinho lawnmowers",
-      "es": "Adapter for AL-KO Robolinho lawnmowers",
-      "pl": "Adapter for AL-KO Robolinho lawnmowers",
-      "uk": "Adapter for AL-KO Robolinho lawnmowers",
-      "zh-cn": "Adapter for AL-KO Robolinho lawnmowers"
+      "ru": "Адаптер для газонокосилок AL-KO Robolinho",
+      "pt": "Adaptador para cortadores de relva AL-KO Robolinho",
+      "nl": "Adapter voor AL-KO Robolinho grasmaaiers",
+      "fr": "Adaptateur pour tondeuses AL-KO Robolinho",
+      "it": "Adattatore per tosaerba AL-KO Robolinho",
+      "es": "Adaptador para cortacéspedes AL-KO Robolinho",
+      "pl": "Adapter do kosiarek AL-KO Robolinho",
+      "uk": "Адаптер для газонокосарок AL-KO Robolinho",
+      "zh-cn": "AL-KO Robolinho 割草机适配器"
     },
     "authors": [
       "Hubertiob"
     ],
     "news": {
       "0.1.1": {
-      "en": "Initial release",
-      "de": "Erste Version",
-      "ru": "Initial release",
-      "pt": "Initial release",
-      "nl": "Initial release",
-      "fr": "Initial release",
-      "it": "Initial release",
-      "es": "Initial release",
-      "pl": "Initial release",
-      "uk": "Initial release",
-      "zh-cn": "Initial release"
+        "en": "Initial release",
+        "de": "Erste Version",
+        "ru": "Первая версия",
+        "pt": "Primeira versão",
+        "nl": "Eerste versie",
+        "fr": "Première version",
+        "it": "Prima versione",
+        "es": "Primera versión",
+        "pl": "Pierwsza wersja",
+        "uk": "Перша версія",
+        "zh-cn": "初始版本"
       }
     },
     "keywords": [
@@ -59,51 +59,31 @@
     "adminUI": {
       "config": "json"
     },
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
     "type": "hardware",
     "loglevel": "info",
     "connectionType": "cloud",
     "dataSource": "poll",
-    "jsonConfig": "true",
     "mode": "daemon",
     "compact": true,
     "icon": "al-ko.png",
-    "news": {
-      "0.1.0": {
-        "en": "Initial release",
-        "de": "Erste Veröffentlichung"
-      }
-    },
     "dependencies": [
       {
-    "js-controller": ">=5.0.19"
+        "js-controller": ">=5.0.19"
       },
       {
-    "admin": ">=6.17.14"
+        "admin": ">=6.17.14"
       }
-    ], 
+    ]
   },
   "native": {
-    "type": "object",
-    "properties": {
-      "username": {
-        "type": "string",
-        "default": ""
-      },
-      "password": {
-        "type": "string",
-        "default": ""
-      },
-      "clientId": {
-        "type": "string",
-        "default": ""
-      },
-      "clientSecret": {
-        "type": "string",
-        "default": ""
-      }
-    }
+    "username": "",
+    "password": "",
+    "clientId": "",
+    "clientSecret": ""
   },
   "objects": [],
   "instanceObjects": []
