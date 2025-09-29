@@ -45,7 +45,7 @@ async onReady() {
 
 	const { clientId, clientSecret, username, password } = this.config;
 	if (!clientId || !clientSecret || !username || !password) {
-		this.log.error("❌ Bitte alle Zugangsdaten in den Einstellungen eintragen!");
+		this.log.error("❌ Bitte alle Zugangsdaten eintragen");
 		return;
 	}
 	this.clientId = clientId;
@@ -60,17 +60,16 @@ async onReady() {
 
 		// Ausgabe aller pushableStates ins Log
 		this.log.info(`🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`);
-		this.log.debug(`DEBUG: Pushable States Liste:\n${JSON.stringify(Array.from(this.pushableStates), null, 2)}`);
 
 		this.log.info("✅ Adapter bereit");
 	} catch (err) {
-		this.log.error(`❌ Fehler beim Start: ${err?.response?.status || ""} ${JSON.stringify(err?.response?.data) || err.message || err}`);
+		this.log.error("❌ Fehler beim Start: " + (err.response?.data || err.message || err));
 	}
 }
 
 // ---------------- Authentifizierung ----------------
 async authenticate() {
-	this.log.info("🔑 Starte Authentifizierung bei AL-KO API…");
+	this.log.info("Authentifiziere bei AL-KO API…");
 	const url = "https://idp.al-ko.com/connect/token";
 	const params = new URLSearchParams();
 	params.append("grant_type", "password");
@@ -80,23 +79,17 @@ async authenticate() {
 	params.append("client_secret", this.clientSecret);
 	params.append("scope", "alkoCustomerId alkoCulture offline_access introspection");
 
-	try {
-		this.log.debug(`DEBUG: Auth-Request zu ${url} mit client_id=${this.clientId}, user=${this.username}`);
-		const res = await axios.post(url, params, {
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		});
+	const res = await axios.post(url, params, {
+		headers: { "Content-Type": "application/x-www-form-urlencoded" },
+	});
 
-		this.accessToken = res.data.access_token;
-		this.refreshToken = res.data.refresh_token;
-		this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
+	this.accessToken = res.data.access_token;
+	this.refreshToken = res.data.refresh_token;
+	this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
 
-		this.log.info("✅ Login erfolgreich, Access-Token erhalten");
-		this.log.debug(`DEBUG: Token gültig bis: ${new Date(this.tokenExpiresAt).toISOString()}`);
-	} catch (err) {
-		this.log.error(`❌ Login fehlgeschlagen: ${err?.response?.status || ""} ${JSON.stringify(err?.response?.data) || err.message}`);
-		throw err;
-	}
+	this.log.info("✅ Login erfolgreich");
 }
+
 
 	}
 
