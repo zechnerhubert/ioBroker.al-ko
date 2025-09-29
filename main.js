@@ -181,7 +181,7 @@ class AlKoAdapter extends utils.Adapter {
 		});
 
 		ws.on("message", async (msg) => {
-			this.log.debug(`🌐 WS-Nachricht (${deviceId}): ${msg}`);
+			this.log.info(`🌐 WS-Nachricht (${deviceId}): ${msg}`);
 			try {
 				const data = JSON.parse(msg.toString());
 				if (data && data.state) {
@@ -282,15 +282,15 @@ class AlKoAdapter extends utils.Adapter {
 
 	// ---------------- State-Änderungen (Push) ----------------
 	async onStateChange(id, state) {
-		this.log.debug(`DEBUG: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
+		this.log.info(`INFO: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
 
 		if (!state || this._stopRequested) return;
 		if (this.adapterSetStates.has(id)) {
-			this.log.debug(`DEBUG: Ignoriere eigenes Adapter-Update für ${id}`);
+			this.log.info(`INFO: Ignoriere eigenes Adapter-Update für ${id}`);
 			return;
 		}
 		if (!this.pushableStates.has(id)) {
-			this.log.debug(`DEBUG: Änderung an nicht-pushbarem State ${id} erkannt`);
+			this.log.info(`INFO: Änderung an nicht-pushbarem State ${id} erkannt`);
 			return;
 		}
 		if (this.pendingPushes.has(id)) return;
@@ -305,8 +305,10 @@ class AlKoAdapter extends utils.Adapter {
 
 		this.pendingPushes.add(id);
 		try {
+			this.log.info(`✏️ Änderung erkannt: ${id} = ${state.val}`);
+
 			const payload = this.buildPatchPayloadFromCache(deviceId, relPathArr, state.val);
-			this.log.debug(`📤 Push ${id}: ${JSON.stringify(payload)}`);
+			this.log.info(`📤 Push ${id}: ${JSON.stringify(payload)}`);
 
 			await this.refreshAuth();
 			const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}/state/desired`;
@@ -314,7 +316,7 @@ class AlKoAdapter extends utils.Adapter {
 				headers: { Authorization: "Bearer " + this.accessToken, "Content-Type": "application/json" },
 			});
 
-			this.log.debug(`✅ Push erfolgreich: ${id}`);
+			this.log.info(`✅ Push erfolgreich: ${id}`);
 			this.updateDeviceStateCache(deviceId, relPathArr, state.val);
 		} catch (err) {
 			this.log.error(`❌ Fehler beim Pushen von ${id}: ${err.response?.status} ${err.response?.data || err.message}`);
@@ -323,24 +325,89 @@ class AlKoAdapter extends utils.Adapter {
 		}
 	}
 
+	// ---------------- Vollständige verschachtelte Payload-Logik (aus Referenz) ----------------
 	buildPatchPayloadFromCache(deviceId, relPathArr, value) {
-		if (relPathArr.length === 1) return { [relPathArr[0]]: value };
+		if (!Array.isArray(relPathArr) || relPathArr.length === 0) {
+			throw new Error("Ungültiger relPathArr");
+		}
 
+		// Top level => nur der key
+		if (relPathArr.length === 1) {
+			return { [relPathArr[0]]: value };
+		}
+
+		// Sonst: parent-Objekt bestimmen
 		const parentParts = relPathArr.slice(0, -1);
 		const leafKey = relPathArr[relPathArr.length - 1];
 		const rootKey = parentParts[0];
 
 		const deviceRoot = this.deviceStates[deviceId] || {};
 		const parentObj = this.getDeep(deviceRoot, parentParts) || {};
+
+		// Clone & überschreiben
 		const parentClone = JSON.parse(JSON.stringify(parentObj));
 		this.setDeep(parentClone, [leafKey], value);
 
-		let nested = parentClone;
+		// Filter auf whitelist
+		const parentRelPrefix = parentParts.join(".");
+		const filteredParent = this.filterObjectByWhitelist(parentClone, parentRelPrefix);
+
+		// Verschachteln
+		let nested = filteredParent;
 		const nestedParts = parentParts.slice(1);
 		for (let i = nestedParts.length - 1; i >= 0; i--) {
 			nested = { [nestedParts[i]]: nested };
 		}
 		return { [rootKey]: nested };
+	}
+
+	filterObjectByWhitelist(obj, parentRelPrefix) {
+		const relevant = whitelist
+			.filter((p) => p === parentRelPrefix || p.startsWith(parentRelPrefix + "."))
+			.map((p) => p.slice(parentRelPrefix.length + 1))
+			.filter((s) => !!s);
+
+		if (relevant.length === 0) {
+			if (whitelist.includes(parentRelPrefix)) {
+				return obj;
+			}
+			return {};
+		}
+
+		const tree = {};
+		for (const rel of relevant) {
+			const parts = rel.split(".");
+			let cur = tree;
+			for (let i = 0; i < parts.length; i++) {
+				const part = parts[i];
+				if (!cur[part]) cur[part] = {};
+				cur = cur[part];
+			}
+		}
+
+		const copyAllowed = (source, schema) => {
+			if (source === null || typeof source !== "object") return source;
+			if (Array.isArray(source)) {
+				const resArr = [];
+				for (let i = 0; i < source.length; i++) {
+					const key = String(i);
+					if (schema[key]) {
+						resArr[i] = copyAllowed(source[i], schema[key]);
+					}
+				}
+				return resArr;
+			} else {
+				const res = {};
+				for (const k of Object.keys(schema)) {
+					if (Object.prototype.hasOwnProperty.call(source, k)) {
+						res[k] = copyAllowed(source[k], schema[k]);
+					}
+				}
+				return res;
+			}
+		};
+
+		return copyAllowed(obj, tree);
 	}
 
 	getDeep(obj, pathArr) {
@@ -351,6 +418,7 @@ class AlKoAdapter extends utils.Adapter {
 		}
 		return cur;
 	}
+
 	setDeep(obj, pathArr, val) {
 		let cur = obj;
 		for (let i = 0; i < pathArr.length - 1; i++) {
