@@ -20,7 +20,7 @@
       "en": "Adapter for AL-KO Robolinho lawnmowers",
       "de": "Adapter für AL-KO Robolinho Rasenmäher",
       "ru": "Адаптер для газонокосилок AL-KO Robolinho",
-      "pt": "Adaptador para cortadores de relva AL-KO Robolinho",
+      "pt": "Adaptador para cortadores de grama AL-KO Robolinho",
       "nl": "Adapter voor AL-KO Robolinho grasmaaiers",
       "fr": "Adaptateur pour tondeuses AL-KO Robolinho",
       "it": "Adattatore per tosaerba AL-KO Robolinho",
@@ -30,14 +30,14 @@
       "zh-cn": "AL-KO Robolinho 割草机适配器"
     },
     "authors": [
-      "Hubertiob"
+      "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
       "0.1.1": {
         "en": "Initial release",
         "de": "Erste Version",
         "ru": "Первая версия",
-        "pt": "Primeira versão",
+        "pt": "Versão inicial",
         "nl": "Eerste versie",
         "fr": "Première version",
         "it": "Prima versione",
@@ -48,12 +48,11 @@
       }
     },
     "keywords": [
-      "ioBroker",
-      "adapter",
       "al-ko",
       "Robolinho",
       "mower",
-      "garden"
+      "garden",
+      "smart-garden"
     ],
     "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/main/admin/al-ko.png",
     "adminUI": {
@@ -68,7 +67,7 @@
     "type": "hardware",
     "loglevel": "info",
     "connectionType": "cloud",
-    "dataSource": "poll",
+    "dataSource": "push",
     "mode": "daemon",
     "compact": true,
     "icon": "al-ko.png",
@@ -89,6 +88,14 @@
     "clientId": "",
     "clientSecret": ""
   },
+  "protectedNative": [
+    "password",
+    "clientSecret"
+  ],
+  "encryptedNative": [
+    "password",
+    "clientSecret"
+  ],
   "objects": [],
   "instanceObjects": []
 }

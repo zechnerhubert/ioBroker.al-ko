@@ -10,40 +10,45 @@
 
 **Tests:** ![Test and Release](https://github.com/zechnerhubert/ioBroker.al-ko/workflows/Test%20and%20Release/badge.svg)
 
+---
+
 ## ioBroker.al-ko
 
-Adapter für die Kommunikation mit AL-KO Gartengeräten.  
-Adapter for communication with AL-KO garden tools.
+Adapter zur Kommunikation mit **AL-KO Robolinho** und weiteren AL-KO Gartengeräten.
 
-## Beschreibung
-
-Dieser Adapter ermöglicht die Steuerung von AL-KO Gartengeräten durch Verbindung mit der offiziellen AL-KO IoT-API.  
-Die Zugangsdaten zur API müssen im Admin-Interface eingetragen werden.  
-Wie diese beantragt werden können, finden Sie unter:  
-👉 https://alko-garden.at/iot-api-zugang-anfordern/
-
-Der Adapter verbindet sich mit Ihrem API-Konto und ruft alle Gerätedaten ab.  
-Die aktuellen Zustände werden über WebSocket direkt von AL-KO aktualisiert.
+Adapter for communication with **AL-KO Robolinho** and other AL-KO garden tools.
 
 ---
 
-This adapter enables you to control AL-KO garden tools by connecting to the official AL-KO IoT API.  
-You must enter your AL-KO API login details in the admin interface.  
-You can find out how to obtain these here:  
-👉 https://alko-garden.at/iot-api-zugang-anfordern/
+## Funktionsumfang / Features
 
-The adapter connects to your API account and retrieves all device data.  
-The current states are updated via WebSocket provided by AL-KO.
+- Verbindung mit der offiziellen **AL-KO Cloud API**
+- Automatisches Anlegen aller relevanten States
+- Alle schreibbaren States werden berücksichtigt (Whitelist)
+- Änderungen an States werden per API zurück in die Cloud gepusht
+- Gerätestatus wird automatisch und in Echtzeit über **WebSocket** aktualisiert
+- Authentifizierung via Benutzername / Passwort und API-Client-Daten
 
 ---
 
-### DISCLAIMER
+## Konfiguration
+
+Um den Adapter zu nutzen, benötigen Sie API-Zugangsdaten von AL-KO.  
+Diese können Sie hier beantragen:  
+👉 [AL-KO IoT API Zugang](https://alko-garden.at/iot-api-zugang-anfordern/)
+
+Im Admin müssen folgende Daten hinterlegt werden:
+- **Username** (AL-KO Konto)
+- **Password**
+- **Client ID**
+- **Client Secret**
+
+---
+
+## DISCLAIMER
 
 Dieser Adapter steht **in keinem Zusammenhang mit der Firma AL-KO**.  
-AL-KO bietet für diesen Adapter **keinen Support** an.
-
-This adapter is **not affiliated with AL-KO**.  
-AL-KO does **not provide any support** for this adapter.
+Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** dafür an.
 
 ---
 
@@ -54,14 +59,18 @@ AL-KO does **not provide any support** for this adapter.
 -->
 
 ### **0.1.1 (2025-09-29)**
-* Initial release
+* ✨ Initial release
+* Verbindung mit der AL-KO API
+* Automatisches Anlegen der States
+* Push von Änderungen an AL-KO
+* WebSocket-Integration für Echtzeit-Updates
 
 ---
 
 ## License
 MIT License
 
-Copyright (c) 2025 Hubert Zechner <hubertiob@posteo.at>
+Copyright (c) 2025 Hubert <hubertiob@posteo.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
