@@ -40,59 +40,55 @@ class AlKoAdapter extends utils.Adapter {
 	}
 
 	// ---------------- Adapter-Start ----------------
-async onReady() {
-	this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
+	async onReady() {
+		this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
 
-	const { clientId, clientSecret, username, password } = this.config;
-	if (!clientId || !clientSecret || !username || !password) {
-		this.log.error("❌ Bitte alle Zugangsdaten eintragen");
-		return;
-	}
-	this.clientId = clientId;
-	this.clientSecret = clientSecret;
-	this.username = username;
-	this.password = password;
+		const { clientId, clientSecret, username, password } = this.config;
+		if (!clientId || !clientSecret || !username || !password) {
+			this.log.error("❌ Bitte alle Zugangsdaten eintragen");
+			return;
+		}
+		this.clientId = clientId;
+		this.clientSecret = clientSecret;
+		this.username = username;
+		this.password = password;
 
-	try {
-		await this.authenticate();
-		this.scheduleTokenRefresh();
-		await this.fetchAndCreateDeviceStates();
+		try {
+			await this.authenticate();
+			this.scheduleTokenRefresh();
+			await this.fetchAndCreateDeviceStates();
 
-		// Ausgabe aller pushableStates ins Log
-		this.log.info(`🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`);
+			// Ausgabe aller pushableStates ins Log
+			this.log.info(`🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`);
 
-		this.log.info("✅ Adapter bereit");
-	} catch (err) {
-		this.log.error("❌ Fehler beim Start: " + (err.response?.data || err.message || err));
-	}
-}
-
-// ---------------- Authentifizierung ----------------
-async authenticate() {
-	this.log.info("Authentifiziere bei AL-KO API…");
-	const url = "https://idp.al-ko.com/connect/token";
-	const params = new URLSearchParams();
-	params.append("grant_type", "password");
-	params.append("username", this.username);
-	params.append("password", this.password);
-	params.append("client_id", this.clientId);
-	params.append("client_secret", this.clientSecret);
-	params.append("scope", "alkoCustomerId alkoCulture offline_access introspection");
-
-	const res = await axios.post(url, params, {
-		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-	});
-
-	this.accessToken = res.data.access_token;
-	this.refreshToken = res.data.refresh_token;
-	this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
-
-	this.log.info("✅ Login erfolgreich");
-}
-
-
+			this.log.info("✅ Adapter bereit");
+		} catch (err) {
+			this.log.error("❌ Fehler beim Start: " + (err.response?.data || err.message || err));
+		}
 	}
 
+	// ---------------- Authentifizierung ----------------
+	async authenticate() {
+		this.log.info("Authentifiziere bei AL-KO API…");
+		const url = "https://idp.al-ko.com/connect/token";
+		const params = new URLSearchParams();
+		params.append("grant_type", "password");
+		params.append("username", this.username);
+		params.append("password", this.password);
+		params.append("client_id", this.clientId);
+		params.append("client_secret", this.clientSecret);
+		params.append("scope", "alkoCustomerId alkoCulture offline_access introspection");
+
+		const res = await axios.post(url, params, {
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		});
+
+		this.accessToken = res.data.access_token;
+		this.refreshToken = res.data.refresh_token;
+		this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
+
+		this.log.info("✅ Login erfolgreich");
+	}
 	async refreshAuth() {
 		if (!this.refreshToken || Date.now() >= this.tokenExpiresAt - 60000) {
 			this.log.info("🔄 Erneuere Access-Token…");
