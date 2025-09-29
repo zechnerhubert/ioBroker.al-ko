@@ -136,7 +136,7 @@ class AlKoAdapter extends utils.Adapter {
 				}
 			}
 		}
-
+		// --- NACH dem Anlegen der States und pro Gerät aufrufen ---
 		if (this.pushableStates.size) {
 			let count = 0;
 			for (const id of this.pushableStates) {
@@ -181,7 +181,11 @@ class AlKoAdapter extends utils.Adapter {
 			try {
 				const data = JSON.parse(msg.toString());
 				if (data && data.state) {
-					this.deviceStates[deviceId] = data.state.reported || data.state;
+					const newState = data.state.reported || data.state;
+
+					// NEU: Cache nicht überschreiben, sondern mergen
+					this.deviceStates[deviceId] = this.deepMerge(this.deviceStates[deviceId] || {}, newState);
+
 					await this.createStatesRecursive(`al-ko.0.${deviceId}.state`, this.deviceStates[deviceId], "");
 				}
 			} catch (e) {
@@ -199,6 +203,22 @@ class AlKoAdapter extends utils.Adapter {
 		});
 
 		this.webSockets[deviceId] = ws;
+	}
+
+	// ---------------- Deep Merge ----------------
+	deepMerge(target, source) {
+		if (typeof target !== "object" || target === null) return JSON.parse(JSON.stringify(source));
+		if (typeof source !== "object" || source === null) return target;
+
+		const output = { ...target };
+		for (const key of Object.keys(source)) {
+			if (typeof source[key] === "object" && !Array.isArray(source[key])) {
+				output[key] = this.deepMerge(target[key], source[key]);
+			} else {
+				output[key] = source[key];
+			}
+		}
+		return output;
 	}
 
 	// ---------------- State-Erzeugung ----------------
@@ -321,40 +341,29 @@ class AlKoAdapter extends utils.Adapter {
 		}
 	}
 
-	// ---------------- Vollständige verschachtelte Payload-Logik ----------------
+	// ---------------- Vollständige verschachtelte Payload-Logik (aus Referenz) ----------------
 	buildPatchPayloadFromCache(deviceId, relPathArr, value) {
 		if (!Array.isArray(relPathArr) || relPathArr.length === 0) {
 			throw new Error("Ungültiger relPathArr");
 		}
 
-		// Top level => nur der key
 		if (relPathArr.length === 1) {
 			return { [relPathArr[0]]: value };
 		}
 
-		// Parent-Pfade
 		const parentParts = relPathArr.slice(0, -1);
 		const leafKey = relPathArr[relPathArr.length - 1];
 		const rootKey = parentParts[0];
 
-		// Vollständiges Parent-Objekt aus Cache
 		const deviceRoot = this.deviceStates[deviceId] || {};
 		const parentObj = this.getDeep(deviceRoot, parentParts) || {};
 
-		// Clone & überschreiben
 		const parentClone = JSON.parse(JSON.stringify(parentObj));
 		this.setDeep(parentClone, [leafKey], value);
 
-		// Debug-Ausgaben
-		this.log.debug(`parentObj: ${JSON.stringify(parentObj)}`);
-		this.log.debug(`parentClone: ${JSON.stringify(parentClone)}`);
-
-		// Filter auf whitelist
 		const parentRelPrefix = parentParts.join(".");
 		const filteredParent = this.filterObjectByWhitelist(parentClone, parentRelPrefix);
-		this.log.debug(`filteredParent: ${JSON.stringify(filteredParent)}`);
 
-		// Verschachteln bis zum rootKey
 		let nested = filteredParent;
 		const nestedParts = parentParts.slice(1);
 		for (let i = nestedParts.length - 1; i >= 0; i--) {
