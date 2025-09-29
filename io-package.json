@@ -60,7 +60,9 @@
       "config": "json"
     },
     "licenseInformation": {
-      "license": "MIT"
+      "type": "free",
+      "license": "MIT",
+      "link": "https://opensource.org/licenses/MIT"
     },
     "platform": "Javascript/Node.js",
     "type": "hardware",
