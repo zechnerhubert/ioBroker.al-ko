@@ -29,6 +29,8 @@ class AlKoAdapter extends utils.Adapter {
 		this.adapterSetStates = new Set();
 		this.pendingPushes = new Set();
 		this.webSockets = {};            // offene WebSocket-Verbindungen pro Gerät
+		this.reconnectTimeouts = {}; // hier speichern wir alle offenen Reconnect-Timeouts
+
 
 		this._stopRequested = false;
 
@@ -195,8 +197,10 @@ class AlKoAdapter extends utils.Adapter {
 
 		ws.on("close", () => {
 			this.log.warn(`⚠️ WebSocket geschlossen für ${deviceId}, erneuter Versuch in 10s`);
-			setTimeout(() => this.connectWebSocket(deviceId), 10000);
+			// Timeout merken, damit wir ihn im onUnload wieder aufräumen können
+			this.reconnectTimeouts[deviceId] = setTimeout(() => this.connectWebSocket(deviceId), 10000);
 		});
+
 
 		ws.on("error", (err) => {
 			this.log.error(`❌ WebSocket-Fehler (${deviceId}): ${err.message}`);
@@ -449,15 +453,24 @@ class AlKoAdapter extends utils.Adapter {
 		try {
 			this._stopRequested = true;
 			if (this.tokenInterval) clearInterval(this.tokenInterval);
+
+			// offene Reconnect-Timeouts aufräumen
+			for (const t of Object.values(this.reconnectTimeouts)) {
+				try { clearTimeout(t); } catch { }
+			}
+
+			// offene WebSockets schließen
 			for (const ws of Object.values(this.webSockets)) {
 				try { ws.close(); } catch { }
 			}
+
 			this.log.info("Adapter gestoppt.");
 			callback();
 		} catch (e) {
 			callback();
 		}
 	}
+
 }
 
 // ---------------- Export ----------------

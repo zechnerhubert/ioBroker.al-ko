@@ -2,14 +2,63 @@
   "common": {
     "name": "al-ko",
     "version": "0.1.1",
-    "title": "AL-KO Robolinho",
+    "tier": 3,
+    "titleLang": {
+      "en": "AL-KO",
+      "de": "AL-KO",
+      "ru": "AL-KO",
+      "pt": "AL-KO",
+      "nl": "AL-KO",
+      "fr": "AL-KO",
+      "it": "AL-KO",
+      "es": "AL-KO",
+      "pl": "AL-KO",
+      "uk": "AL-KO",
+      "zh-cn": "AL-KO"
+    },
     "desc": {
       "en": "Adapter for AL-KO Robolinho lawnmowers",
-      "de": "Adapter für AL-KO Robolinho Rasenmäher"
+      "de": "Adapter für AL-KO Robolinho Rasenmäher",
+      "ru": "Adapter for AL-KO Robolinho lawnmowers",
+      "pt": "Adapter for AL-KO Robolinho lawnmowers",
+      "nl": "Adapter for AL-KO Robolinho lawnmowers",
+      "fr": "Adapter for AL-KO Robolinho lawnmowers",
+      "it": "Adapter for AL-KO Robolinho lawnmowers",
+      "es": "Adapter for AL-KO Robolinho lawnmowers",
+      "pl": "Adapter for AL-KO Robolinho lawnmowers",
+      "uk": "Adapter for AL-KO Robolinho lawnmowers",
+      "zh-cn": "Adapter for AL-KO Robolinho lawnmowers"
     },
     "authors": [
       "Hubertiob"
     ],
+    "news": {
+      "0.1.1": {
+      "en": "Initial release",
+      "de": "Erste Version",
+      "ru": "Initial release",
+      "pt": "Initial release",
+      "nl": "Initial release",
+      "fr": "Initial release",
+      "it": "Initial release",
+      "es": "Initial release",
+      "pl": "Initial release",
+      "uk": "Initial release",
+      "zh-cn": "Initial release"
+      }
+    },
+    "keywords": [
+      "ioBroker",
+      "adapter",
+      "al-ko",
+      "Robolinho",
+      "mower",
+      "garden"
+    ],
+    "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/main/admin/al-ko.png",
+    "adminUI": {
+      "config": "json"
+    },
     "license": "MIT",
     "platform": "Javascript/Node.js",
     "type": "hardware",
@@ -25,7 +74,15 @@
         "en": "Initial release",
         "de": "Erste Veröffentlichung"
       }
-    }
+    },
+    "dependencies": [
+      {
+    "js-controller": ">=5.0.19"
+      },
+      {
+    "admin": ">=6.17.14"
+      }
+    ], 
   },
   "native": {
     "type": "object",

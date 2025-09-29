@@ -41,7 +41,7 @@ I hereby expressly point out that this adapter is not affiliated with AL-KO and 
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### **0.1.1 (2025-09-29)**
 * Initial release
 
 ## License
