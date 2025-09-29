@@ -136,8 +136,6 @@ class AlKoAdapter extends utils.Adapter {
 				}
 			}
 		}
-		// --- NACH dem Anlegen der States und pro Gerät aufrufen ---
-		// (am besten EINMAL nach der for-Schleife über alle Devices)
 
 		if (this.pushableStates.size) {
 			let count = 0;
@@ -151,12 +149,10 @@ class AlKoAdapter extends utils.Adapter {
 			}
 			this.log.info(`🔔 Abonniert ${count} schreibbare States für Push-Erkennung.`);
 		} else {
-			// Sicherheits-Fallback: alles abonnieren, falls Whitelist leer/fehlend war
 			const pattern = `${this.namespace}.*`;
 			this.subscribeStates(pattern);
 			this.log.warn(`⚠️ Keine pushbaren States erkannt – abonniere Fallback "${pattern}".`);
 		}
-
 	}
 
 	async getDeviceStatus(deviceId) {
@@ -325,7 +321,7 @@ class AlKoAdapter extends utils.Adapter {
 		}
 	}
 
-	// ---------------- Vollständige verschachtelte Payload-Logik (aus Referenz) ----------------
+	// ---------------- Vollständige verschachtelte Payload-Logik ----------------
 	buildPatchPayloadFromCache(deviceId, relPathArr, value) {
 		if (!Array.isArray(relPathArr) || relPathArr.length === 0) {
 			throw new Error("Ungültiger relPathArr");
@@ -336,11 +332,12 @@ class AlKoAdapter extends utils.Adapter {
 			return { [relPathArr[0]]: value };
 		}
 
-		// Sonst: parent-Objekt bestimmen
+		// Parent-Pfade
 		const parentParts = relPathArr.slice(0, -1);
 		const leafKey = relPathArr[relPathArr.length - 1];
 		const rootKey = parentParts[0];
 
+		// Vollständiges Parent-Objekt aus Cache
 		const deviceRoot = this.deviceStates[deviceId] || {};
 		const parentObj = this.getDeep(deviceRoot, parentParts) || {};
 
@@ -348,11 +345,16 @@ class AlKoAdapter extends utils.Adapter {
 		const parentClone = JSON.parse(JSON.stringify(parentObj));
 		this.setDeep(parentClone, [leafKey], value);
 
+		// Debug-Ausgaben
+		this.log.debug(`parentObj: ${JSON.stringify(parentObj)}`);
+		this.log.debug(`parentClone: ${JSON.stringify(parentClone)}`);
+
 		// Filter auf whitelist
 		const parentRelPrefix = parentParts.join(".");
 		const filteredParent = this.filterObjectByWhitelist(parentClone, parentRelPrefix);
+		this.log.debug(`filteredParent: ${JSON.stringify(filteredParent)}`);
 
-		// Verschachteln
+		// Verschachteln bis zum rootKey
 		let nested = filteredParent;
 		const nestedParts = parentParts.slice(1);
 		for (let i = nestedParts.length - 1; i >= 0; i--) {
