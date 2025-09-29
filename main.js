@@ -39,6 +39,8 @@ class AlKoAdapter extends utils.Adapter {
 
 	// ---------------- Adapter-Start ----------------
 	async onReady() {
+		this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
+
 		const { clientId, clientSecret, username, password } = this.config;
 		if (!clientId || !clientSecret || !username || !password) {
 			this.log.error("❌ Bitte alle Zugangsdaten eintragen");
@@ -53,6 +55,11 @@ class AlKoAdapter extends utils.Adapter {
 			await this.authenticate();
 			this.scheduleTokenRefresh();
 			await this.fetchAndCreateDeviceStates();
+
+			// Ausgabe aller pushableStates ins Log
+			this.log.info(`🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`);
+			this.log.debug(`DEBUG: Pushable States Liste:\n${JSON.stringify(Array.from(this.pushableStates), null, 2)}`);
+
 			this.log.info("✅ Adapter bereit");
 		} catch (err) {
 			this.log.error("❌ Fehler beim Start: " + (err.response?.data || err.message || err));
@@ -275,12 +282,17 @@ class AlKoAdapter extends utils.Adapter {
 
 	// ---------------- State-Änderungen (Push) ----------------
 	async onStateChange(id, state) {
+		this.log.debug(`DEBUG: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
+
 		if (!state || this._stopRequested) return;
 		if (this.adapterSetStates.has(id)) {
 			this.log.debug(`DEBUG: Ignoriere eigenes Adapter-Update für ${id}`);
 			return;
 		}
-		if (!this.pushableStates.has(id)) return;
+		if (!this.pushableStates.has(id)) {
+			this.log.debug(`DEBUG: Änderung an nicht-pushbarem State ${id} erkannt`);
+			return;
+		}
 		if (this.pendingPushes.has(id)) return;
 
 		const last = this.lastStateValues[id];
