@@ -40,57 +40,64 @@ class AlKoAdapter extends utils.Adapter {
 	}
 
 	// ---------------- Adapter-Start ----------------
-	async onReady() {
-		this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
+async onReady() {
+	this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
 
-		const { clientId, clientSecret, username, password } = this.config;
-
-		// DEBUG: Configwerte prüfen
-		this.log.debug(`Config: username=${username}, password=${password ? "***" : "(leer)"}, clientId=${clientId}, clientSecret=${clientSecret ? "***" : "(leer)"}`);
-		
-		if (!clientId || !clientSecret || !username || !password) {
-			this.log.error("❌ Bitte alle Zugangsdaten eintragen");
-			return;
-		}
-		this.clientId = clientId;
-		this.clientSecret = clientSecret;
-		this.username = username;
-		this.password = password;
-
-		try {
-			await this.authenticate();
-			this.scheduleTokenRefresh();
-			await this.fetchAndCreateDeviceStates();
-
-			// Ausgabe aller pushableStates ins Log
-			this.log.info(`🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`);
-			this.log.debug(`DEBUG: Pushable States Liste:\n${JSON.stringify(Array.from(this.pushableStates), null, 2)}`);
-
-			this.log.info("✅ Adapter bereit");
-		} catch (err) {
-			this.log.error("❌ Fehler beim Start: " + (err.response?.data || err.message || err));
-		}
+	const { clientId, clientSecret, username, password } = this.config;
+	if (!clientId || !clientSecret || !username || !password) {
+		this.log.error("❌ Bitte alle Zugangsdaten in den Einstellungen eintragen!");
+		return;
 	}
+	this.clientId = clientId;
+	this.clientSecret = clientSecret;
+	this.username = username;
+	this.password = password;
 
-	// ---------------- Authentifizierung ----------------
-	async authenticate() {
-		this.log.info("Authentifiziere bei AL-KO API…");
-		const url = "https://idp.al-ko.com/connect/token";
-		const params = new URLSearchParams();
-		params.append("grant_type", "password");
-		params.append("username", this.username);
-		params.append("password", this.password);
-		params.append("client_id", this.clientId);
-		params.append("client_secret", this.clientSecret);
-		params.append("scope", "alkoCustomerId alkoCulture offline_access introspection");
+	try {
+		await this.authenticate();
+		this.scheduleTokenRefresh();
+		await this.fetchAndCreateDeviceStates();
 
+		// Ausgabe aller pushableStates ins Log
+		this.log.info(`🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`);
+		this.log.debug(`DEBUG: Pushable States Liste:\n${JSON.stringify(Array.from(this.pushableStates), null, 2)}`);
+
+		this.log.info("✅ Adapter bereit");
+	} catch (err) {
+		this.log.error(`❌ Fehler beim Start: ${err?.response?.status || ""} ${JSON.stringify(err?.response?.data) || err.message || err}`);
+	}
+}
+
+// ---------------- Authentifizierung ----------------
+async authenticate() {
+	this.log.info("🔑 Starte Authentifizierung bei AL-KO API…");
+	const url = "https://idp.al-ko.com/connect/token";
+	const params = new URLSearchParams();
+	params.append("grant_type", "password");
+	params.append("username", this.username);
+	params.append("password", this.password);
+	params.append("client_id", this.clientId);
+	params.append("client_secret", this.clientSecret);
+	params.append("scope", "alkoCustomerId alkoCulture offline_access introspection");
+
+	try {
+		this.log.debug(`DEBUG: Auth-Request zu ${url} mit client_id=${this.clientId}, user=${this.username}`);
 		const res = await axios.post(url, params, {
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 		});
+
 		this.accessToken = res.data.access_token;
 		this.refreshToken = res.data.refresh_token;
 		this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
-		this.log.info("✅ Login erfolgreich");
+
+		this.log.info("✅ Login erfolgreich, Access-Token erhalten");
+		this.log.debug(`DEBUG: Token gültig bis: ${new Date(this.tokenExpiresAt).toISOString()}`);
+	} catch (err) {
+		this.log.error(`❌ Login fehlgeschlagen: ${err?.response?.status || ""} ${JSON.stringify(err?.response?.data) || err.message}`);
+		throw err;
+	}
+}
+
 	}
 
 	async refreshAuth() {
