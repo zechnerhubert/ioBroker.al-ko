@@ -129,6 +129,27 @@ class AlKoAdapter extends utils.Adapter {
 				}
 			}
 		}
+		// --- NACH dem Anlegen der States und pro Gerät aufrufen ---
+		// (am besten EINMAL nach der for-Schleife über alle Devices)
+
+		if (this.pushableStates.size) {
+			let count = 0;
+			for (const id of this.pushableStates) {
+				try {
+					this.subscribeStates(id);
+					count++;
+				} catch (e) {
+					this.log.debug(`Konnte State nicht abonnieren: ${id} -> ${e.message}`);
+				}
+			}
+			this.log.info(`🔔 Abonniert ${count} schreibbare States für Push-Erkennung.`);
+		} else {
+			// Sicherheits-Fallback: alles abonnieren, falls Whitelist leer/fehlend war
+			const pattern = `${this.namespace}.*`;
+			this.subscribeStates(pattern);
+			this.log.warn(`⚠️ Keine pushbaren States erkannt – abonniere Fallback "${pattern}".`);
+		}
+
 	}
 
 	async getDeviceStatus(deviceId) {
