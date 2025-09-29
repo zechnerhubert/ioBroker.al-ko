@@ -44,6 +44,10 @@ class AlKoAdapter extends utils.Adapter {
 		this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
 
 		const { clientId, clientSecret, username, password } = this.config;
+
+		// DEBUG: Configwerte prüfen
+		this.log.debug(`Config: username=${username}, password=${password ? "***" : "(leer)"}, clientId=${clientId}, clientSecret=${clientSecret ? "***" : "(leer)"}`);
+		
 		if (!clientId || !clientSecret || !username || !password) {
 			this.log.error("❌ Bitte alle Zugangsdaten eintragen");
 			return;
