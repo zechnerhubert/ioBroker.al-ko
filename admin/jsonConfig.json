@@ -32,14 +32,14 @@
             "uk": "Ім'я користувача",
             "zh-cn": "用户名"
           },
+          "placeholder": "Enter your AL-KO account username",
           "size": {
             "xs": 12,
             "sm": 6,
             "md": 6,
             "lg": 4,
             "xl": 4
-          },
-          "placeholder": "Enter your AL-KO account username"
+          }
         },
         "password": {
           "type": "password",
@@ -79,6 +79,7 @@
             "uk": "Ідентифікатор клієнта",
             "zh-cn": "客户端 ID"
           },
+          "placeholder": "Enter your AL-KO Client ID",
           "size": {
             "xs": 12,
             "sm": 6,
