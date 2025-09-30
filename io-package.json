@@ -88,6 +88,14 @@
     "clientId": "",
     "clientSecret": ""
   },
+  "protectedNative": [
+    "password",
+    "clientSecret"
+  ],
+  "encryptedNative": [
+    "password",
+    "clientSecret"
+  ],
   "objects": [],
   "instanceObjects": []
 }
