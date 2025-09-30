@@ -179,7 +179,7 @@ class AlKoAdapter extends utils.Adapter {
 		});
 
 		ws.on("message", async (msg) => {
-			this.log.info(`🌐 WS-Nachricht (${deviceId}): ${msg}`);
+			// this.log.info(`🌐 WS-Nachricht (${deviceId}): ${msg}`);
 			try {
 				const data = JSON.parse(msg.toString());
 				if (data && data.state) {
