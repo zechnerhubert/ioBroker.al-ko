@@ -58,7 +58,7 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 	### **WORK IN PROGRESS**
 -->
 
-### **0.1.1 (2025-09-29)**
+### 0.1.1 (2025-09-29)
 * ✨ Initial release
 * Verbindung mit der AL-KO API
 * Automatisches Anlegen der States

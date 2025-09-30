@@ -32,6 +32,13 @@
             "uk": "Ім'я користувача",
             "zh-cn": "用户名"
           },
+          "size": {
+            "xs": 12,
+            "sm": 6,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+          }
           "placeholder": "Enter your AL-KO account username"
         },
         "password": {
@@ -49,6 +56,13 @@
             "uk": "Пароль",
             "zh-cn": "密码"
           }
+          "size": {
+            "xs": 12,
+            "sm": 6,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+          }
         },
         "clientId": {
           "type": "text",
@@ -65,6 +79,13 @@
             "uk": "Ідентифікатор клієнта",
             "zh-cn": "客户端 ID"
           }
+          "size": {
+            "xs": 12,
+            "sm": 6,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+          }
         },
         "clientSecret": {
           "type": "password",
@@ -80,6 +101,13 @@
             "pl": "Tajemnica klienta",
             "uk": "Секрет клієнта",
             "zh-cn": "客户端密钥"
+          }
+          "size": {
+            "xs": 12,
+            "sm": 6,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
           }
         }
       }
