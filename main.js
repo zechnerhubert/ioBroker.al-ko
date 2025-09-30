@@ -302,11 +302,11 @@ class AlKoAdapter extends utils.Adapter {
 
 	// ---------------- State-Änderungen (Push) ----------------
 	async onStateChange(id, state) {
-		this.log.info(`INFO: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
+		//this.log.info(`INFO: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
 
 		if (!state || this._stopRequested) return;
 		if (this.adapterSetStates.has(id)) {
-			this.log.info(`INFO: Ignoriere eigenes Adapter-Update für ${id}`);
+			//this.log.info(`INFO: Ignoriere eigenes Adapter-Update für ${id}`);
 			return;
 		}
 		if (!this.pushableStates.has(id)) {
