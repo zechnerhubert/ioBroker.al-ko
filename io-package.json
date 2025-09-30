@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.1.2": {
+        "en": "Improved admin UI config and fixed adapter-check issues",
+        "de": "Verbesserte Admin-UI-Konfiguration und behobene Adapter-Check-Fehler",
+        "ru": "Улучшена конфигурация админ-интерфейса и исправлены ошибки adapter-check",
+        "pt": "Configuração da interface de administração melhorada e problemas do adapter-check corrigidos",
+        "nl": "Verbeterde admin UI-configuratie en adapter-checkproblemen opgelost",
+        "fr": "Configuration de l'interface d'administration améliorée et correction des problèmes d'adapter-check",
+        "it": "Configurazione dell'interfaccia di amministrazione migliorata e risolti i problemi di adapter-check",
+        "es": "Configuración de la interfaz de administración mejorada y problemas de verificación del adaptador corregidos",
+        "pl": "Ulepszona konfiguracja interfejsu administratora i naprawione błędy adapter-check",
+        "uk": "Покращена конфігурація інтерфейсу адміністратора та виправлені помилки adapter-check",
+        "zh-cn": "改进了管理界面配置并修复了适配器检查问题"
+      },
       "0.1.1": {
         "en": "Initial release",
         "de": "Erste Version",
