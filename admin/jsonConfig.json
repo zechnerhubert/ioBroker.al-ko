@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/ioBroker/adapter-react-v5/main/src/Schemas/jsonConfig.json",
   "type": "tabs",
   "items": {
     "general": {
@@ -34,13 +33,7 @@
             "zh-cn": "用户名"
           },
           "placeholder": "Enter your AL-KO account username",
-          "size": {
-            "xs": 12,
-            "sm": 6,
-            "md": 6,
-            "lg": 4,
-            "xl": 4
-          }
+          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
         },
         "password": {
           "type": "password",
@@ -57,13 +50,7 @@
             "uk": "Пароль",
             "zh-cn": "密码"
           },
-          "size": {
-            "xs": 12,
-            "sm": 6,
-            "md": 6,
-            "lg": 4,
-            "xl": 4
-          }
+          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
         },
         "clientId": {
           "type": "text",
@@ -80,14 +67,7 @@
             "uk": "Ідентифікатор клієнта",
             "zh-cn": "客户端 ID"
           },
-          "placeholder": "Enter your AL-KO Client ID",
-          "size": {
-            "xs": 12,
-            "sm": 6,
-            "md": 6,
-            "lg": 4,
-            "xl": 4
-          }
+          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
         },
         "clientSecret": {
           "type": "password",
@@ -104,13 +84,7 @@
             "uk": "Секрет клієнта",
             "zh-cn": "客户端密钥"
           },
-          "size": {
-            "xs": 12,
-            "sm": 6,
-            "md": 6,
-            "lg": 4,
-            "xl": 4
-          }
+          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
         }
       }
     }
