@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/ioBroker/adapter-react-v5/main/src/Schemas/jsonConfig.json",
   "type": "tabs",
   "items": {
     "general": {
