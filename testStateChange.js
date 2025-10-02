@@ -1,7 +1,7 @@
 "use strict";
 
 // Dev-Server Adapter-Schnittstelle simulieren
-const utils = require("@iobroker/adapter-core");
+require("@iobroker/adapter-core");
 
 async function runTest() {
 	// Adapter starten

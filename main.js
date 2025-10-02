@@ -8,8 +8,10 @@ const WebSocket = require("ws");
 let whitelist = [];
 try {
 	whitelist = require("./whitelist.json");
-	if (!Array.isArray(whitelist)) whitelist = [];
-} catch (e) {
+	if (!Array.isArray(whitelist)) {
+		whitelist = [];
+	}
+} catch (_e) {
 	console.warn("Whitelist nicht gefunden, arbeite mit leerer Whitelist.");
 	whitelist = [];
 }
@@ -23,14 +25,13 @@ class AlKoAdapter extends utils.Adapter {
 		this.tokenExpiresAt = null;
 		this.tokenInterval = null;
 
-		this.deviceStates = {};          // Cache für letzte bekannte States
+		this.deviceStates = {}; // Cache für letzte bekannte States
 		this.pushableStates = new Set(); // Nur whitelisted States
-		this.lastStateValues = {};       // Vergleichswert für Änderungen
+		this.lastStateValues = {}; // Vergleichswert für Änderungen
 		this.adapterSetStates = new Set();
 		this.pendingPushes = new Set();
-		this.webSockets = {};            // offene WebSocket-Verbindungen pro Gerät
+		this.webSockets = {}; // offene WebSocket-Verbindungen pro Gerät
 		this.reconnectTimeouts = {}; // hier speichern wir alle offenen Reconnect-Timeouts
-
 
 		this._stopRequested = false;
 
@@ -63,7 +64,7 @@ class AlKoAdapter extends utils.Adapter {
 
 			this.log.info("✅ Adapter bereit");
 		} catch (err) {
-			this.log.error("❌ Fehler beim Start: " + (err.response?.data || err.message || err));
+			this.log.error(`❌ Fehler beim Start: ${err.response?.data || err.message || err}`);
 		}
 	}
 
@@ -111,7 +112,9 @@ class AlKoAdapter extends utils.Adapter {
 	}
 
 	scheduleTokenRefresh() {
-		if (this.tokenInterval) clearInterval(this.tokenInterval);
+		if (this.tokenInterval) {
+			clearInterval(this.tokenInterval);
+		}
 		this.tokenInterval = setInterval(() => this.refreshAuth(), 30 * 60 * 1000);
 	}
 
@@ -121,7 +124,7 @@ class AlKoAdapter extends utils.Adapter {
 
 		const url = "https://api.al-ko.com/v1/iot/things";
 		const res = await axios.get(url, {
-			headers: { Authorization: "Bearer " + this.accessToken, Accept: "application/json" },
+			headers: { Authorization: `Bearer ${this.accessToken}`, Accept: "application/json" },
 		});
 
 		const devices = res.data;
@@ -161,15 +164,17 @@ class AlKoAdapter extends utils.Adapter {
 		await this.refreshAuth();
 		const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}/state`;
 		const res = await axios.get(url, {
-			headers: { Authorization: "Bearer " + this.accessToken, Accept: "application/json" },
+			headers: { Authorization: `Bearer ${this.accessToken}`, Accept: "application/json" },
 		});
-		this.log.info("📥 Status abgerufen für: " + deviceId);
+		this.log.info(`📥 Status abgerufen für: ${deviceId}`);
 		return res.data;
 	}
 
 	// ---------------- WebSocket ----------------
 	connectWebSocket(deviceId) {
-		if (!this.accessToken) return;
+		if (!this.accessToken) {
+			return;
+		}
 
 		const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
 		const ws = new WebSocket(url);
@@ -178,7 +183,7 @@ class AlKoAdapter extends utils.Adapter {
 			this.log.info(`🔗 WebSocket verbunden für Gerät: ${deviceId}`);
 		});
 
-		ws.on("message", async (msg) => {
+		ws.on("message", async msg => {
 			// this.log.info(`🌐 WS-Nachricht (${deviceId}): ${msg}`);
 			try {
 				const data = JSON.parse(msg.toString());
@@ -201,8 +206,7 @@ class AlKoAdapter extends utils.Adapter {
 			this.reconnectTimeouts[deviceId] = setTimeout(() => this.connectWebSocket(deviceId), 10000);
 		});
 
-
-		ws.on("error", (err) => {
+		ws.on("error", err => {
 			this.log.error(`❌ WebSocket-Fehler (${deviceId}): ${err.message}`);
 		});
 
@@ -211,8 +215,12 @@ class AlKoAdapter extends utils.Adapter {
 
 	// ---------------- Deep Merge ----------------
 	deepMerge(target, source) {
-		if (typeof target !== "object" || target === null) return JSON.parse(JSON.stringify(source));
-		if (typeof source !== "object" || source === null) return target;
+		if (typeof target !== "object" || target === null) {
+			return JSON.parse(JSON.stringify(source));
+		}
+		if (typeof source !== "object" || source === null) {
+			return target;
+		}
 
 		const output = { ...target };
 		for (const key of Object.keys(source)) {
@@ -227,11 +235,15 @@ class AlKoAdapter extends utils.Adapter {
 
 	// ---------------- State-Erzeugung ----------------
 	async createStatesRecursive(basePath, obj, relPath) {
-		if (!obj || typeof obj !== "object") return;
+		if (!obj || typeof obj !== "object") {
+			return;
+		}
 
 		for (const key of Object.keys(obj)) {
 			const val = obj[key];
-			if (val === null || val === undefined) continue;
+			if (val === null || val === undefined) {
+				continue;
+			}
 
 			const currentRel = relPath ? `${relPath}.${key}` : key;
 			const fullId = `${basePath}.${key}`;
@@ -261,13 +273,17 @@ class AlKoAdapter extends utils.Adapter {
 					} else {
 						const writable = this.isRelPathWhitelisted(`${currentRel}.${i}`);
 						await this.setStateIfChanged(idxId, val[i], true, writable, `${currentRel}.${i}`);
-						if (writable) this.pushableStates.add(idxId);
+						if (writable) {
+							this.pushableStates.add(idxId);
+						}
 					}
 				}
 			} else {
 				const writable = this.isRelPathWhitelisted(currentRel);
 				await this.setStateIfChanged(fullId, val, true, writable, currentRel);
-				if (writable) this.pushableStates.add(fullId);
+				if (writable) {
+					this.pushableStates.add(fullId);
+				}
 			}
 		}
 	}
@@ -276,11 +292,15 @@ class AlKoAdapter extends utils.Adapter {
 		return whitelist.includes(relPath);
 	}
 
-	async setStateIfChanged(id, value, ack = true, write = false, relPath = null) {
+	async setStateIfChanged(id, value, ack = true, write = false, _relPath = null) {
 		let type;
-		if (typeof value === "boolean") type = "boolean";
-		else if (typeof value === "number") type = "number";
-		else type = "string";
+		if (typeof value === "boolean") {
+			type = "boolean";
+		} else if (typeof value === "number") {
+			type = "number";
+		} else {
+			type = "string";
+		}
 
 		await this.setObjectNotExistsAsync(id, {
 			type: "state",
@@ -304,7 +324,9 @@ class AlKoAdapter extends utils.Adapter {
 	async onStateChange(id, state) {
 		//this.log.info(`INFO: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
 
-		if (!state || this._stopRequested) return;
+		if (!state || this._stopRequested) {
+			return;
+		}
 		if (this.adapterSetStates.has(id)) {
 			//this.log.info(`INFO: Ignoriere eigenes Adapter-Update für ${id}`);
 			return;
@@ -313,10 +335,14 @@ class AlKoAdapter extends utils.Adapter {
 			this.log.info(`INFO: Änderung an nicht-pushbarem State ${id} erkannt`);
 			return;
 		}
-		if (this.pendingPushes.has(id)) return;
+		if (this.pendingPushes.has(id)) {
+			return;
+		}
 
 		const last = this.lastStateValues[id];
-		if (last === state.val) return;
+		if (last === state.val) {
+			return;
+		}
 
 		this.lastStateValues[id] = state.val;
 		const parts = id.split(".");
@@ -333,13 +359,15 @@ class AlKoAdapter extends utils.Adapter {
 			await this.refreshAuth();
 			const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}/state/desired`;
 			await axios.patch(url, payload, {
-				headers: { Authorization: "Bearer " + this.accessToken, "Content-Type": "application/json" },
+				headers: { Authorization: `Bearer ${this.accessToken}`, "Content-Type": "application/json" },
 			});
 
 			this.log.info(`✅ Push erfolgreich: ${id}`);
 			this.updateDeviceStateCache(deviceId, relPathArr, state.val);
 		} catch (err) {
-			this.log.error(`❌ Fehler beim Pushen von ${id}: ${err.response?.status} ${err.response?.data || err.message}`);
+			this.log.error(
+				`❌ Fehler beim Pushen von ${id}: ${err.response?.status} ${err.response?.data || err.message}`,
+			);
 		} finally {
 			this.pendingPushes.delete(id);
 		}
@@ -378,9 +406,9 @@ class AlKoAdapter extends utils.Adapter {
 
 	filterObjectByWhitelist(obj, parentRelPrefix) {
 		const relevant = whitelist
-			.filter((p) => p === parentRelPrefix || p.startsWith(parentRelPrefix + "."))
-			.map((p) => p.slice(parentRelPrefix.length + 1))
-			.filter((s) => !!s);
+			.filter(p => p === parentRelPrefix || p.startsWith(`${parentRelPrefix}.`))
+			.map(p => p.slice(parentRelPrefix.length + 1))
+			.filter(s => !!s);
 
 		if (relevant.length === 0) {
 			if (whitelist.includes(parentRelPrefix)) {
@@ -395,13 +423,17 @@ class AlKoAdapter extends utils.Adapter {
 			let cur = tree;
 			for (let i = 0; i < parts.length; i++) {
 				const part = parts[i];
-				if (!cur[part]) cur[part] = {};
+				if (!cur[part]) {
+					cur[part] = {};
+				}
 				cur = cur[part];
 			}
 		}
 
 		const copyAllowed = (source, schema) => {
-			if (source === null || typeof source !== "object") return source;
+			if (source === null || typeof source !== "object") {
+				return source;
+			}
 			if (Array.isArray(source)) {
 				const resArr = [];
 				for (let i = 0; i < source.length; i++) {
@@ -411,15 +443,14 @@ class AlKoAdapter extends utils.Adapter {
 					}
 				}
 				return resArr;
-			} else {
-				const res = {};
-				for (const k of Object.keys(schema)) {
-					if (Object.prototype.hasOwnProperty.call(source, k)) {
-						res[k] = copyAllowed(source[k], schema[k]);
-					}
-				}
-				return res;
 			}
+			const res = {};
+			for (const k of Object.keys(schema)) {
+				if (Object.prototype.hasOwnProperty.call(source, k)) {
+					res[k] = copyAllowed(source[k], schema[k]);
+				}
+			}
+			return res;
 		};
 
 		return copyAllowed(obj, tree);
@@ -428,7 +459,9 @@ class AlKoAdapter extends utils.Adapter {
 	getDeep(obj, pathArr) {
 		let cur = obj;
 		for (const p of pathArr) {
-			if (cur == null || typeof cur !== "object") return undefined;
+			if (cur == null || typeof cur !== "object") {
+				return undefined;
+			}
 			cur = cur[p];
 		}
 		return cur;
@@ -437,14 +470,18 @@ class AlKoAdapter extends utils.Adapter {
 	setDeep(obj, pathArr, val) {
 		let cur = obj;
 		for (let i = 0; i < pathArr.length - 1; i++) {
-			if (!cur[pathArr[i]] || typeof cur[pathArr[i]] !== "object") cur[pathArr[i]] = {};
+			if (!cur[pathArr[i]] || typeof cur[pathArr[i]] !== "object") {
+				cur[pathArr[i]] = {};
+			}
 			cur = cur[pathArr[i]];
 		}
 		cur[pathArr[pathArr.length - 1]] = val;
 	}
 
 	updateDeviceStateCache(deviceId, relPathArr, value) {
-		if (!this.deviceStates[deviceId]) this.deviceStates[deviceId] = {};
+		if (!this.deviceStates[deviceId]) {
+			this.deviceStates[deviceId] = {};
+		}
 		this.setDeep(this.deviceStates[deviceId], relPathArr, value);
 	}
 
@@ -452,30 +489,39 @@ class AlKoAdapter extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			this._stopRequested = true;
-			if (this.tokenInterval) clearInterval(this.tokenInterval);
+			if (this.tokenInterval) {
+				clearInterval(this.tokenInterval);
+			}
 
 			// offene Reconnect-Timeouts aufräumen
 			for (const t of Object.values(this.reconnectTimeouts)) {
-				try { clearTimeout(t); } catch { }
+				try {
+					clearTimeout(t);
+				} catch {
+					// ignore error
+				}
 			}
 
 			// offene WebSockets schließen
 			for (const ws of Object.values(this.webSockets)) {
-				try { ws.close(); } catch { }
+				try {
+					ws.close();
+				} catch {
+					// ignore error
+				}
 			}
 
 			this.log.info("Adapter gestoppt.");
 			callback();
-		} catch (e) {
+		} catch (_e) {
 			callback();
 		}
 	}
-
 }
 
 // ---------------- Export ----------------
 if (require.main !== module) {
-	module.exports = (options) => new AlKoAdapter(options);
+	module.exports = options => new AlKoAdapter(options);
 } else {
 	new AlKoAdapter({});
 }
