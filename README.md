@@ -58,6 +58,16 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 	### **WORK IN PROGRESS**
 -->
 
+## Changelog
+
+### 0.2.0 (2025-10-08)
+- 🧹 **Migration auf ESLint 9 (Flat-Config)**
+  - Alte `.eslintrc`-Dateien entfernt und durch `eslint.config.mjs` ersetzt  
+  - `package.json` angepasst (neue Dev-Dependencies: `@eslint/js`, `typescript-eslint`, `@iobroker/eslint-config`, `prettier`)  
+  - Lint-Scope auf `main.js` und `lib/` beschränkt  
+  - Alle bisherigen Lint-Fehler und Warnungen behoben  
+- 💡 Vorbereitung auf zukünftige „Produktiv-Lint“-Variante für Releases
+
 ### 0.1.2 (2025-09-30)
 * Verbesserte Admin-UI-Konfiguration 
 * Fehler bei der Adapterprüfung behoben
