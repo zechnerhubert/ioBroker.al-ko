@@ -1,93 +1,51 @@
 {
-  "type": "tabs",
+  "type": "panel",
+  "label": {
+    "en": "General",
+    "de": "Allgemein",
+    "ru": "Общие",
+    "pt": "Geral",
+    "nl": "Algemeen",
+    "fr": "Général",
+    "it": "Generale",
+    "es": "General",
+    "pl": "Ogólne",
+    "uk": "Загальні",
+    "zh-cn": "常规"
+  },
   "items": {
-    "general": {
-      "type": "panel",
+    "username": {
+      "type": "text",
       "label": {
-        "en": "General",
-        "de": "Allgemein",
-        "ru": "Общие",
-        "pt": "Geral",
-        "nl": "Algemeen",
-        "fr": "Général",
-        "it": "Generale",
-        "es": "General",
-        "pl": "Ogólne",
-        "uk": "Загальні",
-        "zh-cn": "常规"
+        "en": "Username",
+        "de": "Benutzername"
       },
-      "size": { "xs": 12, "sm": 12, "md": 12, "lg": 12, "xl": 12 },
-      "items": {
-        "username": {
-          "type": "text",
-          "label": {
-            "en": "Username",
-            "de": "Benutzername",
-            "ru": "Имя пользователя",
-            "pt": "Nome de usuário",
-            "nl": "Gebruikersnaam",
-            "fr": "Nom d'utilisateur",
-            "it": "Nome utente",
-            "es": "Nombre de usuario",
-            "pl": "Nazwa użytkownika",
-            "uk": "Ім'я користувача",
-            "zh-cn": "用户名"
-          },
-          "placeholder": "Enter your AL-KO account username",
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "password": {
-          "type": "password",
-          "label": {
-            "en": "Password",
-            "de": "Passwort",
-            "ru": "Пароль",
-            "pt": "Senha",
-            "nl": "Wachtwoord",
-            "fr": "Mot de passe",
-            "it": "Password",
-            "es": "Contraseña",
-            "pl": "Hasło",
-            "uk": "Пароль",
-            "zh-cn": "密码"
-          },
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "clientId": {
-          "type": "text",
-          "label": {
-            "en": "Client ID",
-            "de": "Client-ID",
-            "ru": "ID клиента",
-            "pt": "ID do cliente",
-            "nl": "Client-ID",
-            "fr": "ID client",
-            "it": "ID client",
-            "es": "ID de cliente",
-            "pl": "Identyfikator klienta",
-            "uk": "Ідентифікатор клієнта",
-            "zh-cn": "客户端 ID"
-          },
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "clientSecret": {
-          "type": "password",
-          "label": {
-            "en": "Client Secret",
-            "de": "Client-Secret",
-            "ru": "Секрет клиента",
-            "pt": "Segredo do cliente",
-            "nl": "Clientgeheim",
-            "fr": "Secret client",
-            "it": "Segreto client",
-            "es": "Secreto del cliente",
-            "pl": "Tajemnica klienta",
-            "uk": "Секрет клієнта",
-            "zh-cn": "客户端密钥"
-          },
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        }
-      }
+      "placeholder": "Enter your AL-KO account username",
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "password": {
+      "type": "password",
+      "label": {
+        "en": "Password",
+        "de": "Passwort"
+      },
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "clientId": {
+      "type": "text",
+      "label": {
+        "en": "Client ID",
+        "de": "Client-ID"
+      },
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "clientSecret": {
+      "type": "password",
+      "label": {
+        "en": "Client Secret",
+        "de": "Client-Secret"
+      },
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
     }
   }
 }
