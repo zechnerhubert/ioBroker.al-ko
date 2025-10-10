@@ -53,12 +53,6 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 ---
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
-
-## Changelog
 
 ### 0.2.0 (2025-10-08)
 - 🧹 **Migration auf ESLint 9 (Flat-Config)**
