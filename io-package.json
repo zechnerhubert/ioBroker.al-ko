@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.0": {
+        "en": "Migrated to ESLint 9 (Flat-Config) and updated development dependencies",
+        "de": "Migration auf ESLint 9 (Flat-Config) und Aktualisierung der Entwicklungsabhängigkeiten",
+        "ru": "Переход на ESLint 9 (Flat-Config) и обновлены зависимости для разработки",
+        "pt": "Migrado para ESLint 9 (Flat-Config) e dependências de desenvolvimento atualizadas",
+        "nl": "Gemigreerd naar ESLint 9 (Flat-Config) en ontwikkelafhankelijkheden bijgewerkt",
+        "fr": "Migration vers ESLint 9 (Flat-Config) et mise à jour des dépendances de développement",
+        "it": "Migrazione a ESLint 9 (Flat-Config) e aggiornate le dipendenze di sviluppo",
+        "es": "Migrado a ESLint 9 (Flat-Config) y actualizadas las dependencias de desarrollo",
+        "pl": "Migracja do ESLint 9 (Flat-Config) i aktualizacja zależności deweloperskich",
+        "uk": "Міграція на ESLint 9 (Flat-Config) та оновлено залежності розробки",
+        "zh-cn": "迁移到 ESLint 9（Flat-Config）并更新开发依赖项"
+      },
       "0.1.2": {
         "en": "Improved admin UI config and fixed adapter-check issues",
         "de": "Verbesserte Admin-UI-Konfiguration und behobene Adapter-Check-Fehler",
