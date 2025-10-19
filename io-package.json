@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.2": {
+        "en": "Prepared for the first npm release. Synchronized versions between io-package.json and package.json. Added npm metadata and publication configuration. Minor internal adjustments for improved compatibility.",
+        "de": "Für die erste npm-Veröffentlichung vorbereitet. Versionen zwischen io-package.json und package.json synchronisiert. npm-Metadaten und Veröffentlichungskonfiguration hinzugefügt. Kleine interne Anpassungen zur verbesserten Kompatibilität.",
+        "ru": "Подготовлено к первому выпуску npm. Синхронизированы версии между io-package.json и package.json. Добавлены метаданные npm и конфигурация публикации. Небольшие внутренние улучшения для совместимости.",
+        "pt": "Preparado para o primeiro lançamento no npm. Versões sincronizadas entre io-package.json e package.json. Metadados npm e configuração de publicação adicionados. Pequenos ajustes internos para compatibilidade aprimorada.",
+        "nl": "Voorbereid op de eerste npm-release. Versies gesynchroniseerd tussen io-package.json en package.json. npm-metadata en publicatieconfiguratie toegevoegd. Kleine interne aanpassingen voor verbeterde compatibiliteit.",
+        "fr": "Préparé pour la première publication npm. Versions synchronisées entre io-package.json et package.json. Ajout des métadonnées npm et de la configuration de publication. Petites améliorations internes pour une meilleure compatibilité.",
+        "it": "Preparato per la prima pubblicazione npm. Versioni sincronizzate tra io-package.json e package.json. Aggiunti metadati npm e configurazione di pubblicazione. Piccoli miglioramenti interni per una migliore compatibilità.",
+        "es": "Preparado para la primera publicación en npm. Versiones sincronizadas entre io-package.json y package.json. Se agregaron metadatos npm y configuración de publicación. Pequeñas mejoras internas para una mejor compatibilidad.",
+        "pl": "Przygotowano do pierwszego wydania npm. Zsynchronizowano wersje między io-package.json i package.json. Dodano metadane npm i konfigurację publikacji. Drobne poprawki wewnętrzne dla lepszej kompatybilności.",
+        "uk": "Підготовлено до першого випуску npm. Синхронізовано версії між io-package.json і package.json. Додано метадані npm та конфігурацію публікації. Невеликі внутрішні покращення для кращої сумісності.",
+        "zh-cn": "为首次 npm 发布做好准备。同步 io-package.json 与 package.json 之间的版本。添加了 npm 元数据和发布配置。进行了少量内部改进以提高兼容性。"
+      },
       "0.2.1": {
         "en": "Added option in Admin UI to enable or disable WebSocket message logging (wsDebug). This allows toggling incoming WebSocket message logs directly in the adapter configuration. Minor internal improvements.",
         "de": "Neue Option in der Admin-UI zum Aktivieren oder Deaktivieren des WebSocket-Nachrichten-Loggings (wsDebug). Das Logging eingehender WebSocket-Nachrichten kann nun direkt in der Adapter-Konfiguration gesteuert werden. Kleine interne Verbesserungen.",
@@ -97,6 +110,7 @@
     "adminUI": {
       "config": "json"
     },
+    "license": "MIT",
     "licenseInformation": {
       "type": "free",
       "license": "MIT",

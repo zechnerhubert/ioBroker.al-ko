@@ -56,6 +56,22 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+
+### 0.2.2 (2025-10-20)
+
+**Deutsch:**
+* Vorbereitung auf die erste npm-Veröffentlichung
+* Versionsnummern zwischen `io-package.json` und `package.json` synchronisiert
+* npm-Metadaten ergänzt und Veröffentlichungskonfiguration hinzugefügt
+* Kleinere interne Anpassungen für bessere Kompatibilität mit npm-Publishing
+
+**English:**
+* Prepared for first npm release
+* Synchronized version numbers between `io-package.json` and `package.json`
+* Added npm metadata and publication configuration
+* Minor internal adjustments for improved npm-publish compatibility
+
+
 ### 0.2.1 (2025-10-19)
 
 **Deutsch:**

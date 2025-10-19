@@ -1,6 +1,6 @@
 {
   "name": "iobroker.al-ko",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Adapter for communication with Al-Ko garden tools",
   "author": {
     "name": "Hubertiob",
@@ -35,13 +35,13 @@
   "files": [
     "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
     "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
-    "admin/LICENSE",
     "lib/",
     "www/",
     "io-package.json",
     "main.js",
     "whitelist.json",
-    "LICENSE"
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
   "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
@@ -86,6 +86,9 @@
   "sinon-chai": "^4.0.1",
   "typescript": "~5.0.4",
   "typescript-eslint": "^8.8.0"
+},
+"publishConfig": {
+  "access": "public"
 },
   "readmeFilename": "README.md"
 }
