@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.1": {
+        "en": "Added option in Admin UI to enable or disable WebSocket message logging (wsDebug). This allows toggling incoming WebSocket message logs directly in the adapter configuration. Minor internal improvements.",
+        "de": "Neue Option in der Admin-UI zum Aktivieren oder Deaktivieren des WebSocket-Nachrichten-Loggings (wsDebug). Das Logging eingehender WebSocket-Nachrichten kann nun direkt in der Adapter-Konfiguration gesteuert werden. Kleine interne Verbesserungen.",
+        "ru": "Добавлена опция в интерфейсе администратора для включения или отключения логирования сообщений WebSocket (wsDebug). Теперь можно управлять логированием входящих сообщений WebSocket прямо в настройках адаптера. Незначительные внутренние улучшения.",
+        "pt": "Adicionada opção na interface de administração para ativar ou desativar o registro de mensagens WebSocket (wsDebug). Agora é possível alternar o registro de mensagens diretamente na configuração do adaptador. Pequenas melhorias internas.",
+        "nl": "Optie toegevoegd in de Admin UI om het loggen van WebSocket-berichten in of uit te schakelen (wsDebug). Hiermee kun je inkomende berichten direct in de adapterconfiguratie beheren. Kleine interne verbeteringen.",
+        "fr": "Ajout d'une option dans l'interface d'administration pour activer ou désactiver la journalisation des messages WebSocket (wsDebug). Permet de basculer l'enregistrement des messages directement depuis la configuration de l'adaptateur. Améliorations internes mineures.",
+        "it": "Aggiunta un'opzione nell'interfaccia di amministrazione per abilitare o disabilitare il logging dei messaggi WebSocket (wsDebug). Ora è possibile gestire i log direttamente nella configurazione dell'adattatore. Piccoli miglioramenti interni.",
+        "es": "Se agregó una opción en la interfaz de administración para habilitar o deshabilitar el registro de mensajes WebSocket (wsDebug). Ahora se puede activar o desactivar directamente desde la configuración del adaptador. Pequeñas mejoras internas.",
+        "pl": "Dodano opcję w interfejsie administratora do włączania lub wyłączania logowania wiadomości WebSocket (wsDebug). Można teraz sterować logowaniem bezpośrednio w konfiguracji adaptera. Drobne ulepszenia wewnętrzne.",
+        "uk": "Додано опцію в інтерфейсі адміністратора для ввімкнення або вимкнення журналювання повідомлень WebSocket (wsDebug). Тепер можна керувати логуванням безпосередньо в налаштуваннях адаптера. Незначні внутрішні покращення.",
+        "zh-cn": "在管理界面中添加了启用或禁用 WebSocket 消息日志记录 (wsDebug) 的选项。现在可以在适配器配置中直接切换日志记录。进行了少量内部改进。"
+      },
       "0.2.0": {
         "en": "Migrated to ESLint 9 (Flat-Config) and updated development dependencies",
         "de": "Migration auf ESLint 9 (Flat-Config) und Aktualisierung der Entwicklungsabhängigkeiten",
@@ -112,7 +125,8 @@
     "username": "",
     "password": "",
     "clientId": "",
-    "clientSecret": ""
+    "clientSecret": "",
+    "wsDebug": false
   },
   "protectedNative": [
     "password",

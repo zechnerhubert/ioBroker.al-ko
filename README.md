@@ -54,24 +54,70 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+## Changelog
+
+### 0.2.1 (2025-10-19)
+
+**Deutsch:**
+- Neue Admin-UI-Option zum Aktivieren/Deaktivieren des WebSocket-Nachrichten-Loggings (`wsDebug`)
+- Das Logging eingehender WebSocket-Nachrichten kann nun direkt in der Adapter-Konfiguration gesteuert werden
+- Kleine interne Anpassungen zur Verbesserung der Konfigurierbarkeit und Log-Flexibilität
+
+**English:**
+- Added new Admin UI option to enable/disable WebSocket message logging (`wsDebug`)
+- Logging of incoming WebSocket messages can now be toggled directly from the adapter configuration
+- Minor internal improvements for configurability and logging flexibility
+
+---
+
 ### 0.2.0 (2025-10-08)
-- 🧹 **Migration auf ESLint 9 (Flat-Config)**
-  - Alte `.eslintrc`-Dateien entfernt und durch `eslint.config.mjs` ersetzt  
-  - `package.json` angepasst (neue Dev-Dependencies: `@eslint/js`, `typescript-eslint`, `@iobroker/eslint-config`, `prettier`)  
-  - Lint-Scope auf `main.js` und `lib/` beschränkt  
-  - Alle bisherigen Lint-Fehler und Warnungen behoben  
+
+**Deutsch:**
+- 🧹 Migration auf ESLint 9 (Flat-Config)
+  - Alte `.eslintrc`-Dateien entfernt und durch `eslint.config.mjs` ersetzt
+  - `package.json` angepasst (neue Dev-Dependencies: `@eslint/js`, `typescript-eslint`, `@iobroker/eslint-config`, `prettier`)
+  - Lint-Scope auf `main.js` und `lib/` beschränkt
+  - Alle bisherigen Lint-Fehler und Warnungen behoben
 - 💡 Vorbereitung auf zukünftige „Produktiv-Lint“-Variante für Releases
 
+**English:**
+- 🧹 Migrated to ESLint 9 (Flat Config)
+  - Removed old `.eslintrc` files and replaced with `eslint.config.mjs`
+  - Updated `package.json` (new devDependencies: `@eslint/js`, `typescript-eslint`, `@iobroker/eslint-config`, `prettier`)
+  - Limited lint scope to `main.js` and `lib/`
+  - Fixed all existing lint errors and warnings
+- 💡 Preparation for future “production lint” variant for releases
+
+---
+
 ### 0.1.2 (2025-09-30)
-* Verbesserte Admin-UI-Konfiguration 
-* Fehler bei der Adapterprüfung behoben
+
+**Deutsch:**
+- Verbesserte Admin-UI-Konfiguration
+- Fehler bei der Adapterprüfung behoben
+
+**English:**
+- Improved Admin UI configuration
+- Fixed adapter-check validation issues
+
+---
 
 ### 0.1.1 (2025-09-29)
-* ✨ Initial release
-* Verbindung mit der AL-KO API
-* Automatisches Anlegen der States
-* Push von Änderungen an AL-KO
-* WebSocket-Integration für Echtzeit-Updates
+
+**Deutsch:**
+- ✨ Erste Veröffentlichung
+- Verbindung mit der AL-KO API
+- Automatisches Anlegen der States
+- Push von Änderungen an AL-KO
+- WebSocket-Integration für Echtzeit-Updates
+
+**English:**
+- ✨ Initial release
+- Connection to the AL-KO API
+- Automatic creation of states
+- Push of state changes to AL-KO
+- WebSocket integration for real-time updates
+
 
 ---
 
