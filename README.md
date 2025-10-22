@@ -54,7 +54,19 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
-## Changelog
+### 0.2.3 (2025-10-22)
+
+**Deutsch:**
+- WebSocket-Stabilität deutlich verbessert:
+  - Heartbeat (Ping/Pong) alle **120 Sekunden** mit **30 Sekunden** Timeout
+  - Bei fehlendem Pong oder Fehlern wird die Verbindung **aktiv beendet**, damit ein sauberer **Reconnect** erfolgt
+  - Entfernt: „Silence-Watchdog“, damit es in längeren Ruhephasen (z. B. nachts) **keine unnötigen Reconnects** gibt
+
+**English:**
+- Improved WebSocket stability:
+  - Heartbeat (ping/pong) every **120 seconds** with **30 seconds** timeout
+  - If pong is missing or errors occur, the socket is **terminated** to trigger a clean **reconnect**
+  - Removed the **silence watchdog** to avoid unnecessary reconnects during long idle periods (e.g., at night)
 
 
 ### 0.2.2 (2025-10-20)

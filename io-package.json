@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.3": {
+      " en": "Improved WebSocket stability: Added heartbeat (ping/pong) every 120 seconds with 30 seconds timeout. If no pong or an error occurs, the socket is closed and reconnected automatically. Removed the silence watchdog to avoid unnecessary reconnects during long idle phases (e.g., at night).",
+        "de": "WebSocket-Stabilität verbessert: Heartbeat (Ping/Pong) alle 120 Sekunden mit 30 Sekunden Timeout hinzugefügt. Bei fehlendem Pong oder Fehlern wird die Verbindung geschlossen und automatisch neu verbunden. Der Silence-Watchdog wurde entfernt, um unnötige Reconnects während längerer Ruhephasen (z. B. nachts) zu vermeiden.",
+        "ru": "Улучшена стабильность WebSocket: добавлен Heartbeat (ping/pong) каждые 120 секунд с тайм-аутом 30 секунд. При отсутствии pong или ошибках соединение закрывается и автоматически восстанавливается. Удалён watchdog тишины, чтобы избежать ненужных переподключений во время долгих периодов бездействия (например, ночью).",
+        "pt": "Melhorada a estabilidade do WebSocket: Adicionado heartbeat (ping/pong) a cada 120 segundos com tempo limite de 30 segundos. Se não houver pong ou ocorrer um erro, o socket é fechado e reconectado automaticamente. Removido o watchdog de silêncio para evitar reconexões desnecessárias durante longos períodos de inatividade (por exemplo, à noite).",
+        "nl": "Verbeterde WebSocket-stabiliteit: Heartbeat (ping/pong) toegevoegd elke 120 seconden met een timeout van 30 seconden. Als er geen pong of een fout optreedt, wordt de socket gesloten en automatisch opnieuw verbonden. De stilte-watchdog is verwijderd om onnodige reconnects tijdens langere inactieve periodes (bijv. 's nachts) te voorkomen.",
+        "fr": "Stabilité WebSocket améliorée : ajout d'un heartbeat (ping/pong) toutes les 120 secondes avec un délai d'attente de 30 secondes. En cas d'absence de pong ou d'erreur, la connexion est fermée et reconnectée automatiquement. Le watchdog de silence a été supprimé afin d'éviter des reconnexions inutiles lors de longues périodes d'inactivité (par exemple, la nuit).",
+        "it": "Migliorata la stabilità del WebSocket: aggiunto heartbeat (ping/pong) ogni 120 secondi con timeout di 30 secondi. Se manca il pong o si verifica un errore, la connessione viene chiusa e riconnessa automaticamente. Rimosso il watchdog del silenzio per evitare riconnessioni inutili durante lunghi periodi di inattività (ad esempio, di notte).",
+        "es": "Mejorada la estabilidad del WebSocket: se añadió un heartbeat (ping/pong) cada 120 segundos con un tiempo de espera de 30 segundos. Si no hay pong o ocurre un error, el socket se cierra y se reconecta automáticamente. Se eliminó el watchdog de silencio para evitar reconexiones innecesarias durante largos períodos de inactividad (por ejemplo, por la noche).",
+        "pl": "Poprawiona stabilność WebSocket: dodano heartbeat (ping/pong) co 120 sekund z limitem czasu 30 sekund. W przypadku braku pong lub błędu połączenie jest zamykane i automatycznie ponownie nawiązywane. Usunięto watchdog ciszy, aby uniknąć niepotrzebnych ponownych połączeń podczas długich okresów bezczynności (np. w nocy).",
+        "uk": "Покращено стабільність WebSocket: додано heartbeat (ping/pong) кожні 120 секунд із тайм-аутом 30 секунд. Якщо pong не надходить або виникає помилка, з'єднання закривається та автоматично відновлюється. Видалено watchdog тиші, щоб уникнути непотрібних повторних підключень під час тривалих періодів бездіяльності (наприклад, уночі).",
+        "zh-cn": "改进了 WebSocket 稳定性：每 120 秒添加一次心跳 (ping/pong)，超时 30 秒。如果没有收到 pong 或发生错误，连接将关闭并自动重新连接。移除了静默监视程序，以避免在长时间空闲期间（例如夜间）不必要的重新连接。"
+      },
       "0.2.2": {
         "en": "Prepared for the first npm release. Synchronized versions between io-package.json and package.json. Added npm metadata and publication configuration. Minor internal adjustments for improved compatibility.",
         "de": "Für die erste npm-Veröffentlichung vorbereitet. Versionen zwischen io-package.json und package.json synchronisiert. npm-Metadaten und Veröffentlichungskonfiguration hinzugefügt. Kleine interne Anpassungen zur verbesserten Kompatibilität.",
@@ -46,7 +59,7 @@
         "uk": "Підготовлено до першого випуску npm. Синхронізовано версії між io-package.json і package.json. Додано метадані npm та конфігурацію публікації. Невеликі внутрішні покращення для кращої сумісності.",
         "zh-cn": "为首次 npm 发布做好准备。同步 io-package.json 与 package.json 之间的版本。添加了 npm 元数据和发布配置。进行了少量内部改进以提高兼容性。"
       }
-    },
+     },
     "keywords": [
       "al-ko",
       "Robolinho",
