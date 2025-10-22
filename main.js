@@ -31,7 +31,9 @@ class AlKoAdapter extends utils.Adapter {
     this.adapterSetStates = new Set();
     this.pendingPushes = new Set();
     this.webSockets = {}; // offene WebSocket-Verbindungen pro Gerät
-    this.reconnectTimeouts = {}; // hier speichern wir alle offenen Reconnect-Timeouts
+    this.reconnectTimeouts = {}; // offene Reconnect-Timeouts
+    this.pingIntervals = {}; // Ping-Intervalle pro Gerät
+    this.pongTimeouts = {}; // Timeout-Überwachung nach Ping
 
     this._stopRequested = false;
 
@@ -97,6 +99,7 @@ class AlKoAdapter extends utils.Adapter {
 
     this.log.info("✅ Login erfolgreich");
   }
+
   async refreshAuth() {
     if (!this.refreshToken || Date.now() >= this.tokenExpiresAt - 60000) {
       this.log.info("🔄 Erneuere Access-Token…");
@@ -199,15 +202,37 @@ class AlKoAdapter extends utils.Adapter {
 
   // ---------------- WebSocket ----------------
   connectWebSocket(deviceId) {
-    if (!this.accessToken) {
-      return;
-    }
+    if (!this.accessToken) return;
 
     const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
     const ws = new WebSocket(url);
 
+    ws.isAlive = true;
+
     ws.on("open", () => {
       this.log.info(`🔗 WebSocket verbunden für Gerät: ${deviceId}`);
+
+      // PING-Mechanismus (alle 120 Sekunden)
+      this.pingIntervals[deviceId] = setInterval(() => {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.ping();
+          ws.isAlive = false;
+
+          this.pongTimeouts[deviceId] = setTimeout(() => {
+            if (!ws.isAlive) {
+              this.log.warn(
+                `💤 Keine Pong-Antwort von ${deviceId} → Verbindung wird beendet`,
+              );
+              ws.terminate();
+            }
+          }, 30_000); // 30 Sekunden Zeit für Pong
+        }
+      }, 120_000); // 120 Sekunden Ping-Intervall
+    });
+
+    ws.on("pong", () => {
+      ws.isAlive = true;
+      clearTimeout(this.pongTimeouts[deviceId]);
     });
 
     ws.on("message", async (msg) => {
@@ -242,7 +267,8 @@ class AlKoAdapter extends utils.Adapter {
       this.log.warn(
         `⚠️ WebSocket geschlossen für ${deviceId}, erneuter Versuch in 10s`,
       );
-      // Timeout merken, damit wir ihn im onUnload wieder aufräumen können
+      clearInterval(this.pingIntervals[deviceId]);
+      clearTimeout(this.pongTimeouts[deviceId]);
       this.reconnectTimeouts[deviceId] = setTimeout(
         () => this.connectWebSocket(deviceId),
         10000,
@@ -251,6 +277,8 @@ class AlKoAdapter extends utils.Adapter {
 
     ws.on("error", (err) => {
       this.log.error(`❌ WebSocket-Fehler (${deviceId}): ${err.message}`);
+      // Falls kein 'close' folgt, aktiv terminieren, damit Reconnect greift
+      try { ws.terminate(); } catch {}
     });
 
     this.webSockets[deviceId] = ws;
@@ -561,26 +589,23 @@ class AlKoAdapter extends utils.Adapter {
   onUnload(callback) {
     try {
       this._stopRequested = true;
-      if (this.tokenInterval) {
-        clearInterval(this.tokenInterval);
+      if (this.tokenInterval) clearInterval(this.tokenInterval);
+
+      for (const t of Object.values(this.reconnectTimeouts)) {
+        try { clearTimeout(t); } catch {}
       }
 
-      // offene Reconnect-Timeouts aufräumen
-      for (const t of Object.values(this.reconnectTimeouts)) {
-        try {
-          clearTimeout(t);
-        } catch {
-          // intentionally empty
-        }
+      for (const t of Object.values(this.pingIntervals)) {
+        try { clearInterval(t); } catch {}
+      }
+
+      for (const t of Object.values(this.pongTimeouts)) {
+        try { clearTimeout(t); } catch {}
       }
 
       // offene WebSockets schließen
       for (const ws of Object.values(this.webSockets)) {
-        try {
-          ws.close();
-        } catch {
-          // intentionally empty
-        }
+        try { ws.close(); } catch {}
       }
 
       this.log.info("Adapter gestoppt.");
