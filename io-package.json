@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.4": {
+        "en": "Metadata adjustments for correct npm/Admin display (author, icon). No functional changes.",
+        "de": "Metadaten-Anpassungen für korrekte npm-/Admin-Anzeige (Autor, Icon). Keine funktionalen Änderungen.",
+        "ru": "Корректировка метаданных для правильного отображения npm/Admin (автор, значок). Без функциональных изменений.",
+        "pt": "Ajustes de metadados para exibição correta no npm/Admin (autor, ícone). Sem alterações funcionais.",
+        "nl": "Metadata-aanpassingen voor juiste npm/Admin-weergave (auteur, pictogram). Geen functionele wijzigingen.",
+        "fr": "Ajustements des métadonnées pour un affichage correct dans npm/Admin (auteur, icône). Aucune modification fonctionnelle.",
+        "it": "Regolazioni dei metadati per la corretta visualizzazione su npm/Admin (autore, icona). Nessuna modifica funzionale.",
+        "es": "Ajustes de metadatos para una visualización correcta en npm/Admin (autor, icono). Sin cambios funcionales.",
+        "pl": "Dostosowanie metadanych do prawidłowego wyświetlania w npm/Admin (autor, ikona). Bez zmian funkcjonalnych.",
+        "uk": "Коригування метаданих для правильного відображення в npm/Admin (автор, іконка). Без функціональних змін.",
+        "zh-cn": "为确保在 npm/Admin 中正确显示（作者、图标）调整了元数据。无功能更改。"
+      },
       "0.2.3": {
         "en": "Improved WebSocket stability: Added heartbeat (ping/pong) every 120 seconds with 30 seconds timeout. If no pong or an error occurs, the socket is closed and reconnected automatically. Removed the silence watchdog to avoid unnecessary reconnects during long idle phases (e.g., at night).",
         "de": "WebSocket-Stabilität verbessert: Heartbeat (Ping/Pong) alle 120 Sekunden mit 30 Sekunden Timeout hinzugefügt. Bei fehlendem Pong oder Fehlern wird die Verbindung geschlossen und automatisch neu verbunden. Der Silence-Watchdog wurde entfernt, um unnötige Reconnects während längerer Ruhephasen (z. B. nachts) zu vermeiden.",
