@@ -34,7 +34,7 @@
     ],
     "news": {
       "0.2.3": {
-      " en": "Improved WebSocket stability: Added heartbeat (ping/pong) every 120 seconds with 30 seconds timeout. If no pong or an error occurs, the socket is closed and reconnected automatically. Removed the silence watchdog to avoid unnecessary reconnects during long idle phases (e.g., at night).",
+        "en": "Improved WebSocket stability: Added heartbeat (ping/pong) every 120 seconds with 30 seconds timeout. If no pong or an error occurs, the socket is closed and reconnected automatically. Removed the silence watchdog to avoid unnecessary reconnects during long idle phases (e.g., at night).",
         "de": "WebSocket-Stabilität verbessert: Heartbeat (Ping/Pong) alle 120 Sekunden mit 30 Sekunden Timeout hinzugefügt. Bei fehlendem Pong oder Fehlern wird die Verbindung geschlossen und automatisch neu verbunden. Der Silence-Watchdog wurde entfernt, um unnötige Reconnects während längerer Ruhephasen (z. B. nachts) zu vermeiden.",
         "ru": "Улучшена стабильность WebSocket: добавлен Heartbeat (ping/pong) каждые 120 секунд с тайм-аутом 30 секунд. При отсутствии pong или ошибках соединение закрывается и автоматически восстанавливается. Удалён watchdog тишины, чтобы избежать ненужных переподключений во время долгих периодов бездействия (например, ночью).",
         "pt": "Melhorada a estabilidade do WebSocket: Adicionado heartbeat (ping/pong) a cada 120 segundos com tempo limite de 30 segundos. Se não houver pong ou ocorrer um erro, o socket é fechado e reconectado automaticamente. Removido o watchdog de silêncio para evitar reconexões desnecessárias durante longos períodos de inatividade (por exemplo, à noite).",
