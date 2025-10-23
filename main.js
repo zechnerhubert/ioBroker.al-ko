@@ -202,7 +202,9 @@ class AlKoAdapter extends utils.Adapter {
 
   // ---------------- WebSocket ----------------
   connectWebSocket(deviceId) {
-    if (!this.accessToken) return;
+    if (!this.accessToken) {
+      return;
+    }
 
     const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
     const ws = new WebSocket(url);
@@ -278,7 +280,9 @@ class AlKoAdapter extends utils.Adapter {
     ws.on("error", (err) => {
       this.log.error(`❌ WebSocket-Fehler (${deviceId}): ${err.message}`);
       // Falls kein 'close' folgt, aktiv terminieren, damit Reconnect greift
-      try { ws.terminate(); } catch {}
+      try {
+        ws.terminate();
+      } catch {}
     });
 
     this.webSockets[deviceId] = ws;
@@ -589,23 +593,33 @@ class AlKoAdapter extends utils.Adapter {
   onUnload(callback) {
     try {
       this._stopRequested = true;
-      if (this.tokenInterval) clearInterval(this.tokenInterval);
+      if (this.tokenInterval) {
+        clearInterval(this.tokenInterval);
+      }
 
       for (const t of Object.values(this.reconnectTimeouts)) {
-        try { clearTimeout(t); } catch {}
+        try {
+          clearTimeout(t);
+        } catch {}
       }
 
       for (const t of Object.values(this.pingIntervals)) {
-        try { clearInterval(t); } catch {}
+        try {
+          clearInterval(t);
+        } catch {}
       }
 
       for (const t of Object.values(this.pongTimeouts)) {
-        try { clearTimeout(t); } catch {}
+        try {
+          clearTimeout(t);
+        } catch {}
       }
 
       // offene WebSockets schließen
       for (const ws of Object.values(this.webSockets)) {
-        try { ws.close(); } catch {}
+        try {
+          ws.close();
+        } catch {}
       }
 
       this.log.info("Adapter gestoppt.");
