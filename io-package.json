@@ -33,6 +33,9 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.5": {
+        "en": "Improved npm/Admin appearance: Added smaller external icon (128×128) and updated author format for better display. No functional changes.",
+        "de": "Darstellung im npm/Admin-Bereich verbessert: Kleineres externes Icon (128×128) hinzugefügt und Autorenformat angepasst, um die Anzeige zu korrigieren. Keine funktionalen Änderungen."
       "0.2.4": {
         "en": "Metadata adjustments for correct npm/Admin display (author, icon). No functional changes.",
         "de": "Metadaten-Anpassungen für korrekte npm-/Admin-Anzeige (Autor, Icon). Keine funktionalen Änderungen.",

@@ -57,6 +57,16 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 ### 0.2.4 (2025-10-23)
 
 **Deutsch:**
+- Neues kompaktes AL-KO-Logo (`admin/al-ko-128.png`) hinzugefügt  
+- Kleinere kosmetische Anpassungen in der Dokumentation  
+
+**English:**
+- Added new compact AL-KO logo (`admin/al-ko-128.png`)  
+- Minor cosmetic improvements in documentation  
+
+### 0.2.4 (2025-10-23)
+
+**Deutsch:**
 - Metadaten-Anpassungen für korrekte Anzeige im ioBroker Admin und auf npm
 - Der Autor wird jetzt korrekt angezeigt, und das Adapter-Icon erscheint im Admin
 - Keine funktionalen Änderungen am Code
