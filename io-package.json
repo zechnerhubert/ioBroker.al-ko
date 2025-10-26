@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.7": {
+        "en": "Adapter-check compliance: made icon references consistent (icon/extIcon now both use al-ko-128.png from GitHub) and ensured image size ≤ 512 px. Removed unnecessary publishConfig from package.json. No functional changes.",
+        "de": "Adapter-Check-Konformität: Icon-Verweise vereinheitlicht (icon/extIcon nutzen jetzt beide al-ko-128.png von GitHub) und Bildgröße ≤ 512 px sichergestellt. Unnötiges publishConfig aus package.json entfernt. Keine funktionalen Änderungen.",
+        "ru": "Соответствие проверке адаптера: унифицированы ссылки на иконку (icon/extIcon теперь используют al-ko-128.png с GitHub) и обеспечен размер изображения ≤ 512 px. Удалён лишний publishConfig из package.json. Без функциональных изменений.",
+        "pt": "Conformidade do adapter-check: referências de ícone unificadas (icon/extIcon agora usam al-ko-128.png do GitHub) e tamanho da imagem ≤ 512 px garantido. Removido publishConfig desnecessário do package.json. Sem alterações funcionais.",
+        "nl": "Adapter-check conformiteit: pictogramverwijzingen geharmoniseerd (icon/extIcon gebruiken nu beide al-ko-128.png van GitHub) en beeldgrootte ≤ 512 px geborgd. Onnodige publishConfig uit package.json verwijderd. Geen functionele wijzigingen.",
+        "fr": "Conformité au contrôle de l’adaptateur : unification des références d’icône (icon/extIcon utilisent désormais al-ko-128.png depuis GitHub) et taille d’image ≤ 512 px garantie. Suppression de publishConfig inutile dans package.json. Aucun changement fonctionnel.",
+        "it": "Conformità all’adapter-check: rese coerenti le referenze dell’icona (icon/extIcon ora usano entrambe al-ko-128.png da GitHub) e garantita dimensione immagine ≤ 512 px. Rimosso publishConfig non necessario da package.json. Nessuna modifica funzionale.",
+        "es": "Conformidad con el adapter-check: referencias de icono unificadas (icon/extIcon ahora usan ambos al-ko-128.png desde GitHub) y tamaño de imagen ≤ 512 px garantizado. Eliminado publishConfig innecesario de package.json. Sin cambios funcionales.",
+        "pl": "Zgodność z adapter-check: ujednolicono odwołania do ikony (icon/extIcon używają teraz al-ko-128.png z GitHub) i zapewniono rozmiar obrazu ≤ 512 px. Usunięto zbędny publishConfig z package.json. Brak zmian funkcjonalnych.",
+        "uk": "Відповідність adapter-check: уніфіковано посилання на значок (icon/extIcon тепер обидва використовують al-ko-128.png з GitHub) і гарантовано розмір зображення ≤ 512 px. Видалено непотрібний publishConfig з package.json. Без функціональних змін.",
+        "zh-cn": "通过适配器检查：统一图标引用（icon/extIcon 现均使用 GitHub 上的 al-ko-128.png），并确保图像大小 ≤ 512 像素。移除了 package.json 中不必要的 publishConfig。无功能性变更。"
+        },
       "0.2.6": {
         "en": "Fixed external icon URL (`extIcon`) to point to the correct `master` branch instead of `main`. The adapter icon now displays properly in ioBroker Admin and on npm. No functional changes.",
         "de": "Externe Icon-URL (`extIcon`) korrigiert: Verweist nun auf den richtigen `master`-Branch statt `main`. Das Adapter-Icon wird wieder korrekt im ioBroker Admin und auf npm angezeigt. Keine funktionalen Änderungen.",
@@ -122,7 +135,7 @@
     "dataSource": "push",
     "mode": "daemon",
     "compact": true,
-    "icon": "al-ko.png",
+    "icon": "al-ko-128.png",
     "dependencies": [
       {
         "js-controller": ">=5.0.19"

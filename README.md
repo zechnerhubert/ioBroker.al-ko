@@ -54,6 +54,18 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.7 (2025-10-26)
+
+**Deutsch:**
+- Adapter-Check-Konformität: Icon-Verweise vereinheitlicht (icon/extIcon nutzen jetzt beide `al-ko-128.png` von GitHub) und Bildgröße ≤ 512 px sichergestellt
+- Unnötiges `publishConfig` aus `package.json` entfernt
+- Keine funktionalen Änderungen
+
+**English:**
+- Adapter-check compliance: unified icon references (icon/extIcon now both use `al-ko-128.png` from GitHub) and ensured image size ≤ 512 px
+- Removed unnecessary `publishConfig` from `package.json`
+- No functional changes
+
 ### 0.2.6 (2025-10-26)
 
 **Deutsch:**
