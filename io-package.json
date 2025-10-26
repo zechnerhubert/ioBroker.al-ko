@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.8": {
+        "en": "Replaced external icon with optimized 128×128 version for correct npm and ioBroker Admin display. Fixed repository path (master branch) for proper package resolution. No functional changes.",
+        "de": "Externes Icon durch optimierte 128×128-Version ersetzt, um die Anzeige in npm und ioBroker Admin zu korrigieren. Repository-Pfad (master-Branch) für korrekte Paketauflösung angepasst. Keine funktionalen Änderungen.",
+        "ru": "Заменён внешний значок на оптимизированную версию 128×128 для правильного отображения в npm и ioBroker Admin. Исправлен путь к репозиторию (ветка master) для корректного определения пакета. Без функциональных изменений.",
+        "pt": "Substituído o ícone externo por uma versão otimizada de 128×128 para exibição correta no npm e no ioBroker Admin. Corrigido o caminho do repositório (ramo master) para resolução adequada do pacote. Sem alterações funcionais.",
+        "nl": "Extern pictogram vervangen door geoptimaliseerde 128×128-versie voor correcte weergave in npm en ioBroker Admin. Repositorpad (master-branch) gecorrigeerd voor juiste pakketresolutie. Geen functionele wijzigingen.",
+        "fr": "Icône externe remplacée par une version optimisée 128×128 pour un affichage correct dans npm et ioBroker Admin. Chemin du dépôt (branche master) corrigé pour une résolution correcte du package. Aucune modification fonctionnelle.",
+        "it": "Sostituita l'icona esterna con una versione ottimizzata 128×128 per la corretta visualizzazione in npm e ioBroker Admin. Corretto il percorso del repository (branch master) per una risoluzione corretta del pacchetto. Nessuna modifica funzionale.",
+        "es": "Ícono externo reemplazado por una versión optimizada de 128×128 para una visualización correcta en npm y ioBroker Admin. Se corrigió la ruta del repositorio (rama master) para la resolución adecuada del paquete. Sin cambios funcionales.",
+        "pl": "Zastąpiono zewnętrzną ikonę zoptymalizowaną wersją 128×128 dla poprawnego wyświetlania w npm i ioBroker Admin. Poprawiono ścieżkę repozytorium (gałąź master) dla właściwego rozwiązania pakietu. Bez zmian funkcjonalnych.",
+        "uk": "Зовнішню іконку замінено на оптимізовану версію 128×128 для правильного відображення в npm та ioBroker Admin. Виправлено шлях до репозиторію (гілка master) для коректного визначення пакету. Без функціональних змін.",
+        "zh-cn": "将外部图标替换为优化后的 128×128 版本，以便在 npm 和 ioBroker Admin 中正确显示。修复了存储库路径（master 分支），以确保正确解析软件包。无功能更改。"
+      },
       "0.2.7": {
         "en": "Adapter-check compliance: made icon references consistent (icon/extIcon now both use al-ko-128.png from GitHub) and ensured image size ≤ 512 px. Removed unnecessary publishConfig from package.json. No functional changes.",
         "de": "Adapter-Check-Konformität: Icon-Verweise vereinheitlicht (icon/extIcon nutzen jetzt beide al-ko-128.png von GitHub) und Bildgröße ≤ 512 px sichergestellt. Unnötiges publishConfig aus package.json entfernt. Keine funktionalen Änderungen.",

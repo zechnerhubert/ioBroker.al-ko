@@ -54,6 +54,18 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.8 (2025-10-26)
+
+**Deutsch:**
+- Externes Icon durch optimierte 128×128-Version ersetzt, um die Anzeige in npm und ioBroker Admin zu korrigieren  
+- Repository-Pfad auf `master` umgestellt, um korrekte Paketauflösung sicherzustellen  
+- Keine funktionalen Änderungen  
+
+**English:**
+- Replaced external icon with optimized 128×128 version for proper display in npm and ioBroker Admin  
+- Adjusted repository path to `master` branch for correct package resolution  
+- No functional changes  
+
 ### 0.2.7 (2025-10-26)
 
 **Deutsch:**
