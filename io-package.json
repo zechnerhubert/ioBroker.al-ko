@@ -74,7 +74,7 @@
       "garden",
       "smart-garden"
     ],
-    "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/main/admin/al-ko-128.png",
+    "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko-128.png",
     "adminUI": {
       "config": "json"
     },
