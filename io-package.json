@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.10",
+    "version": "0.2.11",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,7 +33,20 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
-      "0.3.0": {
+      "0.2.11": {
+        "en": "Minor code corrections and optimizations. No functional changes – improved stability and maintainability.",
+        "de": "Kleinere Code-Korrekturen und Optimierungen vorgenommen. Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert.",
+        "ru": "Небольшие исправления и оптимизация кода. Без функциональных изменений – повышена стабильность и поддерживаемость.",
+        "pt": "Pequenas correções e otimizações no código. Sem alterações funcionais – estabilidade e manutenção aprimoradas.",
+        "nl": "Kleine codecorrecties en optimalisaties. Geen functionele wijzigingen – verbeterde stabiliteit en onderhoudbaarheid.",
+        "fr": "Petites corrections et optimisations du code. Aucune modification fonctionnelle – stabilité et maintenabilité améliorées.",
+        "it": "Correzioni e ottimizzazioni minori del codice. Nessuna modifica funzionale – migliorata stabilità e manutenibilità.",
+        "es": "Pequeñas correcciones y optimizaciones de código. Sin cambios funcionales – mayor estabilidad y mantenibilidad.",
+        "pl": "Drobne poprawki i optymalizacje kodu. Brak zmian funkcjonalnych – poprawiona stabilność i łatwość utrzymania.",
+        "uk": "Невеликі виправлення та оптимізації коду. Без функціональних змін – покращено стабільність і підтримуваність.",
+        "zh-cn": "进行了小的代码修正和优化。无功能性更改——提高了稳定性和可维护性。"
+      },
+      "0.2.10": {
         "en": "Adapter category updated: changed type from 'hardware' to 'garden' for correct classification in ioBroker Admin and repositories. No functional changes.",
         "de": "Adapter-Kategorie aktualisiert: Typ von 'hardware' auf 'garden' geändert, um die korrekte Einordnung in ioBroker Admin und den Repositories sicherzustellen. Keine funktionalen Änderungen.",
         "ru": "Обновлена категория адаптера: тип изменён с 'hardware' на 'garden' для правильной классификации в ioBroker Admin и репозиториях. Без функциональных изменений.",

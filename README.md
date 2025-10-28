@@ -54,6 +54,16 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.11 (2025-10-28)
+
+**Deutsch:**
+* Kleinere Code-Korrekturen und Optimierungen vorgenommen  
+* Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert  
+
+**English:**
+* Minor code corrections and optimizations  
+* No functional changes – improved stability and maintainability
+
 ### 0.2.10 (2025-10-28)
 
 **Deutsch:**
