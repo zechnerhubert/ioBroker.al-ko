@@ -54,6 +54,16 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.10 (2025-10-28)
+
+**Deutsch:**
+- Adapter-Kategorie angepasst: Typ von 'hardware' auf 'garden' geändert.
+- Keine funktionalen Änderungen für Anwender
+
+**English:** 
+- Changed adapter type from 'hardware' to 'garden' for proper categorization in ioBroker Admin and repositories.
+- No functional changes for end users  
+
 ### 0.2.9 (2025-10-28)
 
 **Deutsch:**  
@@ -91,133 +101,6 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 - Adapter-check compliance: unified icon references (icon/extIcon now both use `al-ko-128.png` from GitHub) and ensured image size ≤ 512 px
 - Removed unnecessary `publishConfig` from `package.json`
 - No functional changes
-
-### 0.2.6 (2025-10-26)
-
-**Deutsch:**
-- Korrigierte externe Icon-URL (`extIcon`) – verweist nun auf den korrekten Branch `master` anstelle von `main`
-- Keine funktionalen Änderungen
-
-**English:**
-- Fixed external icon URL (`extIcon`) – now points to the correct `master` branch instead of `main`
-- No functional changes
-
-### 0.2.5 (2025-10-23)
-
-**Deutsch:**
-- Neues kompaktes AL-KO-Logo (`admin/al-ko-128.png`) hinzugefügt  
-- Kleinere kosmetische Anpassungen in der Dokumentation  
-
-**English:**
-- Added new compact AL-KO logo (`admin/al-ko-128.png`)  
-- Minor cosmetic improvements in documentation  
-
-### 0.2.4 (2025-10-23)
-
-**Deutsch:**
-- Metadaten-Anpassungen für korrekte Anzeige im ioBroker Admin und auf npm
-- Der Autor wird jetzt korrekt angezeigt, und das Adapter-Icon erscheint im Admin
-- Keine funktionalen Änderungen am Code
-
-**English:**
-- Metadata adjustments for correct display in ioBroker Admin and npm
-- Author information and adapter icon are now shown correctly
-- No functional changes to the code
-
-### 0.2.3 (2025-10-22)
-
-**Deutsch:**
-- WebSocket-Stabilität deutlich verbessert:
-  - Heartbeat (Ping/Pong) alle **120 Sekunden** mit **30 Sekunden** Timeout
-  - Bei fehlendem Pong oder Fehlern wird die Verbindung **aktiv beendet**, damit ein sauberer **Reconnect** erfolgt
-  - Entfernt: „Silence-Watchdog“, damit es in längeren Ruhephasen (z. B. nachts) **keine unnötigen Reconnects** gibt
-
-**English:**
-- Improved WebSocket stability:
-  - Heartbeat (ping/pong) every **120 seconds** with **30 seconds** timeout
-  - If pong is missing or errors occur, the socket is **terminated** to trigger a clean **reconnect**
-  - Removed the **silence watchdog** to avoid unnecessary reconnects during long idle periods (e.g., at night)
-
-
-### 0.2.2 (2025-10-20)
-
-**Deutsch:**
-* Vorbereitung auf die erste npm-Veröffentlichung
-* Versionsnummern zwischen `io-package.json` und `package.json` synchronisiert
-* npm-Metadaten ergänzt und Veröffentlichungskonfiguration hinzugefügt
-* Kleinere interne Anpassungen für bessere Kompatibilität mit npm-Publishing
-
-**English:**
-* Prepared for first npm release
-* Synchronized version numbers between `io-package.json` and `package.json`
-* Added npm metadata and publication configuration
-* Minor internal adjustments for improved npm-publish compatibility
-
-
-### 0.2.1 (2025-10-19)
-
-**Deutsch:**
-- Neue Admin-UI-Option zum Aktivieren/Deaktivieren des WebSocket-Nachrichten-Loggings (`wsDebug`)
-- Das Logging eingehender WebSocket-Nachrichten kann nun direkt in der Adapter-Konfiguration gesteuert werden
-- Kleine interne Anpassungen zur Verbesserung der Konfigurierbarkeit und Log-Flexibilität
-
-**English:**
-- Added new Admin UI option to enable/disable WebSocket message logging (`wsDebug`)
-- Logging of incoming WebSocket messages can now be toggled directly from the adapter configuration
-- Minor internal improvements for configurability and logging flexibility
-
----
-
-### 0.2.0 (2025-10-08)
-
-**Deutsch:**
-- 🧹 Migration auf ESLint 9 (Flat-Config)
-  - Alte `.eslintrc`-Dateien entfernt und durch `eslint.config.mjs` ersetzt
-  - `package.json` angepasst (neue Dev-Dependencies: `@eslint/js`, `typescript-eslint`, `@iobroker/eslint-config`, `prettier`)
-  - Lint-Scope auf `main.js` und `lib/` beschränkt
-  - Alle bisherigen Lint-Fehler und Warnungen behoben
-- 💡 Vorbereitung auf zukünftige „Produktiv-Lint“-Variante für Releases
-
-**English:**
-- 🧹 Migrated to ESLint 9 (Flat Config)
-  - Removed old `.eslintrc` files and replaced with `eslint.config.mjs`
-  - Updated `package.json` (new devDependencies: `@eslint/js`, `typescript-eslint`, `@iobroker/eslint-config`, `prettier`)
-  - Limited lint scope to `main.js` and `lib/`
-  - Fixed all existing lint errors and warnings
-- 💡 Preparation for future “production lint” variant for releases
-
----
-
-### 0.1.2 (2025-09-30)
-
-**Deutsch:**
-- Verbesserte Admin-UI-Konfiguration
-- Fehler bei der Adapterprüfung behoben
-
-**English:**
-- Improved Admin UI configuration
-- Fixed adapter-check validation issues
-
----
-
-### 0.1.1 (2025-09-29)
-
-**Deutsch:**
-- ✨ Erste Veröffentlichung
-- Verbindung mit der AL-KO API
-- Automatisches Anlegen der States
-- Push von Änderungen an AL-KO
-- WebSocket-Integration für Echtzeit-Updates
-
-**English:**
-- ✨ Initial release
-- Connection to the AL-KO API
-- Automatic creation of states
-- Push of state changes to AL-KO
-- WebSocket integration for real-time updates
-
-
----
 
 ## License
 MIT License

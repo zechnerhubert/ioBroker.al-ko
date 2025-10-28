@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.3.0": {
+        "en": "Adapter category updated: changed type from 'hardware' to 'garden' for correct classification in ioBroker Admin and repositories. No functional changes.",
+        "de": "Adapter-Kategorie aktualisiert: Typ von 'hardware' auf 'garden' geändert, um die korrekte Einordnung in ioBroker Admin und den Repositories sicherzustellen. Keine funktionalen Änderungen.",
+        "ru": "Обновлена категория адаптера: тип изменён с 'hardware' на 'garden' для правильной классификации в ioBroker Admin и репозиториях. Без функциональных изменений.",
+        "pt": "Categoria do adaptador atualizada: tipo alterado de 'hardware' para 'garden' para classificação correta no ioBroker Admin e repositórios. Sem alterações funcionais.",
+        "nl": "Adaptercategorie bijgewerkt: type gewijzigd van 'hardware' naar 'garden' voor correcte classificatie in ioBroker Admin en repositories. Geen functionele wijzigingen.",
+        "fr": "Catégorie d’adaptateur mise à jour : type modifié de 'hardware' à 'garden' pour une classification correcte dans ioBroker Admin et les dépôts. Aucune modification fonctionnelle.",
+        "it": "Categoria dell’adattatore aggiornata: tipo modificato da 'hardware' a 'garden' per una corretta classificazione in ioBroker Admin e nei repository. Nessuna modifica funzionale.",
+        "es": "Categoría del adaptador actualizada: tipo cambiado de 'hardware' a 'garden' para una clasificación correcta en ioBroker Admin y los repositorios. Sin cambios funcionales.",
+        "pl": "Zaktualizowano kategorię adaptera: zmieniono typ z 'hardware' na 'garden' w celu poprawnej klasyfikacji w ioBroker Admin i repozytoriach. Bez zmian funkcjonalnych.",
+        "uk": "Оновлено категорію адаптера: тип змінено з 'hardware' на 'garden' для правильного відображення в ioBroker Admin і репозиторіях. Без функціональних змін.",
+        "zh-cn": "更新适配器类别：将类型从“hardware”更改为“garden”，以便在 ioBroker Admin 和存储库中正确分类。无功能更改。"
+      },
       "0.2.9": {
         "en": "Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`), updated ESLint configuration to version 9 with @iobroker/eslint-config v2.2.0 for full compatibility. Improved CI stability on GitHub Actions. No functional changes.",
         "de": "Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben, ESLint-Konfiguration auf Version 9 mit @iobroker/eslint-config v2.2.0 aktualisiert. Verbesserte CI-Stabilität auf GitHub Actions. Keine funktionalen Änderungen.",
@@ -155,7 +168,7 @@
       "link": "https://opensource.org/licenses/MIT"
     },
     "platform": "Javascript/Node.js",
-    "type": "hardware",
+    "type": "garden",
     "loglevel": "info",
     "connectionType": "cloud",
     "dataSource": "push",

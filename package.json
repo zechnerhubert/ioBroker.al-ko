@@ -1,6 +1,6 @@
 {
   "name": "iobroker.al-ko",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Adapter for communication with Al-Ko garden tools",
   "author": {
     "name": "Hubert Zechner",
