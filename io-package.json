@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.9": {
+        "en": "Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`), updated ESLint configuration to version 9 with @iobroker/eslint-config v2.2.0 for full compatibility. Improved CI stability on GitHub Actions. No functional changes.",
+        "de": "Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben, ESLint-Konfiguration auf Version 9 mit @iobroker/eslint-config v2.2.0 aktualisiert. Verbesserte CI-Stabilität auf GitHub Actions. Keine funktionalen Änderungen.",
+        "ru": "Обновление обслуживания: устранены конфликты зависимостей npm (`sinon-chai` против `chai`), обновлена конфигурация ESLint до версии 9 с @iobroker/eslint-config v2.2.0. Улучшена стабильность CI в GitHub Actions. Без функциональных изменений.",
+        "pt": "Atualização de manutenção: resolvidos conflitos de dependência npm (`sinon-chai` vs `chai`), configuração do ESLint atualizada para a versão 9 com @iobroker/eslint-config v2.2.0. Estabilidade do CI aprimorada no GitHub Actions. Sem alterações funcionais.",
+        "nl": "Onderhoudsupdate: npm-afhankelijkheidsconflicten (`sinon-chai` vs `chai`) opgelost, ESLint-configuratie bijgewerkt naar versie 9 met @iobroker/eslint-config v2.2.0. Verbeterde CI-stabiliteit op GitHub Actions. Geen functionele wijzigingen.",
+        "fr": "Mise à jour de maintenance : résolution des conflits de dépendances npm (`sinon-chai` vs `chai`), configuration ESLint mise à jour vers la version 9 avec @iobroker/eslint-config v2.2.0. Stabilité CI améliorée sur GitHub Actions. Aucune modification fonctionnelle.",
+        "it": "Aggiornamento di manutenzione: risolti i conflitti di dipendenza npm (`sinon-chai` vs `chai`), aggiornata la configurazione ESLint alla versione 9 con @iobroker/eslint-config v2.2.0. Migliorata la stabilità del CI su GitHub Actions. Nessuna modifica funzionale.",
+        "es": "Actualización de mantenimiento: resueltos los conflictos de dependencias npm (`sinon-chai` vs `chai`), configuración de ESLint actualizada a la versión 9 con @iobroker/eslint-config v2.2.0. Estabilidad de CI mejorada en GitHub Actions. Sin cambios funcionales.",
+        "pl": "Aktualizacja konserwacyjna: rozwiązano konflikty zależności npm (`sinon-chai` vs `chai`), zaktualizowano konfigurację ESLint do wersji 9 z @iobroker/eslint-config v2.2.0. Poprawiono stabilność CI w GitHub Actions. Brak zmian funkcjonalnych.",
+        "uk": "Технічне оновлення: усунуто конфлікти залежностей npm (`sinon-chai` проти `chai`), оновлено конфігурацію ESLint до версії 9 із @iobroker/eslint-config v2.2.0. Покращено стабільність CI у GitHub Actions. Без функціональних змін.",
+        "zh-cn": "维护更新：解决 npm 依赖冲突（`sinon-chai` 与 `chai`），将 ESLint 配置更新到版本 9 并使用 @iobroker/eslint-config v2.2.0。改进了 GitHub Actions 上的 CI 稳定性。无功能更改。"
+      },
       "0.2.8": {
         "en": "Replaced external icon with optimized 128×128 version for correct npm and ioBroker Admin display. Fixed repository path (master branch) for proper package resolution. No functional changes.",
         "de": "Externes Icon durch optimierte 128×128-Version ersetzt, um die Anzeige in npm und ioBroker Admin zu korrigieren. Repository-Pfad (master-Branch) für korrekte Paketauflösung angepasst. Keine funktionalen Änderungen.",

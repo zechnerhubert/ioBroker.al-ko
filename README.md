@@ -54,6 +54,20 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.9 (2025-10-28)
+
+**Deutsch:**  
+- Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben  
+- ESLint-Konfiguration auf Version 9 mit `@iobroker/eslint-config` v2.2.0 aktualisiert  
+- CI-Stabilität auf GitHub Actions verbessert  
+- Keine funktionalen Änderungen für Anwender
+
+**English:**  
+- Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`)  
+- Updated ESLint setup to v9 + `@iobroker/eslint-config` v2.2.0  
+- Improved GitHub Actions CI stability  
+- No functional changes for end users  
+
 ### 0.2.8 (2025-10-26)
 
 **Deutsch:**
