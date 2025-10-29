@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.11",
+    "version": "0.2.12",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.12": {
+        "en": "Admin UI: fixed schema URL to official jsonConfig schema and added missing responsive size attributes. Raised minimum requirements: js-controller >= 6.0.11, admin >= 7.6.17. No functional changes.",
+        "de": "Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert und fehlende responsive Size-Attribute ergänzt. Mindestanforderungen erhöht: js-controller >= 6.0.11, admin >= 7.6.17. Keine funktionalen Änderungen.",
+        "ru": "Admin UI: исправлена ссылка на официальную схему jsonConfig и добавлены недостающие атрибуты размера. Минимальные требования повышены: js-controller >= 6.0.11, admin >= 7.6.17. Функциональных изменений нет.",
+        "pt": "Admin UI: corrigida a URL do schema oficial do jsonConfig e adicionados os atributos de tamanho responsivo em falta. Requisitos mínimos aumentados: js-controller >= 6.0.11, admin >= 7.6.17. Sem alterações funcionais.",
+        "nl": "Admin UI: officiële jsonConfig-schema-URL gecorrigeerd en ontbrekende responsieve grootte-attributen toegevoegd. Minimumeisen verhoogd: js-controller >= 6.0.11, admin >= 7.6.17. Geen functionele wijzigingen.",
+        "fr": "Admin UI : URL du schéma jsonConfig officielle corrigée et ajout des attributs de taille responsives manquants. Exigences minimales relevées : js-controller >= 6.0.11, admin >= 7.6.17. Pas de changement fonctionnel.",
+        "it": "Admin UI: corretta la URL dello schema jsonConfig ufficiale e aggiunti gli attributi di dimensione responsive mancanti. Requisiti minimi aumentati: js-controller >= 6.0.11, admin >= 7.6.17. Nessuna modifica funzionale.",
+        "es": "Admin UI: corregida la URL del esquema jsonConfig oficial y añadidos los atributos de tamaño responsivo que faltaban. Requisitos mínimos elevados: js-controller >= 6.0.11, admin >= 7.6.17. Sin cambios funcionales.",
+        "pl": "Admin UI: poprawiono adres URL oficjalnego schematu jsonConfig i dodano brakujące responsywne atrybuty rozmiaru. Podniesiono minimalne wymagania: js-controller >= 6.0.11, admin >= 7.6.17. Brak zmian funkcjonalnych.",
+        "uk": "Admin UI: виправлено URL офіційної схеми jsonConfig і додано відсутні адаптивні атрибути розміру. Підвищено мінімальні вимоги: js-controller >= 6.0.11, admin >= 7.6.17. Без функціональних змін.",
+        "zh-cn": "Admin UI：修正为官方 jsonConfig 架构 URL，并补全缺失的响应式尺寸属性。提高最低要求：js-controller >= 6.0.11，admin >= 7.6.17。无功能性变更。"
+      },
       "0.2.11": {
         "en": "Minor code corrections and optimizations. No functional changes – improved stability and maintainability.",
         "de": "Kleinere Code-Korrekturen und Optimierungen vorgenommen. Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert.",
@@ -97,72 +110,7 @@
         "pl": "Zgodność z adapter-check: ujednolicono odwołania do ikony (icon/extIcon używają teraz al-ko-128.png z GitHub) i zapewniono rozmiar obrazu ≤ 512 px. Usunięto zbędny publishConfig z package.json. Brak zmian funkcjonalnych.",
         "uk": "Відповідність adapter-check: уніфіковано посилання на значок (icon/extIcon тепер обидва використовують al-ko-128.png з GitHub) і гарантовано розмір зображення ≤ 512 px. Видалено непотрібний publishConfig з package.json. Без функціональних змін.",
         "zh-cn": "通过适配器检查：统一图标引用（icon/extIcon 现均使用 GitHub 上的 al-ko-128.png），并确保图像大小 ≤ 512 像素。移除了 package.json 中不必要的 publishConfig。无功能性变更。"
-        },
-      "0.2.6": {
-        "en": "Fixed external icon URL (`extIcon`) to point to the correct `master` branch instead of `main`. The adapter icon now displays properly in ioBroker Admin and on npm. No functional changes.",
-        "de": "Externe Icon-URL (`extIcon`) korrigiert: Verweist nun auf den richtigen `master`-Branch statt `main`. Das Adapter-Icon wird wieder korrekt im ioBroker Admin und auf npm angezeigt. Keine funktionalen Änderungen.",
-        "ru": "Исправлен внешний URL значка (`extIcon`): теперь указывает на верную ветку `master` вместо `main`. Значок адаптера снова корректно отображается в ioBroker Admin и на npm. Функциональных изменений нет.",
-        "pt": "Corrigida a URL do ícone externo (`extIcon`) para apontar para o branch `master` em vez de `main`. O ícone do adaptador agora é exibido corretamente no ioBroker Admin e no npm. Sem alterações funcionais.",
-        "nl": "Externe pictogram-URL (`extIcon`) gecorrigeerd naar de juiste `master`-branch in plaats van `main`. Het adapterpictogram wordt nu correct weergegeven in ioBroker Admin en op npm. Geen functionele wijzigingen.",
-        "fr": "Correction de l’URL de l’icône externe (`extIcon`) pour pointer vers la branche `master` au lieu de `main`. L’icône de l’adaptateur s’affiche désormais correctement dans ioBroker Admin et sur npm. Aucun changement fonctionnel.",
-        "it": "Corretta l’URL dell’icona esterna (`extIcon`) per puntare al branch `master` invece di `main`. L’icona dell’adattatore ora è visualizzata correttamente in ioBroker Admin e su npm. Nessuna modifica funzionale.",
-        "es": "Se corrigió la URL del icono externo (`extIcon`) para que apunte a la rama `master` en lugar de `main`. El icono del adaptador ahora se muestra correctamente en ioBroker Admin y en npm. Sin cambios funcionales.",
-        "pl": "Poprawiono zewnętrzny adres URL ikony (`extIcon`), aby wskazywał na gałąź `master` zamiast `main`. Ikona adaptera jest teraz poprawnie wyświetlana w ioBroker Admin i na npm. Brak zmian funkcjonalnych.",
-        "uk": "Виправлено зовнішню URL-адресу значка (`extIcon`) — тепер посилається на гілку `master` замість `main`. Значок адаптера коректно відображається в ioBroker Admin та на npm. Без функціональних змін.",
-        "zh-cn": "修复外部图标 URL（`extIcon`），现指向正确的 `master` 分支而非 `main`。适配器图标现已在 ioBroker Admin 和 npm 中正确显示。无功能性更改。"
-        },
-      "0.2.5": {
-        "en": "Improved npm/Admin appearance: added a smaller external icon (128×128) and updated the author format for better display. No functional changes.",
-        "de": "Darstellung im npm/Admin-Bereich verbessert: Kleineres externes Icon (128×128) hinzugefügt und Autorenformat für bessere Anzeige angepasst. Keine funktionalen Änderungen.",
-        "ru": "Улучшен внешний вид в npm/Admin: добавлен меньший внешний значок (128×128) и обновлён формат автора для лучшего отображения. Функциональных изменений нет.",
-        "pt": "Aparência no npm/Admin aprimorada: adicionado ícone externo menor (128×128) e atualizado o formato do autor para melhor exibição. Sem alterações funcionais.",
-        "nl": "Verbeterde weergave in npm/Admin: kleiner extern pictogram (128×128) toegevoegd en auteursindeling bijgewerkt voor betere weergave. Geen functionele wijzigingen.",
-        "fr": "Amélioration de l’apparence dans npm/Admin : ajout d’une icône externe plus petite (128×128) et mise à jour du format de l’auteur pour un meilleur affichage. Aucun changement fonctionnel.",
-        "it": "Aspetto migliorato in npm/Admin: aggiunta un’icona esterna più piccola (128×128) e aggiornato il formato dell’autore per una migliore visualizzazione. Nessuna modifica funzionale.",
-        "es": "Mejoras en la apariencia de npm/Admin: se añadió un icono externo más pequeño (128×128) y se actualizó el formato del autor para una mejor visualización. Sin cambios funcionales.",
-        "pl": "Ulepszony wygląd w npm/Admin: dodano mniejszą zewnętrzną ikonę (128×128) i zaktualizowano format autora dla lepszej prezentacji. Brak zmian funkcjonalnych.",
-        "uk": "Поліпшено відображення в npm/Admin: додано менший зовнішній значок (128×128) і оновлено формат автора для кращого відображення. Без функціональних змін.",
-        "zh-cn": "改进 npm/Admin 外观：新增更小的外部图标（128×128），并更新作者格式以改善显示效果。无功能性更改。"
-        },
-      "0.2.4": {
-        "en": "Metadata adjustments for correct npm/Admin display (author, icon). No functional changes.",
-        "de": "Metadaten-Anpassungen für korrekte npm-/Admin-Anzeige (Autor, Icon). Keine funktionalen Änderungen.",
-        "ru": "Корректировка метаданных для правильного отображения npm/Admin (автор, значок). Без функциональных изменений.",
-        "pt": "Ajustes de metadados para exibição correta no npm/Admin (autor, ícone). Sem alterações funcionais.",
-        "nl": "Metadata-aanpassingen voor juiste npm/Admin-weergave (auteur, pictogram). Geen functionele wijzigingen.",
-        "fr": "Ajustements des métadonnées pour un affichage correct dans npm/Admin (auteur, icône). Aucune modification fonctionnelle.",
-        "it": "Regolazioni dei metadati per la corretta visualizzazione su npm/Admin (autore, icona). Nessuna modifica funzionale.",
-        "es": "Ajustes de metadatos para una visualización correcta en npm/Admin (autor, icono). Sin cambios funcionales.",
-        "pl": "Dostosowanie metadanych do prawidłowego wyświetlania w npm/Admin (autor, ikona). Bez zmian funkcjonalnych.",
-        "uk": "Коригування метаданих для правильного відображення в npm/Admin (автор, іконка). Без функціональних змін.",
-        "zh-cn": "为确保在 npm/Admin 中正确显示（作者、图标）调整了元数据。无功能更改。"
       },
-      "0.2.3": {
-        "en": "Improved WebSocket stability: Added heartbeat (ping/pong) every 120 seconds with 30 seconds timeout. If no pong or an error occurs, the socket is closed and reconnected automatically. Removed the silence watchdog to avoid unnecessary reconnects during long idle phases (e.g., at night).",
-        "de": "WebSocket-Stabilität verbessert: Heartbeat (Ping/Pong) alle 120 Sekunden mit 30 Sekunden Timeout hinzugefügt. Bei fehlendem Pong oder Fehlern wird die Verbindung geschlossen und automatisch neu verbunden. Der Silence-Watchdog wurde entfernt, um unnötige Reconnects während längerer Ruhephasen (z. B. nachts) zu vermeiden.",
-        "ru": "Улучшена стабильность WebSocket: добавлен Heartbeat (ping/pong) каждые 120 секунд с тайм-аутом 30 секунд. При отсутствии pong или ошибках соединение закрывается и автоматически восстанавливается. Удалён watchdog тишины, чтобы избежать ненужных переподключений во время долгих периодов бездействия (например, ночью).",
-        "pt": "Melhorada a estabilidade do WebSocket: Adicionado heartbeat (ping/pong) a cada 120 segundos com tempo limite de 30 segundos. Se não houver pong ou ocorrer um erro, o socket é fechado e reconectado automaticamente. Removido o watchdog de silêncio para evitar reconexões desnecessárias durante longos períodos de inatividade (por exemplo, à noite).",
-        "nl": "Verbeterde WebSocket-stabiliteit: Heartbeat (ping/pong) toegevoegd elke 120 seconden met een timeout van 30 seconden. Als er geen pong of een fout optreedt, wordt de socket gesloten en automatisch opnieuw verbonden. De stilte-watchdog is verwijderd om onnodige reconnects tijdens langere inactieve periodes (bijv. 's nachts) te voorkomen.",
-        "fr": "Stabilité WebSocket améliorée : ajout d'un heartbeat (ping/pong) toutes les 120 secondes avec un délai d'attente de 30 secondes. En cas d'absence de pong ou d'erreur, la connexion est fermée et reconnectée automatiquement. Le watchdog de silence a été supprimé afin d'éviter des reconnexions inutiles lors de longues périodes d'inactivité (par exemple, la nuit).",
-        "it": "Migliorata la stabilità del WebSocket: aggiunto heartbeat (ping/pong) ogni 120 secondi con timeout di 30 secondi. Se manca il pong o si verifica un errore, la connessione viene chiusa e riconnessa automaticamente. Rimosso il watchdog del silenzio per evitare riconnessioni inutili durante lunghi periodi di inattività (ad esempio, di notte).",
-        "es": "Mejorada la estabilidad del WebSocket: se añadió un heartbeat (ping/pong) cada 120 segundos con un tiempo de espera de 30 segundos. Si no hay pong o ocurre un error, el socket se cierra y se reconecta automáticamente. Se eliminó el watchdog de silencio para evitar reconexiones innecesarias durante largos períodos de inactividad (por ejemplo, por la noche).",
-        "pl": "Poprawiona stabilność WebSocket: dodano heartbeat (ping/pong) co 120 sekund z limitem czasu 30 sekund. W przypadku braku pong lub błędu połączenie jest zamykane i automatycznie ponownie nawiązywane. Usunięto watchdog ciszy, aby uniknąć niepotrzebnych ponownych połączeń podczas długich okresów bezczynności (np. w nocy).",
-        "uk": "Покращено стабільність WebSocket: додано heartbeat (ping/pong) кожні 120 секунд із тайм-аутом 30 секунд. Якщо pong не надходить або виникає помилка, з'єднання закривається та автоматично відновлюється. Видалено watchdog тиші, щоб уникнути непотрібних повторних підключень під час тривалих періодів бездіяльності (наприклад, уночі).",
-        "zh-cn": "改进了 WebSocket 稳定性：每 120 秒添加一次心跳 (ping/pong)，超时 30 秒。如果没有收到 pong 或发生错误，连接将关闭并自动重新连接。移除了静默监视程序，以避免在长时间空闲期间（例如夜间）不必要的重新连接。"
-      },
-       "0.2.2": {
-        "en": "Prepared for the first npm release. Synchronized versions between io-package.json and package.json. Added npm metadata and publication configuration. Minor internal adjustments for improved compatibility.",
-        "de": "Für die erste npm-Veröffentlichung vorbereitet. Versionen zwischen io-package.json und package.json synchronisiert. npm-Metadaten und Veröffentlichungskonfiguration hinzugefügt. Kleine interne Anpassungen zur verbesserten Kompatibilität.",
-        "ru": "Подготовлено к первому выпуску в npm. Синхронизированы версии между io-package.json и package.json. Добавлены метаданные npm и конфигурация публикации. Небольшие внутренние улучшения для совместимости.",
-        "pt": "Preparado para a primeira publicação no npm. Versões sincronizadas entre io-package.json e package.json. Metadados do npm e configuração de publicação adicionados. Pequenos ajustes internos para melhor compatibilidade.",
-        "nl": "Voorbereid op de eerste npm-release. Versies gesynchroniseerd tussen io-package.json en package.json. npm-metadata en publicatieconfiguratie toegevoegd. Kleine interne aanpassingen voor betere compatibiliteit.",
-        "fr": "Préparation à la première publication sur npm. Versions synchronisées entre io-package.json et package.json. Ajout des métadonnées npm et de la configuration de publication. Petites améliorations internes pour une meilleure compatibilité.",
-        "it": "Preparato per la prima pubblicazione su npm. Versioni sincronizzate tra io-package.json e package.json. Aggiunti metadati npm e configurazione di pubblicazione. Piccoli adattamenti interni per una compatibilità migliore.",
-        "es": "Preparado para la primera publicación en npm. Versiones sincronizadas entre io-package.json y package.json. Se añadieron metadatos de npm y la configuración de publicación. Pequeños ajustes internos para mejorar la compatibilidad.",
-        "pl": "Przygotowano do pierwszego wydania w npm. Zsynchronizowano wersje w io-package.json i package.json. Dodano metadane npm oraz konfigurację publikacji. Drobne zmiany wewnętrzne poprawiające kompatybilność.",
-        "uk": "Підготовлено до першого випуску в npm. Синхронізовано версії між io-package.json і package.json. Додано метадані npm та конфігурацію публікації. Невеликі внутрішні покращення сумісності.",
-        "zh-cn": "为首次在 npm 发布做好准备。同步 io-package.json 与 package.json 的版本，新增 npm 元数据与发布配置，并进行少量内部调整以提升兼容性。"
-      }
     },
     "keywords": [
       "al-ko",
@@ -190,12 +138,12 @@
     "icon": "al-ko-128.png",
     "dependencies": [
       {
-        "js-controller": ">=5.0.19"
+        "js-controller": ">=6.0.11"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.4.10"
+        "admin": ">=7.6.17"
       }
     ]
   },
