@@ -1,0 +1,154 @@
+{
+  "common": {
+    "name": "al-ko",
+    "version": "0.2.13",
+    "tier": 3,
+    "titleLang": {
+      "en": "AL-KO",
+      "de": "AL-KO",
+      "ru": "AL-KO",
+      "pt": "AL-KO",
+      "nl": "AL-KO",
+      "fr": "AL-KO",
+      "it": "AL-KO",
+      "es": "AL-KO",
+      "pl": "AL-KO",
+      "uk": "AL-KO",
+      "zh-cn": "AL-KO"
+    },
+    "desc": {
+      "en": "Adapter for AL-KO Robolinho lawnmowers",
+      "de": "Adapter für AL-KO Robolinho Rasenmäher",
+      "ru": "Адаптер для газонокосилок AL-KO Robolinho",
+      "pt": "Adaptador para cortadores de grama AL-KO Robolinho",
+      "nl": "Adapter voor AL-KO Robolinho grasmaaiers",
+      "fr": "Adaptateur pour tondeuses AL-KO Robolinho",
+      "it": "Adattatore per tosaerba AL-KO Robolinho",
+      "es": "Adaptador para cortacéspedes AL-KO Robolinho",
+      "pl": "Adapter do kosiarek AL-KO Robolinho",
+      "uk": "Адаптер для газонокосарок AL-KO Robolinho",
+      "zh-cn": "AL-KO Robolinho 割草机适配器"
+    },
+    "authors": [
+      "Hubert Zechner <hubertiob@posteo.at>"
+    ],
+    "news": {
+      "0.2.13": {
+        "en": "Fixed a JSON syntax error in io-package.json that broke adapter-check parsing (and caused 'adminUI' follow-up errors). Updated the JSON schema hint in VS Code and re-validated jsonConfig sizes. No functional changes.",
+        "de": "Einen JSON-Syntaxfehler in der io-package.json behoben, der das Parsing im Adapter-Check (und Folgefehler bei 'adminUI') verhindert hat. JSON-Schema-Hinweis in VS Code aktualisiert und jsonConfig-Sizes erneut validiert. Keine funktionalen Änderungen.",
+        "ru": "Исправлена ошибка синтаксиса JSON в io-package.json, из-за которой проверка адаптера не могла распарсить файл (и возникали последующие ошибки 'adminUI'). Обновлена подсказка схемы JSON в VS Code и повторно проверены размеры в jsonConfig. Функциональных изменений нет.",
+        "pt": "Corrigido um erro de sintaxe JSON em io-package.json que impedia o parser do adapter-check (e gerava erros subsequentes em 'adminUI'). Atualizada a dica de esquema JSON no VS Code e revalidados os tamanhos no jsonConfig. Sem alterações funcionais.",
+        "nl": "Een JSON-syntaxisfout in io-package.json opgelost waardoor adapter-check niet kon parsen (en 'adminUI'-fouten ontstonden). JSON-schemahint in VS Code bijgewerkt en jsonConfig-groottes her-gevalideerd. Geen functionele wijzigingen.",
+        "fr": "Correction d’une erreur de syntaxe JSON dans io-package.json qui empêchait l’analyse par adapter-check (et entraînait des erreurs 'adminUI'). Indice de schéma JSON mis à jour dans VS Code et tailles de jsonConfig re-validées. Aucun changement fonctionnel.",
+        "it": "Corretto un errore di sintassi JSON in io-package.json che impediva il parsing dell’adapter-check (con errori 'adminUI' conseguenti). Aggiornato il riferimento allo schema JSON in VS Code e rivalidate le size in jsonConfig. Nessuna modifica funzionale.",
+        "es": "Corregido un error de sintaxis JSON en io-package.json que impedía el análisis de adapter-check (y provocaba errores posteriores de 'adminUI'). Actualizada la sugerencia de esquema JSON en VS Code y revalidados los tamaños en jsonConfig. Sin cambios funcionales.",
+        "pl": "Naprawiono błąd składni JSON w io-package.json, który uniemożliwiał parsowanie przez adapter-check (i powodował dalsze błędy 'adminUI'). Zaktualizowano wskazówkę schematu JSON w VS Code oraz ponownie zweryfikowano rozmiary w jsonConfig. Brak zmian funkcjonalnych.",
+        "uk": "Виправлено помилку синтаксису JSON у io-package.json, через яку adapter-check не міг розібрати файл (і виникали подальші помилки 'adminUI'). Оновлено підказку схеми JSON у VS Code та повторно перевірено розміри в jsonConfig. Без функціональних змін.",
+        "zh-cn": "修复 io-package.json 中的 JSON 语法错误（导致 adapter-check 解析失败并引发“adminUI”后续错误）。更新了 VS Code 中的 JSON 架构提示，并重新验证了 jsonConfig 的尺寸设置。无功能性更改。"
+      },
+      "0.2.12": {
+        "en": "Admin UI: fixed schema URL to official jsonConfig schema and added missing responsive size attributes. Raised minimum requirements: js-controller >= 6.0.11, admin >= 7.6.17. No functional changes.",
+        "de": "Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert und fehlende responsive Size-Attribute ergänzt. Mindestanforderungen erhöht: js-controller >= 6.0.11, admin >= 7.6.17. Keine funktionalen Änderungen.",
+        "ru": "Admin UI: исправлена ссылка на официальную схему jsonConfig и добавлены недостающие атрибуты размера. Минимальные требования повышены: js-controller >= 6.0.11, admin >= 7.6.17. Функциональных изменений нет.",
+        "pt": "Admin UI: corrigida a URL do schema oficial do jsonConfig e adicionados os atributos de tamanho responsivo em falta. Requisitos mínimos aumentados: js-controller >= 6.0.11, admin >= 7.6.17. Sem alterações funcionais.",
+        "nl": "Admin UI: officiële jsonConfig-schema-URL gecorrigeerd en ontbrekende responsieve grootte-attributen toegevoegd. Minimumeisen verhoogd: js-controller >= 6.0.11, admin >= 7.6.17. Geen functionele wijzigingen.",
+        "fr": "Admin UI : URL du schéma jsonConfig officielle corrigée et ajout des attributs de taille responsives manquants. Exigences minimales relevées : js-controller >= 6.0.11, admin >= 7.6.17. Pas de changement fonctionnel.",
+        "it": "Admin UI: corretta la URL dello schema jsonConfig ufficiale e aggiunti gli attributi di dimensione responsive mancanti. Requisiti minimi aumentati: js-controller >= 6.0.11, admin >= 7.6.17. Nessuna modifica funzionale.",
+        "es": "Admin UI: corregida la URL del esquema jsonConfig oficial y añadidos los atributos de tamaño responsivo que faltaban. Requisitos mínimos elevados: js-controller >= 6.0.11, admin >= 7.6.17. Sin cambios funcionales.",
+        "pl": "Admin UI: poprawiono adres URL oficjalnego schematu jsonConfig i dodano brakujące responsywne atrybuty rozmiaru. Podniesiono minimalne wymagania: js-controller >= 6.0.11, admin >= 7.6.17. Brak zmian funkcjonalnych.",
+        "uk": "Admin UI: виправлено URL офіційної схеми jsonConfig і додано відсутні адаптивні атрибути розміру. Підвищено мінімальні вимоги: js-controller >= 6.0.11, admin >= 7.6.17. Без функціональних змін.",
+        "zh-cn": "Admin UI：修正为官方 jsonConfig 架构 URL，并补全缺失的响应式尺寸属性。提高最低要求：js-controller >= 6.0.11，admin >= 7.6.17。无功能性变更。"
+      },
+      "0.2.11": {
+        "en": "Minor code corrections and optimizations. No functional changes – improved stability and maintainability.",
+        "de": "Kleinere Code-Korrekturen und Optimierungen vorgenommen. Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert.",
+        "ru": "Небольшие исправления и оптимизация кода. Без функциональных изменений – повышена стабильность и поддерживаемость.",
+        "pt": "Pequenas correções e otimizações no código. Sem alterações funcionais – estabilidade e manutenção aprimoradas.",
+        "nl": "Kleine codecorrecties en optimalisaties. Geen functionele wijzigingen – verbeterde stabiliteit en onderhoudbaarheid.",
+        "fr": "Petites corrections et optimisations du code. Aucune modification fonctionnelle – stabilité et maintenabilité améliorées.",
+        "it": "Correzioni e ottimizzazioni minori del codice. Nessuna modifica funzionale – migliorata stabilità e manutenibilità.",
+        "es": "Pequeñas correcciones y optimizaciones de código. Sin cambios funcionales – mayor estabilidad y mantenibilidad.",
+        "pl": "Drobne poprawki i optymalizacje kodu. Brak zmian funkcjonalnych – poprawiona stabilność i łatwość utrzymania.",
+        "uk": "Невеликі виправлення та оптимізації коду. Без функціональних змін – покращено стабільність і підтримуваність.",
+        "zh-cn": "进行了小的代码修正和优化。无功能性更改——提高了稳定性和可维护性。"
+      },
+      "0.2.10": {
+        "en": "Adapter category updated: changed type from 'hardware' to 'garden' for correct classification in ioBroker Admin and repositories. No functional changes.",
+        "de": "Adapter-Kategorie aktualisiert: Typ von 'hardware' auf 'garden' geändert, um die korrekte Einordnung in ioBroker Admin und den Repositories sicherzustellen. Keine funktionalen Änderungen.",
+        "ru": "Обновлена категория адаптера: тип изменён с 'hardware' на 'garden' для правильной классификации в ioBroker Admin и репозиториях. Без функциональных изменений.",
+        "pt": "Categoria do adaptador atualizada: tipo alterado de 'hardware' para 'garden' para classificação correta no ioBroker Admin e repositórios. Sem alterações funcionais.",
+        "nl": "Adaptercategorie bijgewerkt: type gewijzigd van 'hardware' naar 'garden' voor correcte classificatie in ioBroker Admin en repositories. Geen functionele wijzigingen.",
+        "fr": "Catégorie d’adaptateur mise à jour : type modifié de 'hardware' à 'garden' pour une classification correcte dans ioBroker Admin et les dépôts. Aucune modification fonctionnelle.",
+        "it": "Categoria dell’adattatore aggiornata: tipo modificato da 'hardware' a 'garden' per una corretta classificazione in ioBroker Admin e nei repository. Nessuna modifica funzionale.",
+        "es": "Categoría del adaptador actualizada: tipo cambiado de 'hardware' a 'garden' para una clasificación correcta en ioBroker Admin y los repositorios. Sin cambios funcionales.",
+        "pl": "Zaktualizowano kategorię adaptera: zmieniono typ z 'hardware' na 'garden' w celu poprawnej klasyfikacji w ioBroker Admin i repozytoriach. Bez zmian funkcjonalnych.",
+        "uk": "Оновлено категорію адаптера: тип змінено з 'hardware' на 'garden' для правильного відображення в ioBroker Admin і репозиторіях. Без функціональних змін.",
+        "zh-cn": "更新适配器类别：将类型从“hardware”更改为“garden”，以便在 ioBroker Admin 和存储库中正确分类。无功能更改。"
+      },
+      "0.2.9": {
+        "en": "Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`), updated ESLint configuration to version 9 with @iobroker/eslint-config v2.2.0 for full compatibility. Improved CI stability on GitHub Actions. No functional changes.",
+        "de": "Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben, ESLint-Konfiguration auf Version 9 mit @iobroker/eslint-config v2.2.0 aktualisiert. Verbesserte CI-Stabilität auf GitHub Actions. Keine funktionalen Änderungen.",
+        "ru": "Обновление обслуживания: устранены конфликты зависимостей npm (`sinon-chai` против `chai`), обновлена конфигурация ESLint до версии 9 с @iobroker/eslint-config v2.2.0. Улучшена стабильность CI в GitHub Actions. Без функциональных изменений.",
+        "pt": "Atualização de manutenção: resolvidos conflitos de dependência npm (`sinon-chai` vs `chai`), configuração do ESLint atualizada para a versão 9 com @iobroker/eslint-config v2.2.0. Estabilidade do CI aprimorada no GitHub Actions. Sem alterações funcionais.",
+        "nl": "Onderhoudsupdate: npm-afhankelijkheidsconflicten (`sinon-chai` vs `chai`) opgelost, ESLint-configuratie bijgewerkt naar versie 9 met @iobroker/eslint-config v2.2.0. Verbeterde CI-stabiliteit op GitHub Actions. Geen functionele wijzigingen.",
+        "fr": "Mise à jour de maintenance : résolution des conflits de dépendances npm (`sinon-chai` vs `chai`), configuration ESLint mise à jour vers la version 9 avec @iobroker/eslint-config v2.2.0. Stabilité CI améliorée sur GitHub Actions. Aucune modification fonctionnelle.",
+        "it": "Aggiornamento di manutenzione: risolti i conflitti di dipendenza npm (`sinon-chai` vs `chai`), aggiornata la configurazione ESLint alla versione 9 con @iobroker/eslint-config v2.2.0. Migliorata la stabilità del CI su GitHub Actions. Nessuna modifica funzionale.",
+        "es": "Actualización de mantenimiento: resueltos los conflictos de dependencias npm (`sinon-chai` vs `chai`), configuración de ESLint actualizada a la versión 9 con @iobroker/eslint-config v2.2.0. Estabilidad de CI mejorada en GitHub Actions. Sin cambios funcionales.",
+        "pl": "Aktualizacja konserwacyjna: rozwiązano konflikty zależności npm (`sinon-chai` vs `chai`), zaktualizowano konfigurację ESLint do wersji 9 z @iobroker/eslint-config v2.2.0. Poprawiono stabilność CI w GitHub Actions. Brak zmian funkcjonalnych.",
+        "uk": "Технічне оновлення: усунуто конфлікти залежностей npm (`sinon-chai` проти `chai`), оновлено конфігурацію ESLint до версії 9 із @iobroker/eslint-config v2.2.0. Покращено стабільність CI у GitHub Actions. Без функціональних змін.",
+        "zh-cn": "维护更新：解决 npm 依赖冲突（`sinon-chai` 与 `chai`），将 ESLint 配置更新到版本 9 并使用 @iobroker/eslint-config v2.2.0。改进了 GitHub Actions 上的 CI 稳定性。无功能更改。"
+      }
+     },
+    "keywords": [
+      "al-ko",
+      "Robolinho",
+      "mower",
+      "garden",
+      "smart-garden"
+    ],
+    "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko-128.png",
+    "adminUI": {
+      "config": "json"
+    },
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT",
+      "link": "https://opensource.org/licenses/MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "type": "garden",
+    "loglevel": "info",
+    "connectionType": "cloud",
+    "dataSource": "push",
+    "mode": "daemon",
+    "compact": true,
+    "icon": "al-ko-128.png",
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.17"
+      }
+    ]
+  },
+  "native": {
+    "username": "",
+    "password": "",
+    "clientId": "",
+    "clientSecret": "",
+    "wsDebug": false
+  },
+  "protectedNative": [
+    "password",
+    "clientSecret"
+  ],
+  "encryptedNative": [
+    "password",
+    "clientSecret"
+  ],
+  "objects": [],
+  "instanceObjects": []
+}
