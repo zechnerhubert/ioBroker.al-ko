@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.12",
+    "version": "0.2.13",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.13": {
+        "en": "Fixed a JSON syntax error in io-package.json that broke adapter-check parsing (and caused 'adminUI' follow-up errors). Updated the JSON schema hint in VS Code and re-validated jsonConfig sizes. No functional changes.",
+        "de": "Einen JSON-Syntaxfehler in der io-package.json behoben, der das Parsing im Adapter-Check (und Folgefehler bei 'adminUI') verhindert hat. JSON-Schema-Hinweis in VS Code aktualisiert und jsonConfig-Sizes erneut validiert. Keine funktionalen Änderungen.",
+        "ru": "Исправлена ошибка синтаксиса JSON в io-package.json, из-за которой проверка адаптера не могла распарсить файл (и возникали последующие ошибки 'adminUI'). Обновлена подсказка схемы JSON в VS Code и повторно проверены размеры в jsonConfig. Функциональных изменений нет.",
+        "pt": "Corrigido um erro de sintaxe JSON em io-package.json que impedia o parser do adapter-check (e gerava erros subsequentes em 'adminUI'). Atualizada a dica de esquema JSON no VS Code e revalidados os tamanhos no jsonConfig. Sem alterações funcionais.",
+        "nl": "Een JSON-syntaxisfout in io-package.json opgelost waardoor adapter-check niet kon parsen (en 'adminUI'-fouten ontstonden). JSON-schemahint in VS Code bijgewerkt en jsonConfig-groottes her-gevalideerd. Geen functionele wijzigingen.",
+        "fr": "Correction d’une erreur de syntaxe JSON dans io-package.json qui empêchait l’analyse par adapter-check (et entraînait des erreurs 'adminUI'). Indice de schéma JSON mis à jour dans VS Code et tailles de jsonConfig re-validées. Aucun changement fonctionnel.",
+        "it": "Corretto un errore di sintassi JSON in io-package.json che impediva il parsing dell’adapter-check (con errori 'adminUI' conseguenti). Aggiornato il riferimento allo schema JSON in VS Code e rivalidate le size in jsonConfig. Nessuna modifica funzionale.",
+        "es": "Corregido un error de sintaxis JSON en io-package.json que impedía el análisis de adapter-check (y provocaba errores posteriores de 'adminUI'). Actualizada la sugerencia de esquema JSON en VS Code y revalidados los tamaños en jsonConfig. Sin cambios funcionales.",
+        "pl": "Naprawiono błąd składni JSON w io-package.json, który uniemożliwiał parsowanie przez adapter-check (i powodował dalsze błędy 'adminUI'). Zaktualizowano wskazówkę schematu JSON w VS Code oraz ponownie zweryfikowano rozmiary w jsonConfig. Brak zmian funkcjonalnych.",
+        "uk": "Виправлено помилку синтаксису JSON у io-package.json, через яку adapter-check не міг розібрати файл (і виникали подальші помилки 'adminUI'). Оновлено підказку схеми JSON у VS Code та повторно перевірено розміри в jsonConfig. Без функціональних змін.",
+        "zh-cn": "修复 io-package.json 中的 JSON 语法错误（导致 adapter-check 解析失败并引发“adminUI”后续错误）。更新了 VS Code 中的 JSON 架构提示，并重新验证了 jsonConfig 的尺寸设置。无功能性更改。"
+      },
       "0.2.12": {
         "en": "Admin UI: fixed schema URL to official jsonConfig schema and added missing responsive size attributes. Raised minimum requirements: js-controller >= 6.0.11, admin >= 7.6.17. No functional changes.",
         "de": "Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert und fehlende responsive Size-Attribute ergänzt. Mindestanforderungen erhöht: js-controller >= 6.0.11, admin >= 7.6.17. Keine funktionalen Änderungen.",
@@ -84,34 +97,8 @@
         "pl": "Aktualizacja konserwacyjna: rozwiązano konflikty zależności npm (`sinon-chai` vs `chai`), zaktualizowano konfigurację ESLint do wersji 9 z @iobroker/eslint-config v2.2.0. Poprawiono stabilność CI w GitHub Actions. Brak zmian funkcjonalnych.",
         "uk": "Технічне оновлення: усунуто конфлікти залежностей npm (`sinon-chai` проти `chai`), оновлено конфігурацію ESLint до версії 9 із @iobroker/eslint-config v2.2.0. Покращено стабільність CI у GitHub Actions. Без функціональних змін.",
         "zh-cn": "维护更新：解决 npm 依赖冲突（`sinon-chai` 与 `chai`），将 ESLint 配置更新到版本 9 并使用 @iobroker/eslint-config v2.2.0。改进了 GitHub Actions 上的 CI 稳定性。无功能更改。"
-      },
-      "0.2.8": {
-        "en": "Replaced external icon with optimized 128×128 version for correct npm and ioBroker Admin display. Fixed repository path (master branch) for proper package resolution. No functional changes.",
-        "de": "Externes Icon durch optimierte 128×128-Version ersetzt, um die Anzeige in npm und ioBroker Admin zu korrigieren. Repository-Pfad (master-Branch) für korrekte Paketauflösung angepasst. Keine funktionalen Änderungen.",
-        "ru": "Заменён внешний значок на оптимизированную версию 128×128 для правильного отображения в npm и ioBroker Admin. Исправлен путь к репозиторию (ветка master) для корректного определения пакета. Без функциональных изменений.",
-        "pt": "Substituído o ícone externo por uma versão otimizada de 128×128 para exibição correta no npm e no ioBroker Admin. Corrigido o caminho do repositório (ramo master) para resolução adequada do pacote. Sem alterações funcionais.",
-        "nl": "Extern pictogram vervangen door geoptimaliseerde 128×128-versie voor correcte weergave in npm en ioBroker Admin. Repositorpad (master-branch) gecorrigeerd voor juiste pakketresolutie. Geen functionele wijzigingen.",
-        "fr": "Icône externe remplacée par une version optimisée 128×128 pour un affichage correct dans npm et ioBroker Admin. Chemin du dépôt (branche master) corrigé pour une résolution correcte du package. Aucune modification fonctionnelle.",
-        "it": "Sostituita l'icona esterna con una versione ottimizzata 128×128 per la corretta visualizzazione in npm e ioBroker Admin. Corretto il percorso del repository (branch master) per una risoluzione corretta del pacchetto. Nessuna modifica funzionale.",
-        "es": "Ícono externo reemplazado por una versión optimizada de 128×128 para una visualización correcta en npm y ioBroker Admin. Se corrigió la ruta del repositorio (rama master) para la resolución adecuada del paquete. Sin cambios funcionales.",
-        "pl": "Zastąpiono zewnętrzną ikonę zoptymalizowaną wersją 128×128 dla poprawnego wyświetlania w npm i ioBroker Admin. Poprawiono ścieżkę repozytorium (gałąź master) dla właściwego rozwiązania pakietu. Bez zmian funkcjonalnych.",
-        "uk": "Зовнішню іконку замінено на оптимізовану версію 128×128 для правильного відображення в npm та ioBroker Admin. Виправлено шлях до репозиторію (гілка master) для коректного визначення пакету. Без функціональних змін.",
-        "zh-cn": "将外部图标替换为优化后的 128×128 版本，以便在 npm 和 ioBroker Admin 中正确显示。修复了存储库路径（master 分支），以确保正确解析软件包。无功能更改。"
-      },
-      "0.2.7": {
-        "en": "Adapter-check compliance: made icon references consistent (icon/extIcon now both use al-ko-128.png from GitHub) and ensured image size ≤ 512 px. Removed unnecessary publishConfig from package.json. No functional changes.",
-        "de": "Adapter-Check-Konformität: Icon-Verweise vereinheitlicht (icon/extIcon nutzen jetzt beide al-ko-128.png von GitHub) und Bildgröße ≤ 512 px sichergestellt. Unnötiges publishConfig aus package.json entfernt. Keine funktionalen Änderungen.",
-        "ru": "Соответствие проверке адаптера: унифицированы ссылки на иконку (icon/extIcon теперь используют al-ko-128.png с GitHub) и обеспечен размер изображения ≤ 512 px. Удалён лишний publishConfig из package.json. Без функциональных изменений.",
-        "pt": "Conformidade do adapter-check: referências de ícone unificadas (icon/extIcon agora usam al-ko-128.png do GitHub) e tamanho da imagem ≤ 512 px garantido. Removido publishConfig desnecessário do package.json. Sem alterações funcionais.",
-        "nl": "Adapter-check conformiteit: pictogramverwijzingen geharmoniseerd (icon/extIcon gebruiken nu beide al-ko-128.png van GitHub) en beeldgrootte ≤ 512 px geborgd. Onnodige publishConfig uit package.json verwijderd. Geen functionele wijzigingen.",
-        "fr": "Conformité au contrôle de l’adaptateur : unification des références d’icône (icon/extIcon utilisent désormais al-ko-128.png depuis GitHub) et taille d’image ≤ 512 px garantie. Suppression de publishConfig inutile dans package.json. Aucun changement fonctionnel.",
-        "it": "Conformità all’adapter-check: rese coerenti le referenze dell’icona (icon/extIcon ora usano entrambe al-ko-128.png da GitHub) e garantita dimensione immagine ≤ 512 px. Rimosso publishConfig non necessario da package.json. Nessuna modifica funzionale.",
-        "es": "Conformidad con el adapter-check: referencias de icono unificadas (icon/extIcon ahora usan ambos al-ko-128.png desde GitHub) y tamaño de imagen ≤ 512 px garantizado. Eliminado publishConfig innecesario de package.json. Sin cambios funcionales.",
-        "pl": "Zgodność z adapter-check: ujednolicono odwołania do ikony (icon/extIcon używają teraz al-ko-128.png z GitHub) i zapewniono rozmiar obrazu ≤ 512 px. Usunięto zbędny publishConfig z package.json. Brak zmian funkcjonalnych.",
-        "uk": "Відповідність adapter-check: уніфіковано посилання на значок (icon/extIcon тепер обидва використовують al-ko-128.png з GitHub) і гарантовано розмір зображення ≤ 512 px. Видалено непотрібний publishConfig з package.json. Без функціональних змін.",
-        "zh-cn": "通过适配器检查：统一图标引用（icon/extIcon 现均使用 GitHub 上的 al-ko-128.png），并确保图像大小 ≤ 512 像素。移除了 package.json 中不必要的 publishConfig。无功能性变更。"
-      },
-    },
+      }
+     },
     "keywords": [
       "al-ko",
       "Robolinho",

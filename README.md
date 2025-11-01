@@ -54,6 +54,34 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.13 (2025-10-29)
+
+**Deutsch:**
+- JSON-Syntaxfehler in `io-package.json` behoben, der den Adapter-Check blockiert hat (Folgefehler „adminUI“).
+- VS-Code-Schemahinweis für `admin/jsonConfig.json` aktualisiert.
+- `size`-Attribute in `jsonConfig` erneut geprüft/validiert.
+- Keine funktionalen Änderungen.
+
+**English:**
+- Fixed a JSON syntax error in `io-package.json` that blocked adapter-check (follow-up “adminUI” errors).
+- Updated VS Code JSON schema hint for `admin/jsonConfig.json`.
+- Re-validated `size` attributes in `jsonConfig`.
+- No functional changes.
+
+### 0.2.12 (2025-10-29)
+
+**Deutsch:**
+- Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert (`.vscode/settings.json`)
+- Fehlende responsive `size`-Attribute in `admin/jsonConfig.json` ergänzt
+- Mindestanforderungen angehoben: `js-controller >= 6.0.11`, `admin >= 7.6.17`
+- Keine funktionalen Änderungen
+
+**English:**
+- Admin UI: Fixed official jsonConfig schema URL (`.vscode/settings.json`)
+- Added missing responsive `size` attributes in `admin/jsonConfig.json`
+- Raised minimum requirements: `js-controller >= 6.0.11`, `admin >= 7.6.17`
+- No functional changes
+
 ### 0.2.11 (2025-10-28)
 
 **Deutsch:**
@@ -87,30 +115,6 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 - Updated ESLint setup to v9 + `@iobroker/eslint-config` v2.2.0  
 - Improved GitHub Actions CI stability  
 - No functional changes for end users  
-
-### 0.2.8 (2025-10-26)
-
-**Deutsch:**
-- Externes Icon durch optimierte 128×128-Version ersetzt, um die Anzeige in npm und ioBroker Admin zu korrigieren  
-- Repository-Pfad auf `master` umgestellt, um korrekte Paketauflösung sicherzustellen  
-- Keine funktionalen Änderungen  
-
-**English:**
-- Replaced external icon with optimized 128×128 version for proper display in npm and ioBroker Admin  
-- Adjusted repository path to `master` branch for correct package resolution  
-- No functional changes  
-
-### 0.2.7 (2025-10-26)
-
-**Deutsch:**
-- Adapter-Check-Konformität: Icon-Verweise vereinheitlicht (icon/extIcon nutzen jetzt beide `al-ko-128.png` von GitHub) und Bildgröße ≤ 512 px sichergestellt
-- Unnötiges `publishConfig` aus `package.json` entfernt
-- Keine funktionalen Änderungen
-
-**English:**
-- Adapter-check compliance: unified icon references (icon/extIcon now both use `al-ko-128.png` from GitHub) and ensured image size ≤ 512 px
-- Removed unnecessary `publishConfig` from `package.json`
-- No functional changes
 
 ## License
 MIT License
