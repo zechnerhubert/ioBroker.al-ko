@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.13",
+    "version": "0.2.14",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.14": {
+        "en": "Development tooling updates only: release-script to ^5.0.0 (releases from default branch; Node.js ≥ 18), iobroker and license plugins to ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. No functional changes.",
+        "de": "Nur Entwicklungs-Tooling aktualisiert: release-script auf ^5.0.0 (Releases vom Default-Branch; Node.js ≥ 18), iobroker- und license-Plugins auf ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Keine funktionalen Änderungen.",
+        "ru": "Обновлено только окружение разработки: release-script до ^5.0.0 (релизы из ветки по умолчанию; требуется Node.js ≥ 18), плагины iobroker и license до ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Без функциональных изменений.",
+        "pt": "Apenas atualizações de ferramentas de desenvolvimento: release-script para ^5.0.0 (releases a partir da branch padrão; Node.js ≥ 18), plugins iobroker e license para ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Sem alterações funcionais.",
+        "nl": "Alleen updates aan development tooling: release-script naar ^5.0.0 (releases vanaf standaardbranch; Node.js ≥ 18), iobroker- en license-plugins naar ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Geen functionele wijzigingen.",
+        "fr": "Mises à jour des outils de développement uniquement : release-script vers ^5.0.0 (publications depuis la branche par défaut ; Node.js ≥ 18), plugins iobroker et license vers ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Aucune modification fonctionnelle.",
+        "it": "Aggiornati solo gli strumenti di sviluppo: release-script a ^5.0.0 (rilasci dal branch predefinito; Node.js ≥ 18), plugin iobroker e license a ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Nessuna modifica funzionale.",
+        "es": "Solo actualizaciones de herramientas de desarrollo: release-script a ^5.0.0 (lanzamientos desde la rama predeterminada; Node.js ≥ 18), plugins iobroker y license a ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Sin cambios funcionales.",
+        "pl": "Tylko aktualizacje narzędzi deweloperskich: release-script do ^5.0.0 (wydania z gałęzi domyślnej; Node.js ≥ 18), wtyczki iobroker i license do ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Brak zmian funkcjonalnych.",
+        "uk": "Оновлено лише інструменти розробки: release-script до ^5.0.0 (релізи з гілки за замовчуванням; Node.js ≥ 18), плагіни iobroker і license до ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Без функціональних змін.",
+        "zh-cn": "仅更新开发工具：release-script 升级至 ^5.0.0（仅允许从默认分支发布；需要 Node.js ≥ 18），iobroker 和 license 插件至 ^4.0.0（ESM，Node.js ≥ 18），ESLint 9，TypeScript ^5.9.3，Prettier 3。无功能性变更。"
+      },
       "0.2.13": {
         "en": "Fixed a JSON syntax error in io-package.json that broke adapter-check parsing (and caused 'adminUI' follow-up errors). Updated the JSON schema hint in VS Code and re-validated jsonConfig sizes. No functional changes.",
         "de": "Einen JSON-Syntaxfehler in der io-package.json behoben, der das Parsing im Adapter-Check (und Folgefehler bei 'adminUI') verhindert hat. JSON-Schema-Hinweis in VS Code aktualisiert und jsonConfig-Sizes erneut validiert. Keine funktionalen Änderungen.",

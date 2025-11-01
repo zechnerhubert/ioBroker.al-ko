@@ -54,6 +54,24 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.14 (2025-11-01)
+
+**Deutsch:**
+- Entwicklungs-Tooling aktualisiert:
+  - `@alcalzone/release-script` auf ^5.0.0 (Releases nur vom Default-Branch; Node.js ≥ 18 erforderlich)
+  - `@alcalzone/release-script-plugin-iobroker` auf ^4.0.0 (ESM, Node.js ≥ 18)
+  - `@alcalzone/release-script-plugin-license` auf ^4.0.0 (ESM, Node.js ≥ 18)
+  - ESLint 9, TypeScript auf ^5.9.3, Prettier 3
+- Keine funktionalen Änderungen am Adaptercode
+
+**English:**
+- Development tooling updated:
+  - `@alcalzone/release-script` to ^5.0.0 (releases only from default branch; requires Node.js ≥ 18)
+  - `@alcalzone/release-script-plugin-iobroker` to ^4.0.0 (ESM, Node.js ≥ 18)
+  - `@alcalzone/release-script-plugin-license` to ^4.0.0 (ESM, Node.js ≥ 18)
+  - ESLint 9, TypeScript bumped to ^5.9.3, Prettier 3
+- No functional changes to adapter code
+
 ### 0.2.13 (2025-10-29)
 
 **Deutsch:**
