@@ -54,6 +54,24 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 
 ## Changelog
 
+### 0.2.15 (2025-11-02)
+
+**Deutsch:**
+- Admin-Konfiguration für den Adapter-Check bereinigt:
+  - `$schema` aus `admin/jsonConfig.json` entfernt
+  - Tabs/Panel-Struktur korrigiert
+  - Fehlende `size`-Attribute ergänzt
+- `.commitinfo` zu `.gitignore` hinzugefügt
+- Keine funktionalen Änderungen
+
+**English:**
+- Admin config cleanup for adapter-check:
+  - Removed `$schema` from `admin/jsonConfig.json`
+  - Corrected tabs/panel structure
+  - Added missing `size` attributes
+- Added `.commitinfo` to `.gitignore`
+- No functional changes
+
 ### 0.2.14 (2025-11-01)
 
 **Deutsch:**

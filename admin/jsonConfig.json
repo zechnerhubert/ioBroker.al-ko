@@ -1,51 +1,48 @@
 {
-  "$schema": "https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/packages/jsonConfig/schemas/jsonConfig.json",
-  "type": "tabs",
+  "type": "panel",
+  "label": {
+    "en": "General",
+    "de": "Allgemein",
+    "ru": "Общие",
+    "pt": "Geral",
+    "nl": "Algemeen",
+    "fr": "Général",
+    "it": "Generale",
+    "es": "General",
+    "pl": "Ogólne",
+    "uk": "Загальні",
+    "zh-cn": "常规"
+  },
   "items": {
-    "general": {
-      "type": "panel",
+    "username": {
+      "type": "text",
+      "label": { "en": "Username", "de": "Benutzername" },
+      "placeholder": "Enter your AL-KO account username",
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "password": {
+      "type": "password",
+      "label": { "en": "Password", "de": "Passwort" },
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "clientId": {
+      "type": "text",
+      "label": { "en": "Client ID", "de": "Client-ID" },
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "clientSecret": {
+      "type": "password",
+      "label": { "en": "Client Secret", "de": "Client-Secret" },
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
+    },
+    "wsDebug": {
+      "type": "checkbox",
       "label": {
-        "en": "General",
-        "de": "Allgemein",
-        "ru": "Общие",
-        "pt": "Geral",
-        "nl": "Algemeen",
-        "fr": "Général",
-        "it": "Generale",
-        "es": "General",
-        "pl": "Ogólne",
-        "uk": "Загальні",
-        "zh-cn": "常规"
+        "en": "Enable WebSocket message logging",
+        "de": "WebSocket-Nachrichten protokollieren"
       },
-      "items": {
-        "username": {
-          "type": "text",
-          "label": { "en": "Username", "de": "Benutzername" },
-          "placeholder": "Enter your AL-KO account username",
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "password": {
-          "type": "password",
-          "label": { "en": "Password", "de": "Passwort" },
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "clientId": {
-          "type": "text",
-          "label": { "en": "Client ID", "de": "Client-ID" },
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "clientSecret": {
-          "type": "password",
-          "label": { "en": "Client Secret", "de": "Client-Secret" },
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        },
-        "wsDebug": {
-          "type": "checkbox",
-          "label": { "en": "Enable WebSocket message logging", "de": "WebSocket-Nachrichten protokollieren" },
-          "default": false,
-          "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
-        }
-      }
+      "default": false,
+      "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
     }
   }
 }

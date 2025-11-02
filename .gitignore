@@ -7,6 +7,8 @@
 node_modules
 nbproject
 
+.commitionfo
+
 # npm package files
 iobroker.*.tgz
 

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.14",
+    "version": "0.2.15",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -33,6 +33,19 @@
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
     "news": {
+      "0.2.15": {
+        "en": "Admin config cleanup for adapter-check: removed $schema from jsonConfig, corrected tabs/panel structure and added all required size attributes. Also added .commitinfo to .gitignore. No functional changes.",
+        "de": "Admin-Konfiguration für den Adapter-Check bereinigt: $schema aus jsonConfig entfernt, Tabs/Panel-Struktur korrigiert und alle benötigten size-Attribute ergänzt. Zudem .commitinfo zur .gitignore hinzugefügt. Keine funktionalen Änderungen.",
+        "ru": "Очистка конфигурации Admin для adapter-check: удалён $schema из jsonConfig, исправлена структура вкладок/панелей и добавлены все необходимые атрибуты size. Также .commitinfo добавлен в .gitignore. Без функциональных изменений.",
+        "pt": "Limpeza da configuração do Admin para o adapter-check: removido $schema do jsonConfig, corrigida a estrutura de abas/painel e adicionados todos os atributos de size necessários. Também adicionado .commitinfo ao .gitignore. Sem alterações funcionais.",
+        "nl": "Admin-config opgeschoond voor adapter-check: $schema uit jsonConfig verwijderd, tabs/panel-structuur gecorrigeerd en alle vereiste size-attributen toegevoegd. Ook .commitinfo aan .gitignore toegevoegd. Geen functionele wijzigingen.",
+        "fr": "Nettoyage de la configuration Admin pour l’adapter-check : suppression de $schema dans jsonConfig, correction de la structure onglets/panneau et ajout de tous les attributs size requis. Ajout également de .commitinfo au .gitignore. Aucun changement fonctionnel.",
+        "it": "Pulizia della config Admin per l’adapter-check: rimosso $schema da jsonConfig, corretta la struttura tab/pannello e aggiunti tutti gli attributi size richiesti. Aggiunto anche .commitinfo a .gitignore. Nessuna modifica funzionale.",
+        "es": "Limpieza de la configuración de Admin para el adapter-check: se quitó $schema de jsonConfig, se corrigió la estructura de pestañas/panel y se añadieron todos los atributos size necesarios. También se añadió .commitinfo a .gitignore. Sin cambios funcionales.",
+        "pl": "Porządki w konfiguracji Admin pod adapter-check: usunięto $schema z jsonConfig, poprawiono strukturę zakładek/panelu i dodano wszystkie wymagane atrybuty size. Dodano też .commitinfo do .gitignore. Brak zmian funkcjonalnych.",
+        "uk": "Очищено конфігурацію Admin для adapter-check: видалено $schema з jsonConfig, виправлено структуру вкладок/панелі та додано всі потрібні атрибути size. Також додано .commitinfo до .gitignore. Без функціональних змін.",
+        "zh-cn": "为通过适配器检查清理了管理配置：从 jsonConfig 中移除 $schema，修正选项卡/面板结构并补齐所需的 size 属性。同时将 .commitinfo 加入 .gitignore。无功能性变化。"
+      },
       "0.2.14": {
         "en": "Development tooling updates only: release-script to ^5.0.0 (releases from default branch; Node.js ≥ 18), iobroker and license plugins to ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. No functional changes.",
         "de": "Nur Entwicklungs-Tooling aktualisiert: release-script auf ^5.0.0 (Releases vom Default-Branch; Node.js ≥ 18), iobroker- und license-Plugins auf ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Keine funktionalen Änderungen.",
@@ -84,32 +97,6 @@
         "pl": "Drobne poprawki i optymalizacje kodu. Brak zmian funkcjonalnych – poprawiona stabilność i łatwość utrzymania.",
         "uk": "Невеликі виправлення та оптимізації коду. Без функціональних змін – покращено стабільність і підтримуваність.",
         "zh-cn": "进行了小的代码修正和优化。无功能性更改——提高了稳定性和可维护性。"
-      },
-      "0.2.10": {
-        "en": "Adapter category updated: changed type from 'hardware' to 'garden' for correct classification in ioBroker Admin and repositories. No functional changes.",
-        "de": "Adapter-Kategorie aktualisiert: Typ von 'hardware' auf 'garden' geändert, um die korrekte Einordnung in ioBroker Admin und den Repositories sicherzustellen. Keine funktionalen Änderungen.",
-        "ru": "Обновлена категория адаптера: тип изменён с 'hardware' на 'garden' для правильной классификации в ioBroker Admin и репозиториях. Без функциональных изменений.",
-        "pt": "Categoria do adaptador atualizada: tipo alterado de 'hardware' para 'garden' para classificação correta no ioBroker Admin e repositórios. Sem alterações funcionais.",
-        "nl": "Adaptercategorie bijgewerkt: type gewijzigd van 'hardware' naar 'garden' voor correcte classificatie in ioBroker Admin en repositories. Geen functionele wijzigingen.",
-        "fr": "Catégorie d’adaptateur mise à jour : type modifié de 'hardware' à 'garden' pour une classification correcte dans ioBroker Admin et les dépôts. Aucune modification fonctionnelle.",
-        "it": "Categoria dell’adattatore aggiornata: tipo modificato da 'hardware' a 'garden' per una corretta classificazione in ioBroker Admin e nei repository. Nessuna modifica funzionale.",
-        "es": "Categoría del adaptador actualizada: tipo cambiado de 'hardware' a 'garden' para una clasificación correcta en ioBroker Admin y los repositorios. Sin cambios funcionales.",
-        "pl": "Zaktualizowano kategorię adaptera: zmieniono typ z 'hardware' na 'garden' w celu poprawnej klasyfikacji w ioBroker Admin i repozytoriach. Bez zmian funkcjonalnych.",
-        "uk": "Оновлено категорію адаптера: тип змінено з 'hardware' на 'garden' для правильного відображення в ioBroker Admin і репозиторіях. Без функціональних змін.",
-        "zh-cn": "更新适配器类别：将类型从“hardware”更改为“garden”，以便在 ioBroker Admin 和存储库中正确分类。无功能更改。"
-      },
-      "0.2.9": {
-        "en": "Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`), updated ESLint configuration to version 9 with @iobroker/eslint-config v2.2.0 for full compatibility. Improved CI stability on GitHub Actions. No functional changes.",
-        "de": "Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben, ESLint-Konfiguration auf Version 9 mit @iobroker/eslint-config v2.2.0 aktualisiert. Verbesserte CI-Stabilität auf GitHub Actions. Keine funktionalen Änderungen.",
-        "ru": "Обновление обслуживания: устранены конфликты зависимостей npm (`sinon-chai` против `chai`), обновлена конфигурация ESLint до версии 9 с @iobroker/eslint-config v2.2.0. Улучшена стабильность CI в GitHub Actions. Без функциональных изменений.",
-        "pt": "Atualização de manutenção: resolvidos conflitos de dependência npm (`sinon-chai` vs `chai`), configuração do ESLint atualizada para a versão 9 com @iobroker/eslint-config v2.2.0. Estabilidade do CI aprimorada no GitHub Actions. Sem alterações funcionais.",
-        "nl": "Onderhoudsupdate: npm-afhankelijkheidsconflicten (`sinon-chai` vs `chai`) opgelost, ESLint-configuratie bijgewerkt naar versie 9 met @iobroker/eslint-config v2.2.0. Verbeterde CI-stabiliteit op GitHub Actions. Geen functionele wijzigingen.",
-        "fr": "Mise à jour de maintenance : résolution des conflits de dépendances npm (`sinon-chai` vs `chai`), configuration ESLint mise à jour vers la version 9 avec @iobroker/eslint-config v2.2.0. Stabilité CI améliorée sur GitHub Actions. Aucune modification fonctionnelle.",
-        "it": "Aggiornamento di manutenzione: risolti i conflitti di dipendenza npm (`sinon-chai` vs `chai`), aggiornata la configurazione ESLint alla versione 9 con @iobroker/eslint-config v2.2.0. Migliorata la stabilità del CI su GitHub Actions. Nessuna modifica funzionale.",
-        "es": "Actualización de mantenimiento: resueltos los conflictos de dependencias npm (`sinon-chai` vs `chai`), configuración de ESLint actualizada a la versión 9 con @iobroker/eslint-config v2.2.0. Estabilidad de CI mejorada en GitHub Actions. Sin cambios funcionales.",
-        "pl": "Aktualizacja konserwacyjna: rozwiązano konflikty zależności npm (`sinon-chai` vs `chai`), zaktualizowano konfigurację ESLint do wersji 9 z @iobroker/eslint-config v2.2.0. Poprawiono stabilność CI w GitHub Actions. Brak zmian funkcjonalnych.",
-        "uk": "Технічне оновлення: усунуто конфлікти залежностей npm (`sinon-chai` проти `chai`), оновлено конфігурацію ESLint до версії 9 із @iobroker/eslint-config v2.2.0. Покращено стабільність CI у GitHub Actions. Без функціональних змін.",
-        "zh-cn": "维护更新：解决 npm 依赖冲突（`sinon-chai` 与 `chai`），将 ESLint 配置更新到版本 9 并使用 @iobroker/eslint-config v2.2.0。改进了 GitHub Actions 上的 CI 稳定性。无功能更改。"
       }
      },
     "keywords": [
