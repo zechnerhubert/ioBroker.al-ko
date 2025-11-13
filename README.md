@@ -1,176 +1,41 @@
-![Logo](admin/al-ko.png)
-# ioBroker.al-ko
+![act-logo](https://raw.githubusercontent.com/wiki/nektos/act/img/logo-150.png)
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.al-ko.svg)](https://www.npmjs.com/package/iobroker.al-ko)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.al-ko.svg)](https://www.npmjs.com/package/iobroker.al-ko)
-![Number of Installations](https://iobroker.live/badges/al-ko-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/al-ko-stable.svg)
+# Overview [![push](https://github.com/nektos/act/workflows/push/badge.svg?branch=master&event=push)](https://github.com/nektos/act/actions) [![Go Report Card](https://goreportcard.com/badge/github.com/nektos/act)](https://goreportcard.com/report/github.com/nektos/act) [![awesome-runners](https://img.shields.io/badge/listed%20on-awesome--runners-blue.svg)](https://github.com/jonico/awesome-runners)
 
-[![NPM](https://nodei.co/npm/iobroker.al-ko.png?downloads=true)](https://nodei.co/npm/iobroker.al-ko/)
+> "Think globally, `act` locally"
 
-**Tests:** ![Test and Release](https://github.com/zechnerhubert/ioBroker.al-ko/workflows/Test%20and%20Release/badge.svg)
+Run your [GitHub Actions](https://developer.github.com/actions/) locally! Why would you want to do this? Two reasons:
 
----
+- **Fast Feedback** - Rather than having to commit/push every time you want to test out the changes you are making to your `.github/workflows/` files (or for any changes to embedded GitHub actions), you can use `act` to run the actions locally. The [environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables) and [filesystem](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#filesystems-on-github-hosted-runners) are all configured to match what GitHub provides.
+- **Local Task Runner** - I love [make](<https://en.wikipedia.org/wiki/Make_(software)>). However, I also hate repeating myself. With `act`, you can use the GitHub Actions defined in your `.github/workflows/` to replace your `Makefile`!
 
-## ioBroker.al-ko
+> [!TIP]
+> **Now Manage and Run Act Directly From VS Code!**<br/>
+> Check out the [GitHub Local Actions](https://sanjulaganepola.github.io/github-local-actions-docs/) Visual Studio Code extension which allows you to leverage the power of `act` to run and test workflows locally without leaving your editor.
 
-Adapter zur Kommunikation mit **AL-KO Robolinho** und weiteren AL-KO Gartengeräten.
+# How Does It Work?
 
-Adapter for communication with **AL-KO Robolinho** and other AL-KO garden tools.
+When you run `act` it reads in your GitHub Actions from `.github/workflows/` and determines the set of actions that need to be run. It uses the Docker API to either pull or build the necessary images, as defined in your workflow files and finally determines the execution path based on the dependencies that were defined. Once it has the execution path, it then uses the Docker API to run containers for each action based on the images prepared earlier. The [environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables) and [filesystem](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#file-systems) are all configured to match what GitHub provides.
 
----
+Let's see it in action with a [sample repo](https://github.com/cplee/github-actions-demo)!
 
-## Funktionsumfang / Features
+![Demo](https://raw.githubusercontent.com/wiki/nektos/act/quickstart/act-quickstart-2.gif)
 
-- Verbindung mit der offiziellen **AL-KO Cloud API**
-- Automatisches Anlegen aller relevanten States
-- Alle schreibbaren States werden berücksichtigt (Whitelist)
-- Änderungen an States werden per API zurück in die Cloud gepusht
-- Gerätestatus wird automatisch und in Echtzeit über **WebSocket** aktualisiert
-- Authentifizierung via Benutzername / Passwort und API-Client-Daten
+# Act User Guide
 
----
+Please look at the [act user guide](https://nektosact.com) for more documentation.
 
-## Konfiguration
+# Support
 
-Um den Adapter zu nutzen, benötigen Sie API-Zugangsdaten von AL-KO.  
-Diese können Sie hier beantragen:  
-👉 [AL-KO IoT API Zugang](https://alko-garden.at/iot-api-zugang-anfordern/)
+Need help? Ask in [discussions](https://github.com/nektos/act/discussions)!
 
-Im Admin müssen folgende Daten hinterlegt werden:
-- **Username** (AL-KO Konto)
-- **Password**
-- **Client ID**
-- **Client Secret**
+# Contributing
 
----
+Want to contribute to act? Awesome! Check out the [contributing guidelines](CONTRIBUTING.md) to get involved.
 
-## DISCLAIMER
+## Manually building from source
 
-Dieser Adapter steht **in keinem Zusammenhang mit der Firma AL-KO**.  
-Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** dafür an.
-
----
-
-## Changelog
-
-### 0.2.15 (2025-11-02)
-
-**Deutsch:**
-- Admin-Konfiguration für den Adapter-Check bereinigt:
-  - `$schema` aus `admin/jsonConfig.json` entfernt
-  - Tabs/Panel-Struktur korrigiert
-  - Fehlende `size`-Attribute ergänzt
-- `.commitinfo` zu `.gitignore` hinzugefügt
-- Keine funktionalen Änderungen
-
-**English:**
-- Admin config cleanup for adapter-check:
-  - Removed `$schema` from `admin/jsonConfig.json`
-  - Corrected tabs/panel structure
-  - Added missing `size` attributes
-- Added `.commitinfo` to `.gitignore`
-- No functional changes
-
-### 0.2.14 (2025-11-01)
-
-**Deutsch:**
-- Entwicklungs-Tooling aktualisiert:
-  - `@alcalzone/release-script` auf ^5.0.0 (Releases nur vom Default-Branch; Node.js ≥ 18 erforderlich)
-  - `@alcalzone/release-script-plugin-iobroker` auf ^4.0.0 (ESM, Node.js ≥ 18)
-  - `@alcalzone/release-script-plugin-license` auf ^4.0.0 (ESM, Node.js ≥ 18)
-  - ESLint 9, TypeScript auf ^5.9.3, Prettier 3
-- Keine funktionalen Änderungen am Adaptercode
-
-**English:**
-- Development tooling updated:
-  - `@alcalzone/release-script` to ^5.0.0 (releases only from default branch; requires Node.js ≥ 18)
-  - `@alcalzone/release-script-plugin-iobroker` to ^4.0.0 (ESM, Node.js ≥ 18)
-  - `@alcalzone/release-script-plugin-license` to ^4.0.0 (ESM, Node.js ≥ 18)
-  - ESLint 9, TypeScript bumped to ^5.9.3, Prettier 3
-- No functional changes to adapter code
-
-### 0.2.13 (2025-10-29)
-
-**Deutsch:**
-- JSON-Syntaxfehler in `io-package.json` behoben, der den Adapter-Check blockiert hat (Folgefehler „adminUI“).
-- VS-Code-Schemahinweis für `admin/jsonConfig.json` aktualisiert.
-- `size`-Attribute in `jsonConfig` erneut geprüft/validiert.
-- Keine funktionalen Änderungen.
-
-**English:**
-- Fixed a JSON syntax error in `io-package.json` that blocked adapter-check (follow-up “adminUI” errors).
-- Updated VS Code JSON schema hint for `admin/jsonConfig.json`.
-- Re-validated `size` attributes in `jsonConfig`.
-- No functional changes.
-
-### 0.2.12 (2025-10-29)
-
-**Deutsch:**
-- Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert (`.vscode/settings.json`)
-- Fehlende responsive `size`-Attribute in `admin/jsonConfig.json` ergänzt
-- Mindestanforderungen angehoben: `js-controller >= 6.0.11`, `admin >= 7.6.17`
-- Keine funktionalen Änderungen
-
-**English:**
-- Admin UI: Fixed official jsonConfig schema URL (`.vscode/settings.json`)
-- Added missing responsive `size` attributes in `admin/jsonConfig.json`
-- Raised minimum requirements: `js-controller >= 6.0.11`, `admin >= 7.6.17`
-- No functional changes
-
-### 0.2.11 (2025-10-28)
-
-**Deutsch:**
-* Kleinere Code-Korrekturen und Optimierungen vorgenommen  
-* Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert  
-
-**English:**
-* Minor code corrections and optimizations  
-* No functional changes – improved stability and maintainability
-
-### 0.2.10 (2025-10-28)
-
-**Deutsch:**
-- Adapter-Kategorie angepasst: Typ von 'hardware' auf 'garden' geändert.
-- Keine funktionalen Änderungen für Anwender
-
-**English:** 
-- Changed adapter type from 'hardware' to 'garden' for proper categorization in ioBroker Admin and repositories.
-- No functional changes for end users  
-
-### 0.2.9 (2025-10-28)
-
-**Deutsch:**  
-- Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben  
-- ESLint-Konfiguration auf Version 9 mit `@iobroker/eslint-config` v2.2.0 aktualisiert  
-- CI-Stabilität auf GitHub Actions verbessert  
-- Keine funktionalen Änderungen für Anwender
-
-**English:**  
-- Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`)  
-- Updated ESLint setup to v9 + `@iobroker/eslint-config` v2.2.0  
-- Improved GitHub Actions CI stability  
-- No functional changes for end users  
-
-## License
-MIT License
-
-Copyright (c) 2025 Hubert <hubertiob@posteo.at>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- Install Go tools 1.20+ - (<https://golang.org/doc/install>)
+- Clone this repo `git clone git@github.com:nektos/act.git`
+- Run unit tests with `make test`
+- Build and install: `make install`
