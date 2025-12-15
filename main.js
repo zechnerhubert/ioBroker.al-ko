@@ -4,7 +4,10 @@ const axios = require("axios");
 const utils = require("@iobroker/adapter-core");
 const WebSocket = require("ws");
 
-// Whitelist laden (z. B. mowingWindows.monday.window_1.startHour)
+// Global axios timeout
+axios.defaults.timeout = 6000;
+
+// Load whitelist
 let whitelist = [];
 try {
   whitelist = require("./whitelist.json");
@@ -12,7 +15,7 @@ try {
     whitelist = [];
   }
 } catch (_e) {
-  console.warn("Whitelist nicht gefunden, arbeite mit leerer Whitelist.");
+  console.warn("Whitelist not found, using empty whitelist.");
   whitelist = [];
 }
 
@@ -25,15 +28,16 @@ class AlKoAdapter extends utils.Adapter {
     this.tokenExpiresAt = null;
     this.tokenInterval = null;
 
-    this.deviceStates = {}; // Cache für letzte bekannte States
-    this.pushableStates = new Set(); // Nur whitelisted States
-    this.lastStateValues = {}; // Vergleichswert für Änderungen
+    this.deviceStates = {};
+    this.pushableStates = new Set();
+    this.lastStateValues = {};
     this.adapterSetStates = new Set();
     this.pendingPushes = new Set();
-    this.webSockets = {}; // offene WebSocket-Verbindungen pro Gerät
-    this.reconnectTimeouts = {}; // offene Reconnect-Timeouts
-    this.pingIntervals = {}; // Ping-Intervalle pro Gerät
-    this.pongTimeouts = {}; // Timeout-Überwachung nach Ping
+
+    this.webSockets = {};
+    this.reconnectTimeouts = {};
+    this.pingIntervals = {};
+    this.pongTimeouts = {};
 
     this._stopRequested = false;
 
@@ -42,13 +46,25 @@ class AlKoAdapter extends utils.Adapter {
     this.on("stateChange", this.onStateChange.bind(this));
   }
 
-  // ---------------- Adapter-Start ----------------
+  // ---------------- ID Sanitizer ----------------
+  sanitizeId(id) {
+    return id
+      .replace(/[^A-Za-z0-9\-_.:]/g, "_")
+      .replace(/\.+/g, ".")
+      .replace(/_+/g, "_")
+      .replace(/^\./, "")
+      .replace(/\.$/, "");
+  }
+
+  // ---------------- Adapter Startup ----------------
   async onReady() {
-    this.log.info(`ℹ️ Adapter läuft mit Namespace: ${this.namespace}`);
+    this.log.info(`Adapter started. Namespace: ${this.namespace}`);
 
     const { clientId, clientSecret, username, password } = this.config;
     if (!clientId || !clientSecret || !username || !password) {
-      this.log.error("❌ Bitte alle Zugangsdaten eintragen");
+      this.log.error(
+        "Missing API credentials. Please fill in all configuration fields.",
+      );
       return;
     }
     this.clientId = clientId;
@@ -61,22 +77,21 @@ class AlKoAdapter extends utils.Adapter {
       this.scheduleTokenRefresh();
       await this.fetchAndCreateDeviceStates();
 
-      // Ausgabe aller pushableStates ins Log
-      this.log.info(
-        `🔔 Abonniert ${this.pushableStates.size} schreibbare States für Push-Erkennung.`,
+      this.log.debug(
+        `Subscribed ${this.pushableStates.size} writable states for push detection.`,
       );
-
-      this.log.info("✅ Adapter bereit");
+      this.log.info("Adapter is ready.");
     } catch (err) {
       this.log.error(
-        `❌ Fehler beim Start: ${err.response?.data || err.message || err}`,
+        `Startup error: ${err.response?.data || err.message || err}`,
       );
     }
   }
 
-  // ---------------- Authentifizierung ----------------
+  // ---------------- Authentication ----------------
   async authenticate() {
-    this.log.info("Authentifiziere bei AL-KO API…");
+    this.log.info("Authenticating with AL-KO API...");
+
     const url = "https://idp.al-ko.com/connect/token";
     const params = new URLSearchParams();
     params.append("grant_type", "password");
@@ -97,12 +112,13 @@ class AlKoAdapter extends utils.Adapter {
     this.refreshToken = res.data.refresh_token;
     this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
 
-    this.log.info("✅ Login erfolgreich");
+    this.log.info("Login successful.");
   }
 
   async refreshAuth() {
     if (!this.refreshToken || Date.now() >= this.tokenExpiresAt - 60000) {
-      this.log.info("🔄 Erneuere Access-Token…");
+      this.log.debug("Refreshing access token...");
+
       const url = "https://idp.al-ko.com/connect/token";
       const params = new URLSearchParams();
       params.append("grant_type", "refresh_token");
@@ -117,21 +133,26 @@ class AlKoAdapter extends utils.Adapter {
       const res = await axios.post(url, params, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
+
       this.accessToken = res.data.access_token;
       this.refreshToken = res.data.refresh_token;
       this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
-      this.log.info("✅ Token erfolgreich erneuert");
+
+      this.log.debug("Access token refreshed successfully.");
     }
   }
 
   scheduleTokenRefresh() {
     if (this.tokenInterval) {
-      clearInterval(this.tokenInterval);
+      this.clearInterval(this.tokenInterval);
     }
-    this.tokenInterval = setInterval(() => this.refreshAuth(), 30 * 60 * 1000);
+    this.tokenInterval = this.setInterval(
+      () => this.refreshAuth(),
+      30 * 60 * 1000,
+    );
   }
 
-  // ---------------- Geräte & States ----------------
+  // ---------------- Device Fetch / State Creation ----------------
   async fetchAndCreateDeviceStates() {
     await this.refreshAuth();
 
@@ -146,23 +167,32 @@ class AlKoAdapter extends utils.Adapter {
     const devices = res.data;
     if (devices && devices.length) {
       for (const device of devices) {
-        const deviceId = device.thingName || device.name || device.id;
+        const deviceId = this.sanitizeId(
+          device.thingName || device.name || device.id,
+        );
+
+        await this.setObjectNotExistsAsync(`${this.namespace}.${deviceId}`, {
+          type: "device",
+          common: { name: deviceId, role: "device" },
+          native: {},
+        });
+
         const stateData = await this.getDeviceStatus(deviceId);
         if (stateData?.state) {
           this.deviceStates[deviceId] =
             stateData.state.reported || stateData.state;
+
           await this.createStatesRecursive(
-            `al-ko.0.${deviceId}.state`,
+            `${this.namespace}.${deviceId}.state`,
             this.deviceStates[deviceId],
             "",
           );
 
-          // WebSocket starten
           this.connectWebSocket(deviceId);
         }
       }
     }
-    // --- NACH dem Anlegen der States und pro Gerät aufrufen ---
+
     if (this.pushableStates.size) {
       let count = 0;
       for (const id of this.pushableStates) {
@@ -170,41 +200,36 @@ class AlKoAdapter extends utils.Adapter {
           this.subscribeStates(id);
           count++;
         } catch (e) {
-          this.log.debug(
-            `Konnte State nicht abonnieren: ${id} -> ${e.message}`,
-          );
+          this.log.debug(`Could not subscribe state ${id}: ${e.message}`);
         }
       }
-      this.log.info(
-        `🔔 Abonniert ${count} schreibbare States für Push-Erkennung.`,
-      );
+      this.log.debug(`Subscribed ${count} writable states for push detection.`);
     } else {
       const pattern = `${this.namespace}.*`;
       this.subscribeStates(pattern);
       this.log.warn(
-        `⚠️ Keine pushbaren States erkannt – abonniere Fallback "${pattern}".`,
+        `No writable states detected. Subscribing fallback pattern "${pattern}".`,
       );
     }
   }
-
   async getDeviceStatus(deviceId) {
     await this.refreshAuth();
     const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}/state`;
+
     const res = await axios.get(url, {
       headers: {
         Authorization: `Bearer ${this.accessToken}`,
         Accept: "application/json",
       },
     });
-    this.log.info(`📥 Status abgerufen für: ${deviceId}`);
+
+    this.log.debug(`Status fetched for device ${deviceId}`);
     return res.data;
   }
 
-  // ---------------- WebSocket ----------------
+  // ---------------- WebSocket Handling ----------------
   connectWebSocket(deviceId) {
-    if (!this.accessToken) {
-      return;
-    }
+    if (!this.accessToken) return;
 
     const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
     const ws = new WebSocket(url);
@@ -212,74 +237,72 @@ class AlKoAdapter extends utils.Adapter {
     ws.isAlive = true;
 
     ws.on("open", () => {
-      this.log.info(`🔗 WebSocket verbunden für Gerät: ${deviceId}`);
+      this.log.debug(`WebSocket connected for device ${deviceId}`);
 
-      // PING-Mechanismus (alle 120 Sekunden)
-      this.pingIntervals[deviceId] = setInterval(() => {
+      this.pingIntervals[deviceId] = this.setInterval(() => {
         if (ws.readyState === WebSocket.OPEN) {
           ws.ping();
           ws.isAlive = false;
 
-          this.pongTimeouts[deviceId] = setTimeout(() => {
+          this.pongTimeouts[deviceId] = this.setTimeout(() => {
             if (!ws.isAlive) {
               this.log.warn(
-                `💤 Keine Pong-Antwort von ${deviceId} → Verbindung wird beendet`,
+                `WebSocket ping timeout for ${deviceId}, closing connection.`,
               );
               ws.terminate();
             }
-          }, 30_000); // 30 Sekunden Zeit für Pong
+          }, 30000);
         }
-      }, 120_000); // 120 Sekunden Ping-Intervall
+      }, 120000);
     });
 
     ws.on("pong", () => {
       ws.isAlive = true;
-      clearTimeout(this.pongTimeouts[deviceId]);
+      this.clearTimeout(this.pongTimeouts[deviceId]);
     });
 
     ws.on("message", async (msg) => {
       if (this.config.wsDebug) {
-        this.log.info(`🌐 WS-Nachricht (${deviceId}): ${msg}`);
+        this.log.debug(`WebSocket message (${deviceId}): ${msg}`);
       }
       try {
         const data = JSON.parse(msg.toString());
         if (data && data.state) {
           const newState = data.state.reported || data.state;
 
-          // NEU: Cache nicht überschreiben, sondern mergen
           this.deviceStates[deviceId] = this.deepMerge(
             this.deviceStates[deviceId] || {},
             newState,
           );
 
           await this.createStatesRecursive(
-            `al-ko.0.${deviceId}.state`,
+            `${this.namespace}.${deviceId}.state`,
             this.deviceStates[deviceId],
             "",
           );
         }
       } catch (e) {
         this.log.error(
-          `❌ Fehler beim Verarbeiten der WS-Nachricht (${deviceId}): ${e.message}`,
+          `Error processing WebSocket message for device ${deviceId}: ${e.message}`,
         );
       }
     });
 
     ws.on("close", () => {
       this.log.warn(
-        `⚠️ WebSocket geschlossen für ${deviceId}, erneuter Versuch in 10s`,
+        `WebSocket closed for device ${deviceId}. Retrying in 10 seconds.`,
       );
-      clearInterval(this.pingIntervals[deviceId]);
-      clearTimeout(this.pongTimeouts[deviceId]);
-      this.reconnectTimeouts[deviceId] = setTimeout(
+      this.clearInterval(this.pingIntervals[deviceId]);
+      this.clearTimeout(this.pongTimeouts[deviceId]);
+
+      this.reconnectTimeouts[deviceId] = this.setTimeout(
         () => this.connectWebSocket(deviceId),
         10000,
       );
     });
 
     ws.on("error", (err) => {
-      this.log.error(`❌ WebSocket-Fehler (${deviceId}): ${err.message}`);
-      // Falls kein 'close' folgt, aktiv terminieren, damit Reconnect greift
+      this.log.error(`WebSocket error for ${deviceId}: ${err.message}`);
       try {
         ws.terminate();
       } catch {}
@@ -288,7 +311,7 @@ class AlKoAdapter extends utils.Adapter {
     this.webSockets[deviceId] = ws;
   }
 
-  // ---------------- Deep Merge ----------------
+  // ---------------- Deep Merge Logic ----------------
   deepMerge(target, source) {
     if (typeof target !== "object" || target === null) {
       return JSON.parse(JSON.stringify(source));
@@ -308,33 +331,28 @@ class AlKoAdapter extends utils.Adapter {
     return output;
   }
 
-  // ---------------- State-Erzeugung ----------------
-
+  // ---------------- Recursive State Creation ----------------
   async createStatesRecursive(basePath, obj, relPath) {
-    if (!obj || typeof obj !== "object") {
-      return;
-    }
+    if (!obj || typeof obj !== "object") return;
 
     for (const key of Object.keys(obj)) {
       const val = obj[key];
-      if (val === null || val === undefined) {
-        continue;
-      }
+      if (val === null || val === undefined) continue;
 
       const currentRel = relPath ? `${relPath}.${key}` : key;
-      const fullId = `${basePath}.${key}`;
+      const fullId = this.sanitizeId(`${basePath}.${key}`);
 
       if (typeof val === "object" && !Array.isArray(val)) {
         await this.setObjectNotExistsAsync(fullId, {
           type: "channel",
-          common: { name: key },
+          common: { name: key, role: "channel" },
           native: {},
         });
         await this.createStatesRecursive(fullId, val, currentRel);
       } else if (Array.isArray(val)) {
         await this.setObjectNotExistsAsync(fullId, {
           type: "channel",
-          common: { name: key },
+          common: { name: key, role: "channel" },
           native: {},
         });
         for (let i = 0; i < val.length; i++) {
@@ -342,7 +360,7 @@ class AlKoAdapter extends utils.Adapter {
           if (typeof val[i] === "object") {
             await this.setObjectNotExistsAsync(idxId, {
               type: "channel",
-              common: { name: `${i}` },
+              common: { name: `${i}`, role: "channel" },
               native: {},
             });
             await this.createStatesRecursive(
@@ -359,17 +377,13 @@ class AlKoAdapter extends utils.Adapter {
               writable,
               `${currentRel}.${i}`,
             );
-            if (writable) {
-              this.pushableStates.add(idxId);
-            }
+            if (writable) this.pushableStates.add(idxId);
           }
         }
       } else {
         const writable = this.isRelPathWhitelisted(currentRel);
         await this.setStateIfChanged(fullId, val, true, writable, currentRel);
-        if (writable) {
-          this.pushableStates.add(fullId);
-        }
+        if (writable) this.pushableStates.add(fullId);
       }
     }
   }
@@ -377,7 +391,43 @@ class AlKoAdapter extends utils.Adapter {
   isRelPathWhitelisted(relPath) {
     return whitelist.includes(relPath);
   }
+  // ---------------- Role Mapping ----------------
+  mapRole(relPath, type) {
+    if (!relPath) return "state";
 
+    const lower = relPath.toLowerCase();
+
+    if (lower.endsWith("starthour") || lower.endsWith("hour"))
+      return "value.hour";
+    if (lower.endsWith("startminute") || lower.endsWith("minute"))
+      return "value.minute";
+
+    if (type === "boolean") {
+      if (
+        lower.includes("mode") ||
+        lower.includes("enabled") ||
+        lower.includes("manualmowing")
+      ) {
+        return "switch";
+      }
+      return "indicator";
+    }
+
+    if (lower.includes("operationstate") || lower.includes("state")) {
+      return "indicator.status";
+    }
+
+    if (type === "number") {
+      if (lower.includes("battery")) return "value.battery";
+      return "value";
+    }
+
+    if (type === "string") return "text";
+
+    return "state";
+  }
+
+  // ---------------- Safe setState wrapper ----------------
   async setStateIfChanged(
     id,
     value,
@@ -386,17 +436,15 @@ class AlKoAdapter extends utils.Adapter {
     relPath = null,
   ) {
     let type;
-    if (typeof value === "boolean") {
-      type = "boolean";
-    } else if (typeof value === "number") {
-      type = "number";
-    } else {
-      type = "string";
-    }
+    if (typeof value === "boolean") type = "boolean";
+    else if (typeof value === "number") type = "number";
+    else type = "string";
+
+    id = this.sanitizeId(id);
 
     await this.setObjectNotExistsAsync(id, {
       type: "state",
-      common: { type, role: "state", read: true, write },
+      common: { type, role: this.mapRole(relPath, type), read: true, write },
       native: {},
     });
 
@@ -412,48 +460,42 @@ class AlKoAdapter extends utils.Adapter {
     }
   }
 
-  // ---------------- State-Änderungen (Push) ----------------
+  // ---------------- onStateChange → Push to AL-KO ----------------
   async onStateChange(id, state) {
-    //this.log.info(`INFO: onStateChange ausgelöst für ${id}, state=${JSON.stringify(state)}`);
+    id = this.sanitizeId(id);
 
-    if (!state || this._stopRequested) {
-      return;
-    }
-    if (this.adapterSetStates.has(id)) {
-      //this.log.info(`INFO: Ignoriere eigenes Adapter-Update für ${id}`);
-      return;
-    }
+    if (!state || this._stopRequested) return;
+    if (this.adapterSetStates.has(id)) return;
     if (!this.pushableStates.has(id)) {
-      this.log.info(`INFO: Änderung an nicht-pushbarem State ${id} erkannt`);
+      this.log.debug(`State change ignored for non-writable state ${id}`);
       return;
     }
-    if (this.pendingPushes.has(id)) {
-      return;
-    }
+    if (this.pendingPushes.has(id)) return;
 
     const last = this.lastStateValues[id];
-    if (last === state.val) {
-      return;
-    }
+    if (last === state.val) return;
 
     this.lastStateValues[id] = state.val;
+
     const parts = id.split(".");
     const deviceId = parts[2];
     const relPathArr = parts.slice(4);
 
     this.pendingPushes.add(id);
+
     try {
-      this.log.info(`✏️ Änderung erkannt: ${id} = ${state.val}`);
+      this.log.debug(`Writable state changed: ${id} = ${state.val}`);
 
       const payload = this.buildPatchPayloadFromCache(
         deviceId,
         relPathArr,
         state.val,
       );
-      this.log.info(`📤 Push ${id}: ${JSON.stringify(payload)}`);
+      this.log.debug(`Sending push for ${id}: ${JSON.stringify(payload)}`);
 
       await this.refreshAuth();
       const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}/state/desired`;
+
       await axios.patch(url, payload, {
         headers: {
           Authorization: `Bearer ${this.accessToken}`,
@@ -461,21 +503,21 @@ class AlKoAdapter extends utils.Adapter {
         },
       });
 
-      this.log.info(`✅ Push erfolgreich: ${id}`);
+      this.log.info(`Push successful: ${id}`);
       this.updateDeviceStateCache(deviceId, relPathArr, state.val);
     } catch (err) {
       this.log.error(
-        `❌ Fehler beim Pushen von ${id}: ${err.response?.status} ${err.response?.data || err.message}`,
+        `Error pushing state ${id}: ${err.response?.status} ${err.response?.data || err.message}`,
       );
     } finally {
       this.pendingPushes.delete(id);
     }
   }
 
-  // ---------------- Vollständige verschachtelte Payload-Logik (aus Referenz) ----------------
+  // ---------------- Build Patch Payload ----------------
   buildPatchPayloadFromCache(deviceId, relPathArr, value) {
     if (!Array.isArray(relPathArr) || relPathArr.length === 0) {
-      throw new Error("Ungültiger relPathArr");
+      throw new Error("Invalid relPathArr");
     }
 
     if (relPathArr.length === 1) {
@@ -500,9 +542,11 @@ class AlKoAdapter extends utils.Adapter {
 
     let nested = filteredParent;
     const nestedParts = parentParts.slice(1);
+
     for (let i = nestedParts.length - 1; i >= 0; i--) {
       nested = { [nestedParts[i]]: nested };
     }
+
     return { [rootKey]: nested };
   }
 
@@ -515,9 +559,7 @@ class AlKoAdapter extends utils.Adapter {
       .filter((s) => !!s);
 
     if (relevant.length === 0) {
-      if (whitelist.includes(parentRelPrefix)) {
-        return obj;
-      }
+      if (whitelist.includes(parentRelPrefix)) return obj;
       return {};
     }
 
@@ -527,27 +569,23 @@ class AlKoAdapter extends utils.Adapter {
       let cur = tree;
       for (let i = 0; i < parts.length; i++) {
         const part = parts[i];
-        if (!cur[part]) {
-          cur[part] = {};
-        }
+        if (!cur[part]) cur[part] = {};
         cur = cur[part];
       }
     }
 
     const copyAllowed = (source, schema) => {
-      if (source === null || typeof source !== "object") {
-        return source;
-      }
+      if (source === null || typeof source !== "object") return source;
+
       if (Array.isArray(source)) {
         const resArr = [];
         for (let i = 0; i < source.length; i++) {
           const key = String(i);
-          if (schema[key]) {
-            resArr[i] = copyAllowed(source[i], schema[key]);
-          }
+          if (schema[key]) resArr[i] = copyAllowed(source[i], schema[key]);
         }
         return resArr;
       }
+
       const res = {};
       for (const k of Object.keys(schema)) {
         if (Object.prototype.hasOwnProperty.call(source, k)) {
@@ -563,9 +601,7 @@ class AlKoAdapter extends utils.Adapter {
   getDeep(obj, pathArr) {
     let cur = obj;
     for (const p of pathArr) {
-      if (cur == null || typeof cur !== "object") {
-        return undefined;
-      }
+      if (cur == null || typeof cur !== "object") return undefined;
       cur = cur[p];
     }
     return cur;
@@ -589,40 +625,36 @@ class AlKoAdapter extends utils.Adapter {
     this.setDeep(this.deviceStates[deviceId], relPathArr, value);
   }
 
-  // ---------------- Adapter-Stop ----------------
+  // ---------------- Adapter Stop ----------------
   onUnload(callback) {
     try {
       this._stopRequested = true;
-      if (this.tokenInterval) {
-        clearInterval(this.tokenInterval);
-      }
+
+      if (this.tokenInterval) this.clearInterval(this.tokenInterval);
 
       for (const t of Object.values(this.reconnectTimeouts)) {
         try {
-          clearTimeout(t);
+          this.clearTimeout(t);
         } catch {}
       }
-
       for (const t of Object.values(this.pingIntervals)) {
         try {
-          clearInterval(t);
+          this.clearInterval(t);
         } catch {}
       }
-
       for (const t of Object.values(this.pongTimeouts)) {
         try {
-          clearTimeout(t);
+          this.clearTimeout(t);
         } catch {}
       }
 
-      // offene WebSockets schließen
       for (const ws of Object.values(this.webSockets)) {
         try {
           ws.close();
         } catch {}
       }
 
-      this.log.info("Adapter gestoppt.");
+      this.log.info("Adapter stopped.");
       callback();
     } catch (_e) {
       callback();
@@ -630,7 +662,6 @@ class AlKoAdapter extends utils.Adapter {
   }
 }
 
-// ---------------- Export ----------------
 if (require.main !== module) {
   module.exports = (options) => new AlKoAdapter(options);
 } else {

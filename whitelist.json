@@ -126,7 +126,6 @@
   "nextOperation",
   "offPitch",
   "operationState",
-  "operationSubState",
   "rainDelay",
   "rainSensitivity",
   "rainSensor"

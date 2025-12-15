@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.2.15",
+    "version": "0.3.0",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -32,73 +32,36 @@
     "authors": [
       "Hubert Zechner <hubertiob@posteo.at>"
     ],
+    "docs": {
+      "en": "docs/en/README.md",
+      "de": "docs/de/README.md"
+    },
     "news": {
+      "0.3.0": {
+        "en": "Internal cleanup for adapter-check compliance, improved logging, removed hardcoded instance handling, optimized object structure, updated development environment.",
+        "de": "Interne Überarbeitung für Adapter-Check-Kompatibilität, verbessertes Logging, Entfernung der festen Instanznummer, optimierte Objektstruktur, aktualisierte Entwicklungsumgebung."
+      },
       "0.2.15": {
-        "en": "Admin config cleanup for adapter-check: removed $schema from jsonConfig, corrected tabs/panel structure and added all required size attributes. Also added .commitinfo to .gitignore. No functional changes.",
-        "de": "Admin-Konfiguration für den Adapter-Check bereinigt: $schema aus jsonConfig entfernt, Tabs/Panel-Struktur korrigiert und alle benötigten size-Attribute ergänzt. Zudem .commitinfo zur .gitignore hinzugefügt. Keine funktionalen Änderungen.",
-        "ru": "Очистка конфигурации Admin для adapter-check: удалён $schema из jsonConfig, исправлена структура вкладок/панелей и добавлены все необходимые атрибуты size. Также .commitinfo добавлен в .gitignore. Без функциональных изменений.",
-        "pt": "Limpeza da configuração do Admin para o adapter-check: removido $schema do jsonConfig, corrigida a estrutura de abas/painel e adicionados todos os atributos de size necessários. Também adicionado .commitinfo ao .gitignore. Sem alterações funcionais.",
-        "nl": "Admin-config opgeschoond voor adapter-check: $schema uit jsonConfig verwijderd, tabs/panel-structuur gecorrigeerd en alle vereiste size-attributen toegevoegd. Ook .commitinfo aan .gitignore toegevoegd. Geen functionele wijzigingen.",
-        "fr": "Nettoyage de la configuration Admin pour l’adapter-check : suppression de $schema dans jsonConfig, correction de la structure onglets/panneau et ajout de tous les attributs size requis. Ajout également de .commitinfo au .gitignore. Aucun changement fonctionnel.",
-        "it": "Pulizia della config Admin per l’adapter-check: rimosso $schema da jsonConfig, corretta la struttura tab/pannello e aggiunti tutti gli attributi size richiesti. Aggiunto anche .commitinfo a .gitignore. Nessuna modifica funzionale.",
-        "es": "Limpieza de la configuración de Admin para el adapter-check: se quitó $schema de jsonConfig, se corrigió la estructura de pestañas/panel y se añadieron todos los atributos size necesarios. También se añadió .commitinfo a .gitignore. Sin cambios funcionales.",
-        "pl": "Porządki w konfiguracji Admin pod adapter-check: usunięto $schema z jsonConfig, poprawiono strukturę zakładek/panelu i dodano wszystkie wymagane atrybuty size. Dodano też .commitinfo do .gitignore. Brak zmian funkcjonalnych.",
-        "uk": "Очищено конфігурацію Admin для adapter-check: видалено $schema з jsonConfig, виправлено структуру вкладок/панелі та додано всі потрібні атрибути size. Також додано .commitinfo до .gitignore. Без функціональних змін.",
-        "zh-cn": "为通过适配器检查清理了管理配置：从 jsonConfig 中移除 $schema，修正选项卡/面板结构并补齐所需的 size 属性。同时将 .commitinfo 加入 .gitignore。无功能性变化。"
+        "en": "Admin config cleanup for adapter-check: removed schema refs and fixed jsonConfig structure.",
+        "de": "Admin-Konfigurationsbereinigung für Adapter-Check: Schema-Referenzen entfernt und jsonConfig-Struktur korrigiert."
       },
       "0.2.14": {
-        "en": "Development tooling updates only: release-script to ^5.0.0 (releases from default branch; Node.js ≥ 18), iobroker and license plugins to ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. No functional changes.",
-        "de": "Nur Entwicklungs-Tooling aktualisiert: release-script auf ^5.0.0 (Releases vom Default-Branch; Node.js ≥ 18), iobroker- und license-Plugins auf ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Keine funktionalen Änderungen.",
-        "ru": "Обновлено только окружение разработки: release-script до ^5.0.0 (релизы из ветки по умолчанию; требуется Node.js ≥ 18), плагины iobroker и license до ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Без функциональных изменений.",
-        "pt": "Apenas atualizações de ferramentas de desenvolvimento: release-script para ^5.0.0 (releases a partir da branch padrão; Node.js ≥ 18), plugins iobroker e license para ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Sem alterações funcionais.",
-        "nl": "Alleen updates aan development tooling: release-script naar ^5.0.0 (releases vanaf standaardbranch; Node.js ≥ 18), iobroker- en license-plugins naar ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Geen functionele wijzigingen.",
-        "fr": "Mises à jour des outils de développement uniquement : release-script vers ^5.0.0 (publications depuis la branche par défaut ; Node.js ≥ 18), plugins iobroker et license vers ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Aucune modification fonctionnelle.",
-        "it": "Aggiornati solo gli strumenti di sviluppo: release-script a ^5.0.0 (rilasci dal branch predefinito; Node.js ≥ 18), plugin iobroker e license a ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Nessuna modifica funzionale.",
-        "es": "Solo actualizaciones de herramientas de desarrollo: release-script a ^5.0.0 (lanzamientos desde la rama predeterminada; Node.js ≥ 18), plugins iobroker y license a ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Sin cambios funcionales.",
-        "pl": "Tylko aktualizacje narzędzi deweloperskich: release-script do ^5.0.0 (wydania z gałęzi domyślnej; Node.js ≥ 18), wtyczki iobroker i license do ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Brak zmian funkcjonalnych.",
-        "uk": "Оновлено лише інструменти розробки: release-script до ^5.0.0 (релізи з гілки за замовчуванням; Node.js ≥ 18), плагіни iobroker і license до ^4.0.0 (ESM, Node.js ≥ 18), ESLint 9, TypeScript ^5.9.3, Prettier 3. Без функціональних змін.",
-        "zh-cn": "仅更新开发工具：release-script 升级至 ^5.0.0（仅允许从默认分支发布；需要 Node.js ≥ 18），iobroker 和 license 插件至 ^4.0.0（ESM，Node.js ≥ 18），ESLint 9，TypeScript ^5.9.3，Prettier 3。无功能性变更。"
+        "en": "Development tooling updates only.",
+        "de": "Nur Entwicklungs-Tooling aktualisiert."
       },
       "0.2.13": {
-        "en": "Fixed a JSON syntax error in io-package.json that broke adapter-check parsing (and caused 'adminUI' follow-up errors). Updated the JSON schema hint in VS Code and re-validated jsonConfig sizes. No functional changes.",
-        "de": "Einen JSON-Syntaxfehler in der io-package.json behoben, der das Parsing im Adapter-Check (und Folgefehler bei 'adminUI') verhindert hat. JSON-Schema-Hinweis in VS Code aktualisiert und jsonConfig-Sizes erneut validiert. Keine funktionalen Änderungen.",
-        "ru": "Исправлена ошибка синтаксиса JSON в io-package.json, из-за которой проверка адаптера не могла распарсить файл (и возникали последующие ошибки 'adminUI'). Обновлена подсказка схемы JSON в VS Code и повторно проверены размеры в jsonConfig. Функциональных изменений нет.",
-        "pt": "Corrigido um erro de sintaxe JSON em io-package.json que impedia o parser do adapter-check (e gerava erros subsequentes em 'adminUI'). Atualizada a dica de esquema JSON no VS Code e revalidados os tamanhos no jsonConfig. Sem alterações funcionais.",
-        "nl": "Een JSON-syntaxisfout in io-package.json opgelost waardoor adapter-check niet kon parsen (en 'adminUI'-fouten ontstonden). JSON-schemahint in VS Code bijgewerkt en jsonConfig-groottes her-gevalideerd. Geen functionele wijzigingen.",
-        "fr": "Correction d’une erreur de syntaxe JSON dans io-package.json qui empêchait l’analyse par adapter-check (et entraînait des erreurs 'adminUI'). Indice de schéma JSON mis à jour dans VS Code et tailles de jsonConfig re-validées. Aucun changement fonctionnel.",
-        "it": "Corretto un errore di sintassi JSON in io-package.json che impediva il parsing dell’adapter-check (con errori 'adminUI' conseguenti). Aggiornato il riferimento allo schema JSON in VS Code e rivalidate le size in jsonConfig. Nessuna modifica funzionale.",
-        "es": "Corregido un error de sintaxis JSON en io-package.json que impedía el análisis de adapter-check (y provocaba errores posteriores de 'adminUI'). Actualizada la sugerencia de esquema JSON en VS Code y revalidados los tamaños en jsonConfig. Sin cambios funcionales.",
-        "pl": "Naprawiono błąd składni JSON w io-package.json, który uniemożliwiał parsowanie przez adapter-check (i powodował dalsze błędy 'adminUI'). Zaktualizowano wskazówkę schematu JSON w VS Code oraz ponownie zweryfikowano rozmiary w jsonConfig. Brak zmian funkcjonalnych.",
-        "uk": "Виправлено помилку синтаксису JSON у io-package.json, через яку adapter-check не міг розібрати файл (і виникали подальші помилки 'adminUI'). Оновлено підказку схеми JSON у VS Code та повторно перевірено розміри в jsonConfig. Без функціональних змін.",
-        "zh-cn": "修复 io-package.json 中的 JSON 语法错误（导致 adapter-check 解析失败并引发“adminUI”后续错误）。更新了 VS Code 中的 JSON 架构提示，并重新验证了 jsonConfig 的尺寸设置。无功能性更改。"
+        "en": "Fixed JSON syntax error in io-package.json.",
+        "de": "JSON-Syntaxfehler in io-package.json behoben."
       },
       "0.2.12": {
-        "en": "Admin UI: fixed schema URL to official jsonConfig schema and added missing responsive size attributes. Raised minimum requirements: js-controller >= 6.0.11, admin >= 7.6.17. No functional changes.",
-        "de": "Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert und fehlende responsive Size-Attribute ergänzt. Mindestanforderungen erhöht: js-controller >= 6.0.11, admin >= 7.6.17. Keine funktionalen Änderungen.",
-        "ru": "Admin UI: исправлена ссылка на официальную схему jsonConfig и добавлены недостающие атрибуты размера. Минимальные требования повышены: js-controller >= 6.0.11, admin >= 7.6.17. Функциональных изменений нет.",
-        "pt": "Admin UI: corrigida a URL do schema oficial do jsonConfig e adicionados os atributos de tamanho responsivo em falta. Requisitos mínimos aumentados: js-controller >= 6.0.11, admin >= 7.6.17. Sem alterações funcionais.",
-        "nl": "Admin UI: officiële jsonConfig-schema-URL gecorrigeerd en ontbrekende responsieve grootte-attributen toegevoegd. Minimumeisen verhoogd: js-controller >= 6.0.11, admin >= 7.6.17. Geen functionele wijzigingen.",
-        "fr": "Admin UI : URL du schéma jsonConfig officielle corrigée et ajout des attributs de taille responsives manquants. Exigences minimales relevées : js-controller >= 6.0.11, admin >= 7.6.17. Pas de changement fonctionnel.",
-        "it": "Admin UI: corretta la URL dello schema jsonConfig ufficiale e aggiunti gli attributi di dimensione responsive mancanti. Requisiti minimi aumentati: js-controller >= 6.0.11, admin >= 7.6.17. Nessuna modifica funzionale.",
-        "es": "Admin UI: corregida la URL del esquema jsonConfig oficial y añadidos los atributos de tamaño responsivo que faltaban. Requisitos mínimos elevados: js-controller >= 6.0.11, admin >= 7.6.17. Sin cambios funcionales.",
-        "pl": "Admin UI: poprawiono adres URL oficjalnego schematu jsonConfig i dodano brakujące responsywne atrybuty rozmiaru. Podniesiono minimalne wymagania: js-controller >= 6.0.11, admin >= 7.6.17. Brak zmian funkcjonalnych.",
-        "uk": "Admin UI: виправлено URL офіційної схеми jsonConfig і додано відсутні адаптивні атрибути розміру. Підвищено мінімальні вимоги: js-controller >= 6.0.11, admin >= 7.6.17. Без функціональних змін.",
-        "zh-cn": "Admin UI：修正为官方 jsonConfig 架构 URL，并补全缺失的响应式尺寸属性。提高最低要求：js-controller >= 6.0.11，admin >= 7.6.17。无功能性变更。"
+        "en": "Admin UI schema URL fixed and size attributes added.",
+        "de": "Admin-UI Schema-URL korrigiert und Size-Attribute ergänzt."
       },
       "0.2.11": {
-        "en": "Minor code corrections and optimizations. No functional changes – improved stability and maintainability.",
-        "de": "Kleinere Code-Korrekturen und Optimierungen vorgenommen. Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert.",
-        "ru": "Небольшие исправления и оптимизация кода. Без функциональных изменений – повышена стабильность и поддерживаемость.",
-        "pt": "Pequenas correções e otimizações no código. Sem alterações funcionais – estabilidade e manutenção aprimoradas.",
-        "nl": "Kleine codecorrecties en optimalisaties. Geen functionele wijzigingen – verbeterde stabiliteit en onderhoudbaarheid.",
-        "fr": "Petites corrections et optimisations du code. Aucune modification fonctionnelle – stabilité et maintenabilité améliorées.",
-        "it": "Correzioni e ottimizzazioni minori del codice. Nessuna modifica funzionale – migliorata stabilità e manutenibilità.",
-        "es": "Pequeñas correcciones y optimizaciones de código. Sin cambios funcionales – mayor estabilidad y mantenibilidad.",
-        "pl": "Drobne poprawki i optymalizacje kodu. Brak zmian funkcjonalnych – poprawiona stabilność i łatwość utrzymania.",
-        "uk": "Невеликі виправлення та оптимізації коду. Без функціональних змін – покращено стабільність і підтримуваність.",
-        "zh-cn": "进行了小的代码修正和优化。无功能性更改——提高了稳定性和可维护性。"
+        "en": "Minor corrections and optimizations.",
+        "de": "Kleinere Korrekturen und Optimierungen."
       }
-     },
+    },
     "keywords": [
       "al-ko",
       "Robolinho",

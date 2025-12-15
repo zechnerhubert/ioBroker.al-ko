@@ -1,41 +1,76 @@
-![act-logo](https://raw.githubusercontent.com/wiki/nektos/act/img/logo-150.png)
+![Logo](admin/al-ko.png)
+# ioBroker.al-ko
 
-# Overview [![push](https://github.com/nektos/act/workflows/push/badge.svg?branch=master&event=push)](https://github.com/nektos/act/actions) [![Go Report Card](https://goreportcard.com/badge/github.com/nektos/act)](https://goreportcard.com/report/github.com/nektos/act) [![awesome-runners](https://img.shields.io/badge/listed%20on-awesome--runners-blue.svg)](https://github.com/jonico/awesome-runners)
+[![NPM version](https://img.shields.io/npm/v/iobroker.al-ko.svg)](https://www.npmjs.com/package/iobroker.al-ko)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.al-ko.svg)](https://www.npmjs.com/package/iobroker.al-ko)
+![Number of Installations](https://iobroker.live/badges/al-ko-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/al-ko-stable.svg)
 
-> "Think globally, `act` locally"
+![NPM](https://nodei.co/npm/iobroker.al-ko.png?downloads=true)
 
-Run your [GitHub Actions](https://developer.github.com/actions/) locally! Why would you want to do this? Two reasons:
+## Overview
 
-- **Fast Feedback** - Rather than having to commit/push every time you want to test out the changes you are making to your `.github/workflows/` files (or for any changes to embedded GitHub actions), you can use `act` to run the actions locally. The [environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables) and [filesystem](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#filesystems-on-github-hosted-runners) are all configured to match what GitHub provides.
-- **Local Task Runner** - I love [make](<https://en.wikipedia.org/wiki/Make_(software)>). However, I also hate repeating myself. With `act`, you can use the GitHub Actions defined in your `.github/workflows/` to replace your `Makefile`!
+The ioBroker.al-ko adapter integrates **AL-KO Robolinho robotic lawnmowers** and other AL-KO smart garden devices into ioBroker using the official **AL-KO Cloud API**, including real-time updates via WebSocket.
 
-> [!TIP]
-> **Now Manage and Run Act Directly From VS Code!**<br/>
-> Check out the [GitHub Local Actions](https://sanjulaganepola.github.io/github-local-actions-docs/) Visual Studio Code extension which allows you to leverage the power of `act` to run and test workflows locally without leaving your editor.
+This adapter is a **community project** and is **not affiliated with or supported by AL-KO**.
 
-# How Does It Work?
+---
 
-When you run `act` it reads in your GitHub Actions from `.github/workflows/` and determines the set of actions that need to be run. It uses the Docker API to either pull or build the necessary images, as defined in your workflow files and finally determines the execution path based on the dependencies that were defined. Once it has the execution path, it then uses the Docker API to run containers for each action based on the images prepared earlier. The [environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables) and [filesystem](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#file-systems) are all configured to match what GitHub provides.
+## Features
 
-Let's see it in action with a [sample repo](https://github.com/cplee/github-actions-demo)!
+- Connects to the official AL-KO Cloud API  
+- Automatically creates all readable states  
+- Writable states controlled through a whitelist  
+- Sends state changes back to AL-KO (`desired` state API)  
+- Real-time updates via WebSocket  
+- Supports multiple devices  
+- Works with the newest ioBroker admin/jsonConfig format  
 
-![Demo](https://raw.githubusercontent.com/wiki/nektos/act/quickstart/act-quickstart-2.gif)
+---
 
-# Act User Guide
+## Requirements
 
-Please look at the [act user guide](https://nektosact.com) for more documentation.
+You need AL-KO API credentials, which can be requested here:
 
-# Support
+➡ https://alko-garden.at/iot-api-zugang-anfordern/
 
-Need help? Ask in [discussions](https://github.com/nektos/act/discussions)!
+Adapter settings in Admin:
 
-# Contributing
+- Username (AL-KO account)
+- Password
+- Client ID
+- Client Secret
 
-Want to contribute to act? Awesome! Check out the [contributing guidelines](CONTRIBUTING.md) to get involved.
+---
 
-## Manually building from source
+## Disclaimer
 
-- Install Go tools 1.20+ - (<https://golang.org/doc/install>)
-- Clone this repo `git clone git@github.com:nektos/act.git`
-- Run unit tests with `make test`
-- Build and install: `make install`
+This adapter is **not** affiliated with or supported by AL-KO.  
+Do **not** contact AL-KO customer service regarding this project.
+
+---
+
+## Latest Changes
+
+### **0.2.16 (unreleased / development)**
+- Improved instance handling and object hierarchy
+- Better separation of writable and non-writable states
+- Added axios global timeout
+- Introduced adapter-safe timers (`this.setTimeout`, `this.setInterval`)
+- Many internal improvements and preparations for future patches
+
+### **0.2.15 (2025-11-02)**
+- Cleaned up admin/jsonConfig structure for adapter-check
+- Added missing `size` attributes
+- Added `.commitinfo` to `.gitignore`
+- No functional changes
+
+➡ **Full changelog here:**  
+**[CHANGELOG.md](./CHANGELOG.md)**
+
+---
+
+## License
+
+This project is released under the **MIT License**.  
+See the included **LICENSE** file for full details.
