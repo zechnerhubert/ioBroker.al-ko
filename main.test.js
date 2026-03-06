@@ -52,7 +52,9 @@ async function refreshAuth() {
   if (!refreshToken) {
     return authenticate();
   }
-  if (Date.now() < tokenExpiresAt - 60000) return;
+  if (Date.now() < tokenExpiresAt - 60000) {
+    return;
+  }
 
   console.log("Erneuere Access-Token…");
 
@@ -98,6 +100,8 @@ async function getDevices() {
 
 /**
  * Gerätestatus holen
+ *
+ * @param thingName Device name used for testing
  */
 async function getDeviceStatus(thingName) {
   await refreshAuth();
