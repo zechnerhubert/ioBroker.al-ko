@@ -1,4 +1,5 @@
 ![Logo](admin/al-ko.png)
+
 # ioBroker.al-ko
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.al-ko.svg)](https://www.npmjs.com/package/iobroker.al-ko)
@@ -18,13 +19,13 @@ This adapter is a **community project** and is **not affiliated with or supporte
 
 ## Features
 
-- Connects to the official AL-KO Cloud API  
-- Automatically creates all readable states  
-- Writable states controlled through a whitelist  
-- Sends state changes back to AL-KO (`desired` state API)  
-- Real-time updates via WebSocket  
-- Supports multiple devices  
-- Works with the newest ioBroker admin/jsonConfig format  
+- Connects to the official AL-KO Cloud API
+- Automatically creates all readable states
+- Writable states controlled through a whitelist
+- Sends state changes back to AL-KO (`desired` state API)
+- Real-time updates via WebSocket
+- Supports multiple devices
+- Works with the newest ioBroker admin/jsonConfig format
 
 ---
 
@@ -53,6 +54,7 @@ Do **not** contact AL-KO customer service regarding this project.
 ## Latest Changes
 
 ### **0.2.16 (unreleased / development)**
+
 - Improved instance handling and object hierarchy
 - Better separation of writable and non-writable states
 - Added axios global timeout
@@ -60,6 +62,7 @@ Do **not** contact AL-KO customer service regarding this project.
 - Many internal improvements and preparations for future patches
 
 ### **0.2.15 (2025-11-02)**
+
 - Cleaned up admin/jsonConfig structure for adapter-check
 - Added missing `size` attributes
 - Added `.commitinfo` to `.gitignore`

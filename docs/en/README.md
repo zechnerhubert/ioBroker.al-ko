@@ -29,10 +29,11 @@ Request access at:
 ➡ https://alko-garden.at/iot-api-zugang-anfordern/
 
 Required fields:
-- Username  
-- Password  
-- Client ID  
-- Client Secret  
+
+- Username
+- Password
+- Client ID
+- Client Secret
 
 Enter these values in Admin → Instance Settings.
 
@@ -48,13 +49,15 @@ It is a **community-developed project**.
 ## Changes (Summary)
 
 ### **0.3.0**
+
 See full changelog here:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)
 
 Key updates:
-- Internal cleanup and consistency improvements  
-- Improved logging, ID sanitizing and timers  
-- Documentation restructured  
+
+- Internal cleanup and consistency improvements
+- Improved logging, ID sanitizing and timers
+- Documentation restructured
 
 ---
 

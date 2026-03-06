@@ -1,4 +1,5 @@
 ![Logo](admin/al-ko.png)
+
 # ioBroker.al-ko
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.al-ko.svg)](https://www.npmjs.com/package/iobroker.al-ko)
@@ -38,6 +39,7 @@ Diese können Sie hier beantragen:
 👉 [AL-KO IoT API Zugang](https://alko-garden.at/iot-api-zugang-anfordern/)
 
 Im Admin müssen folgende Daten hinterlegt werden:
+
 - **Username** (AL-KO Konto)
 - **Password**
 - **Client ID**
@@ -57,12 +59,14 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 ### 0.2.13 (2025-10-29)
 
 **Deutsch:**
+
 - JSON-Syntaxfehler in `io-package.json` behoben, der den Adapter-Check blockiert hat (Folgefehler „adminUI“).
 - VS-Code-Schemahinweis für `admin/jsonConfig.json` aktualisiert.
 - `size`-Attribute in `jsonConfig` erneut geprüft/validiert.
 - Keine funktionalen Änderungen.
 
 **English:**
+
 - Fixed a JSON syntax error in `io-package.json` that blocked adapter-check (follow-up “adminUI” errors).
 - Updated VS Code JSON schema hint for `admin/jsonConfig.json`.
 - Re-validated `size` attributes in `jsonConfig`.
@@ -71,12 +75,14 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 ### 0.2.12 (2025-10-29)
 
 **Deutsch:**
+
 - Admin-UI: Offizielle jsonConfig-Schema-URL korrigiert (`.vscode/settings.json`)
 - Fehlende responsive `size`-Attribute in `admin/jsonConfig.json` ergänzt
 - Mindestanforderungen angehoben: `js-controller >= 6.0.11`, `admin >= 7.6.17`
 - Keine funktionalen Änderungen
 
 **English:**
+
 - Admin UI: Fixed official jsonConfig schema URL (`.vscode/settings.json`)
 - Added missing responsive `size` attributes in `admin/jsonConfig.json`
 - Raised minimum requirements: `js-controller >= 6.0.11`, `admin >= 7.6.17`
@@ -85,38 +91,45 @@ Es handelt sich um ein Community-Projekt, und AL-KO bietet **keinen Support** da
 ### 0.2.11 (2025-10-28)
 
 **Deutsch:**
-* Kleinere Code-Korrekturen und Optimierungen vorgenommen  
-* Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert  
+
+- Kleinere Code-Korrekturen und Optimierungen vorgenommen
+- Keine funktionalen Änderungen – Stabilität und Wartbarkeit verbessert
 
 **English:**
-* Minor code corrections and optimizations  
-* No functional changes – improved stability and maintainability
+
+- Minor code corrections and optimizations
+- No functional changes – improved stability and maintainability
 
 ### 0.2.10 (2025-10-28)
 
 **Deutsch:**
+
 - Adapter-Kategorie angepasst: Typ von 'hardware' auf 'garden' geändert.
 - Keine funktionalen Änderungen für Anwender
 
-**English:** 
+**English:**
+
 - Changed adapter type from 'hardware' to 'garden' for proper categorization in ioBroker Admin and repositories.
-- No functional changes for end users  
+- No functional changes for end users
 
 ### 0.2.9 (2025-10-28)
 
-**Deutsch:**  
-- Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben  
-- ESLint-Konfiguration auf Version 9 mit `@iobroker/eslint-config` v2.2.0 aktualisiert  
-- CI-Stabilität auf GitHub Actions verbessert  
+**Deutsch:**
+
+- Wartungsupdate: npm-Abhängigkeitskonflikte (`sinon-chai` vs. `chai`) behoben
+- ESLint-Konfiguration auf Version 9 mit `@iobroker/eslint-config` v2.2.0 aktualisiert
+- CI-Stabilität auf GitHub Actions verbessert
 - Keine funktionalen Änderungen für Anwender
 
-**English:**  
-- Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`)  
-- Updated ESLint setup to v9 + `@iobroker/eslint-config` v2.2.0  
-- Improved GitHub Actions CI stability  
-- No functional changes for end users  
+**English:**
+
+- Maintenance update: resolved npm dependency conflicts (`sinon-chai` vs `chai`)
+- Updated ESLint setup to v9 + `@iobroker/eslint-config` v2.2.0
+- Improved GitHub Actions CI stability
+- No functional changes for end users
 
 ## License
+
 MIT License
 
 Copyright (c) 2025 Hubert <hubertiob@posteo.at>

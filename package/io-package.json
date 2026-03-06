@@ -29,9 +29,7 @@
       "uk": "Адаптер для газонокосарок AL-KO Robolinho",
       "zh-cn": "AL-KO Robolinho 割草机适配器"
     },
-    "authors": [
-      "Hubert Zechner <hubertiob@posteo.at>"
-    ],
+    "authors": ["Hubert Zechner <hubertiob@posteo.at>"],
     "news": {
       "0.2.13": {
         "en": "Fixed a JSON syntax error in io-package.json that broke adapter-check parsing (and caused 'adminUI' follow-up errors). Updated the JSON schema hint in VS Code and re-validated jsonConfig sizes. No functional changes.",
@@ -98,14 +96,8 @@
         "uk": "Технічне оновлення: усунуто конфлікти залежностей npm (`sinon-chai` проти `chai`), оновлено конфігурацію ESLint до версії 9 із @iobroker/eslint-config v2.2.0. Покращено стабільність CI у GitHub Actions. Без функціональних змін.",
         "zh-cn": "维护更新：解决 npm 依赖冲突（`sinon-chai` 与 `chai`），将 ESLint 配置更新到版本 9 并使用 @iobroker/eslint-config v2.2.0。改进了 GitHub Actions 上的 CI 稳定性。无功能更改。"
       }
-     },
-    "keywords": [
-      "al-ko",
-      "Robolinho",
-      "mower",
-      "garden",
-      "smart-garden"
-    ],
+    },
+    "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],
     "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko-128.png",
     "adminUI": {
       "config": "json"
@@ -141,14 +133,8 @@
     "clientSecret": "",
     "wsDebug": false
   },
-  "protectedNative": [
-    "password",
-    "clientSecret"
-  ],
-  "encryptedNative": [
-    "password",
-    "clientSecret"
-  ],
+  "protectedNative": ["password", "clientSecret"],
+  "encryptedNative": ["password", "clientSecret"],
   "objects": [],
   "instanceObjects": []
 }

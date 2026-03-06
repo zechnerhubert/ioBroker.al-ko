@@ -7,7 +7,7 @@ export default [
       "node_modules/",
       "dist/",
       "coverage/",
-      "admin/jsonConfig.json" // JSON von Lint ausschließen
+      "admin/jsonConfig.json", // JSON von Lint ausschließen
     ],
   },
   ...config,
@@ -17,7 +17,7 @@ export default [
       "no-empty": ["warn", { allowEmptyCatch: true }],
       "@typescript-eslint/no-unused-vars": [
         "off",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
     },
   },

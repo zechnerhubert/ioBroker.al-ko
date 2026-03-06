@@ -29,10 +29,11 @@ Anfordern unter:
 ➡ https://alko-garden.at/iot-api-zugang-anfordern/
 
 Erforderlich:
-- Benutzername  
-- Passwort  
-- Client ID  
-- Client Secret  
+
+- Benutzername
+- Passwort
+- Client ID
+- Client Secret
 
 Eintragen unter: **Instanzen → al-ko → Konfiguration**
 
@@ -48,10 +49,12 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 ## Änderungen (Auszug)
 
 ### **0.3.0**
+
 Alle Änderungen siehe vollständigen Changelog:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)
 
 Wesentliche Neuerungen:
+
 - Verbesserte Objektstruktur
 - Überarbeitetes Logging
 - Verbesserte ID-Sanitärisierung

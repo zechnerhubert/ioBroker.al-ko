@@ -29,54 +29,43 @@
       "uk": "Адаптер для газонокосарок AL-KO Robolinho",
       "zh-cn": "AL-KO Robolinho 割草机适配器"
     },
-    "authors": [
-      "Hubert Zechner <hubertiob@posteo.at>"
-    ],
+    "authors": ["Hubert Zechner <hubertiob@posteo.at>"],
+    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT",
+      "link": "https://opensource.org/licenses/MIT"
+    },
     "docs": {
       "en": "docs/en/README.md",
       "de": "docs/de/README.md"
     },
     "news": {
-      "0.3.0": {
-        "en": "Internal cleanup for adapter-check compliance, improved logging, removed hardcoded instance handling, optimized object structure, updated development environment.",
-        "de": "Interne Überarbeitung für Adapter-Check-Kompatibilität, verbessertes Logging, Entfernung der festen Instanznummer, optimierte Objektstruktur, aktualisierte Entwicklungsumgebung."
-      },
       "0.2.15": {
-        "en": "Admin config cleanup for adapter-check: removed schema refs and fixed jsonConfig structure.",
-        "de": "Admin-Konfigurationsbereinigung für Adapter-Check: Schema-Referenzen entfernt und jsonConfig-Struktur korrigiert."
+        "en": "Admin config cleanup for adapter-check: removed $schema, corrected structure, added missing size attributes.",
+        "de": "Admin-Konfiguration für adapter-check bereinigt: $schema entfernt, Struktur korrigiert, fehlende size-Attribute ergänzt."
       },
       "0.2.14": {
-        "en": "Development tooling updates only.",
-        "de": "Nur Entwicklungs-Tooling aktualisiert."
+        "en": "Updated development tooling: release-script v5, plugins v4, ESLint 9, TypeScript 5.9, Prettier 3.",
+        "de": "Entwicklungswerkzeuge aktualisiert: release-script v5, Plugins v4, ESLint 9, TypeScript 5.9, Prettier 3."
       },
       "0.2.13": {
-        "en": "Fixed JSON syntax error in io-package.json.",
-        "de": "JSON-Syntaxfehler in io-package.json behoben."
+        "en": "Fixed JSON syntax error in io-package.json. No functional changes.",
+        "de": "JSON-Syntaxfehler in io-package.json behoben. Keine funktionalen Änderungen."
       },
       "0.2.12": {
-        "en": "Admin UI schema URL fixed and size attributes added.",
-        "de": "Admin-UI Schema-URL korrigiert und Size-Attribute ergänzt."
+        "en": "Fixed jsonConfig schema URL, added missing size attributes, increased minimum requirements.",
+        "de": "Schema-URL korrigiert, fehlende Size-Attribute ergänzt, Mindestanforderungen erhöht."
       },
       "0.2.11": {
-        "en": "Minor corrections and optimizations.",
-        "de": "Kleinere Korrekturen und Optimierungen."
+        "en": "Minor code corrections.",
+        "de": "Kleine Code-Korrekturen."
       }
     },
-    "keywords": [
-      "al-ko",
-      "Robolinho",
-      "mower",
-      "garden",
-      "smart-garden"
-    ],
+    "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],
     "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko-128.png",
     "adminUI": {
       "config": "json"
-    },
-    "licenseInformation": {
-      "type": "free",
-      "license": "MIT",
-      "link": "https://opensource.org/licenses/MIT"
     },
     "platform": "Javascript/Node.js",
     "type": "garden",
@@ -104,14 +93,8 @@
     "clientSecret": "",
     "wsDebug": false
   },
-  "protectedNative": [
-    "password",
-    "clientSecret"
-  ],
-  "encryptedNative": [
-    "password",
-    "clientSecret"
-  ],
+  "protectedNative": ["password", "clientSecret"],
+  "encryptedNative": ["password", "clientSecret"],
   "objects": [],
   "instanceObjects": []
 }

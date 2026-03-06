@@ -41,7 +41,10 @@
         },
         "wsDebug": {
           "type": "checkbox",
-          "label": { "en": "Enable WebSocket message logging", "de": "WebSocket-Nachrichten protokollieren" },
+          "label": {
+            "en": "Enable WebSocket message logging",
+            "de": "WebSocket-Nachrichten protokollieren"
+          },
           "default": false,
           "size": { "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4 }
         }
