@@ -7,6 +7,9 @@ export default [
       "node_modules/",
       "dist/",
       "coverage/",
+      ".dev-server/**",
+      "package/**",
+      "build/**",
       "admin/jsonConfig.json", // JSON von Lint ausschließen
     ],
   },

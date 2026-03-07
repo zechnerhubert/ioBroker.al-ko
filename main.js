@@ -229,7 +229,9 @@ class AlKoAdapter extends utils.Adapter {
 
   // ---------------- WebSocket Handling ----------------
   connectWebSocket(deviceId) {
-    if (!this.accessToken) return;
+    if (!this.accessToken) {
+      return;
+    }
 
     const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
     const ws = new WebSocket(url);
@@ -333,11 +335,15 @@ class AlKoAdapter extends utils.Adapter {
 
   // ---------------- Recursive State Creation ----------------
   async createStatesRecursive(basePath, obj, relPath) {
-    if (!obj || typeof obj !== "object") return;
+    if (!obj || typeof obj !== "object") {
+      return;
+    }
 
     for (const key of Object.keys(obj)) {
       const val = obj[key];
-      if (val === null || val === undefined) continue;
+      if (val === null || val === undefined) {
+        continue;
+      }
 
       const currentRel = relPath ? `${relPath}.${key}` : key;
       const fullId = this.sanitizeId(`${basePath}.${key}`);
@@ -377,13 +383,17 @@ class AlKoAdapter extends utils.Adapter {
               writable,
               `${currentRel}.${i}`,
             );
-            if (writable) this.pushableStates.add(idxId);
+            if (writable) {
+              this.pushableStates.add(idxId);
+            }
           }
         }
       } else {
         const writable = this.isRelPathWhitelisted(currentRel);
         await this.setStateIfChanged(fullId, val, true, writable, currentRel);
-        if (writable) this.pushableStates.add(fullId);
+        if (writable) {
+          this.pushableStates.add(fullId);
+        }
       }
     }
   }
@@ -393,14 +403,18 @@ class AlKoAdapter extends utils.Adapter {
   }
   // ---------------- Role Mapping ----------------
   mapRole(relPath, type) {
-    if (!relPath) return "state";
+    if (!relPath) {
+      return "state";
+    }
 
     const lower = relPath.toLowerCase();
 
-    if (lower.endsWith("starthour") || lower.endsWith("hour"))
+    if (lower.endsWith("starthour") || lower.endsWith("hour")) {
       return "value.hour";
-    if (lower.endsWith("startminute") || lower.endsWith("minute"))
+    }
+    if (lower.endsWith("startminute") || lower.endsWith("minute")) {
       return "value.minute";
+    }
 
     if (type === "boolean") {
       if (
@@ -418,11 +432,15 @@ class AlKoAdapter extends utils.Adapter {
     }
 
     if (type === "number") {
-      if (lower.includes("battery")) return "value.battery";
+      if (lower.includes("battery")) {
+        return "value.battery";
+      }
       return "value";
     }
 
-    if (type === "string") return "text";
+    if (type === "string") {
+      return "text";
+    }
 
     return "state";
   }
@@ -436,9 +454,13 @@ class AlKoAdapter extends utils.Adapter {
     relPath = null,
   ) {
     let type;
-    if (typeof value === "boolean") type = "boolean";
-    else if (typeof value === "number") type = "number";
-    else type = "string";
+    if (typeof value === "boolean") {
+      type = "boolean";
+    } else if (typeof value === "number") {
+      type = "number";
+    } else {
+      type = "string";
+    }
 
     id = this.sanitizeId(id);
 
@@ -464,16 +486,24 @@ class AlKoAdapter extends utils.Adapter {
   async onStateChange(id, state) {
     id = this.sanitizeId(id);
 
-    if (!state || this._stopRequested) return;
-    if (this.adapterSetStates.has(id)) return;
+    if (!state || this._stopRequested) {
+      return;
+    }
+    if (this.adapterSetStates.has(id)) {
+      return;
+    }
     if (!this.pushableStates.has(id)) {
       this.log.debug(`State change ignored for non-writable state ${id}`);
       return;
     }
-    if (this.pendingPushes.has(id)) return;
+    if (this.pendingPushes.has(id)) {
+      return;
+    }
 
     const last = this.lastStateValues[id];
-    if (last === state.val) return;
+    if (last === state.val) {
+      return;
+    }
 
     this.lastStateValues[id] = state.val;
 
@@ -559,7 +589,9 @@ class AlKoAdapter extends utils.Adapter {
       .filter((s) => !!s);
 
     if (relevant.length === 0) {
-      if (whitelist.includes(parentRelPrefix)) return obj;
+      if (whitelist.includes(parentRelPrefix)) {
+        return obj;
+      }
       return {};
     }
 
@@ -569,19 +601,25 @@ class AlKoAdapter extends utils.Adapter {
       let cur = tree;
       for (let i = 0; i < parts.length; i++) {
         const part = parts[i];
-        if (!cur[part]) cur[part] = {};
+        if (!cur[part]) {
+          cur[part] = {};
+        }
         cur = cur[part];
       }
     }
 
     const copyAllowed = (source, schema) => {
-      if (source === null || typeof source !== "object") return source;
+      if (source === null || typeof source !== "object") {
+        return source;
+      }
 
       if (Array.isArray(source)) {
         const resArr = [];
         for (let i = 0; i < source.length; i++) {
           const key = String(i);
-          if (schema[key]) resArr[i] = copyAllowed(source[i], schema[key]);
+          if (schema[key]) {
+            resArr[i] = copyAllowed(source[i], schema[key]);
+          }
         }
         return resArr;
       }
@@ -601,7 +639,9 @@ class AlKoAdapter extends utils.Adapter {
   getDeep(obj, pathArr) {
     let cur = obj;
     for (const p of pathArr) {
-      if (cur == null || typeof cur !== "object") return undefined;
+      if (cur == null || typeof cur !== "object") {
+        return undefined;
+      }
       cur = cur[p];
     }
     return cur;
@@ -630,7 +670,9 @@ class AlKoAdapter extends utils.Adapter {
     try {
       this._stopRequested = true;
 
-      if (this.tokenInterval) this.clearInterval(this.tokenInterval);
+      if (this.tokenInterval) {
+        this.clearInterval(this.tokenInterval);
+      }
 
       for (const t of Object.values(this.reconnectTimeouts)) {
         try {

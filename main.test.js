@@ -101,7 +101,7 @@ async function getDevices() {
 /**
  * Gerätestatus holen
  *
- * @param thingName Device name used for testing
+ * @param {string} thingName Device name used for testing
  */
 async function getDeviceStatus(thingName) {
   await refreshAuth();
