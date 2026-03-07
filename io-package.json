@@ -30,8 +30,7 @@
       "zh-cn": "AL-KO Robolinho 割草机适配器"
     },
     "authors": ["Hubert Zechner <hubertiob@posteo.at>"],
-    "license": "MIT",
-    "licenseInformation": {
+      "licenseInformation": {
       "type": "free",
       "license": "MIT",
       "link": "https://opensource.org/licenses/MIT"
