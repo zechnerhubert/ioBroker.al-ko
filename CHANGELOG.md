@@ -1,16 +1,13 @@
 # Changelog
 
-## 0.3.0 (2025-12-15)
+## 0.3.0 (2026-03-09)
 
-- Major internal cleanup and preparation for stable release
-- Unified state/object hierarchy (device → channels → states)
-- Added global axios timeout and adapter-safe timers
-- Improved ID sanitization for ioBroker object compatibility
-- Logging fully converted to English and ASCII-safe
-- Removed emojis from logging (adapter-check requirement)
-- Updated jsonConfig and documentation structure
-- Added English and German docs under `docs/`
-- General code refactoring and stability improvements
+- Major maintenance release
+- Updated ESLint 9, Prettier 3 and TypeScript tooling
+- Updated development dependencies
+- Improved CI pipeline
+- Internal cleanup and code improvements
+- No functional changes
 
 ## 0.2.15 (2025-11-02)
 
