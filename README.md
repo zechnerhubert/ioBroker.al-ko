@@ -51,15 +51,15 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ---
 
-## Latest Changes
+## Changelog
 
-### **0.2.16 (unreleased / development)**
+### **0.3.0 (2026-03-09)**
 
-- Improved instance handling and object hierarchy
-- Better separation of writable and non-writable states
-- Added axios global timeout
-- Introduced adapter-safe timers (`this.setTimeout`, `this.setInterval`)
-- Many internal improvements and preparations for future patches
+- Major maintenance release
+- Updated ESLint 9, Prettier 3 and TypeScript tooling
+- Updated development dependencies
+- Improved CI pipeline and adapter structure
+- No functional changes
 
 ### **0.2.15 (2025-11-02)**
 
@@ -74,6 +74,10 @@ Do **not** contact AL-KO customer service regarding this project.
 ---
 
 ## License
+
+MIT License
+
+Copyright (c) 2026 Hubert Zechner <hubertiob@posteo.at>
 
 This project is released under the **MIT License**.  
 See the included **LICENSE** file for full details.
