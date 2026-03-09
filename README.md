@@ -53,7 +53,7 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
-### **0.3.0 (2026-03-09)**
+### 0.3.0 (2026-03-09)
 
 - Major maintenance release
 - Updated ESLint 9, Prettier 3 and TypeScript tooling
@@ -61,15 +61,15 @@ Do **not** contact AL-KO customer service regarding this project.
 - Improved CI pipeline and adapter structure
 - No functional changes
 
-### **0.2.15 (2025-11-02)**
+### 0.2.15 (2025-11-02)
 
 - Cleaned up admin/jsonConfig structure for adapter-check
 - Added missing `size` attributes
 - Added `.commitinfo` to `.gitignore`
 - No functional changes
 
-➡ **Full changelog here:**  
-**[CHANGELOG.md](./CHANGELOG.md)**
+➡ Full changelog here:  
+[CHANGELOG.md](./CHANGELOG.md)
 
 ---
 
