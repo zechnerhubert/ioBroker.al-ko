@@ -40,6 +40,10 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.0": {
+        "en": "Major maintenance release. Updated ESLint 9, Prettier 3, TypeScript tooling and development dependencies. Improved adapter structure and CI pipeline. No functional changes.",
+        "de": "Größeres Wartungsrelease. Aktualisierung von ESLint 9, Prettier 3, TypeScript-Tooling und Entwicklungsabhängigkeiten. Verbesserte Adapterstruktur und CI-Pipeline. Keine funktionalen Änderungen."
+      },
       "0.2.15": {
         "en": "Admin config cleanup for adapter-check: removed $schema, corrected structure, added missing size attributes.",
         "de": "Admin-Konfiguration für adapter-check bereinigt: $schema entfernt, Struktur korrigiert, fehlende size-Attribute ergänzt."
@@ -81,7 +85,7 @@
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.6.17"
+        "admin": ">=7.6.20"
       }
     ]
   },
