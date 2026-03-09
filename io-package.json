@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -40,6 +40,10 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.1": {
+        "en": "Documentation improvements, corrected license information and updated development dependencies. No functional changes.",
+        "de": "Dokumentation verbessert, Lizenzangaben korrigiert und Entwicklungsabhängigkeiten aktualisiert. Keine funktionalen Änderungen."
+      },
       "0.3.0": {
         "en": "Major maintenance release. Updated ESLint 9, Prettier 3, TypeScript tooling and development dependencies. Improved adapter structure and CI pipeline. No functional changes.",
         "de": "Größeres Wartungsrelease. Aktualisierung von ESLint 9, Prettier 3, TypeScript-Tooling und Entwicklungsabhängigkeiten. Verbesserte Adapterstruktur und CI-Pipeline. Keine funktionalen Änderungen."
@@ -55,14 +59,6 @@
       "0.2.13": {
         "en": "Fixed JSON syntax error in io-package.json. No functional changes.",
         "de": "JSON-Syntaxfehler in io-package.json behoben. Keine funktionalen Änderungen."
-      },
-      "0.2.12": {
-        "en": "Fixed jsonConfig schema URL, added missing size attributes, increased minimum requirements.",
-        "de": "Schema-URL korrigiert, fehlende Size-Attribute ergänzt, Mindestanforderungen erhöht."
-      },
-      "0.2.11": {
-        "en": "Minor code corrections.",
-        "de": "Kleine Code-Korrekturen."
       }
     },
     "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],

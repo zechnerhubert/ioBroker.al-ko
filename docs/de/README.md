@@ -48,7 +48,12 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
-### **0.3.0**
+### 0.3.1 (2026-03-09)
+
+- Verbesserte Dokumentation
+- Lizenzangaben korrigiert
+- Entwicklungsabhängigkeiten aktualisiert
+- Keine funktionalen Änderungen
 
 Alle Änderungen siehe vollständigen Changelog:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)

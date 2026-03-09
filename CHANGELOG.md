@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2026-03-09)
+
+- Documentation improvements
+- Corrected LICENSE information
+- Updated development dependencies
+- Minor CI / workflow cleanup
+- No functional changes
+
 ## 0.3.0 (2026-03-09)
 
 - Major maintenance release

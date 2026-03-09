@@ -48,7 +48,12 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
-### **0.3.0**
+### 0.3.1 (2026-03-09)
+
+- Documentation improvements
+- Corrected LICENSE information
+- Updated development dependencies
+- No functional changes
 
 See full changelog here:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)
