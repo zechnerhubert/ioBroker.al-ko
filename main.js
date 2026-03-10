@@ -139,6 +139,28 @@ class AlKoAdapter extends utils.Adapter {
       this.tokenExpiresAt = Date.now() + res.data.expires_in * 1000;
 
       this.log.debug("Access token refreshed successfully.");
+
+      for (const deviceId of Object.keys(this.webSockets)) {
+        try {
+          this.log.debug(
+            `Reconnecting WebSocket for ${deviceId} after token refresh`,
+          );
+
+          const ws = this.webSockets[deviceId];
+          if (ws) {
+            ws.terminate();
+          }
+
+          this.clearInterval(this.pingIntervals[deviceId]);
+          this.clearTimeout(this.pongTimeouts[deviceId]);
+
+          this.connectWebSocket(deviceId);
+        } catch (err) {
+          this.log.warn(
+            `Failed to reconnect WebSocket for ${deviceId}: ${err.message}`,
+          );
+        }
+      }
     }
   }
 
