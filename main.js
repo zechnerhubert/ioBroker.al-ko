@@ -83,7 +83,7 @@ class AlKoAdapter extends utils.Adapter {
       this.log.info("Adapter is ready.");
     } catch (err) {
       this.log.error(
-        `Startup error: ${err.response?.data || err.message || err}`,
+        `Error pushing state ${id}: ${err.response?.status} ${JSON.stringify(err.response?.data, null, 2)}`,
       );
     }
   }
