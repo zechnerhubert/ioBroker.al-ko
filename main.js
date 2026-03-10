@@ -83,7 +83,9 @@ class AlKoAdapter extends utils.Adapter {
       this.log.info("Adapter is ready.");
     } catch (err) {
       this.log.error(
-        `Error pushing state ${id}: ${err.response?.status} ${JSON.stringify(err.response?.data, null, 2)}`,
+        `Startup error: ${err.response?.status || ""} ${
+          JSON.stringify(err.response?.data, null, 2) || err.message
+        }`,
       );
     }
   }
@@ -558,8 +560,14 @@ class AlKoAdapter extends utils.Adapter {
       this.log.info(`Push successful: ${id}`);
       this.updateDeviceStateCache(deviceId, relPathArr, state.val);
     } catch (err) {
+      const status = err.response?.status;
+      const data =
+        typeof err.response?.data === "object"
+          ? JSON.stringify(err.response.data, null, 2)
+          : err.response?.data;
+
       this.log.error(
-        `Error pushing state ${id}: ${err.response?.status} ${err.response?.data || err.message}`,
+        `Error pushing state ${id}: ${status || ""} ${data || err.message}`,
       );
     } finally {
       this.pendingPushes.delete(id);
