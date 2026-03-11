@@ -148,8 +148,14 @@ class AlKoAdapter extends utils.Adapter {
             `Reconnecting WebSocket for ${deviceId} after token refresh`,
           );
 
+          // const ws = this.webSockets[deviceId];
+          // if (ws) {
+          //  ws.terminate();
+          //}
+
           const ws = this.webSockets[deviceId];
           if (ws) {
+            ws._intentionalClose = true;
             ws.terminate();
           }
 
@@ -252,23 +258,136 @@ class AlKoAdapter extends utils.Adapter {
   }
 
   // ---------------- WebSocket Handling ----------------
+  // alte Version
+
+  //connectWebSocket(deviceId) {
+  //  if (!this.accessToken) {
+  //    return;
+  //  }
+  //
+  //  const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
+  //  const ws = new WebSocket(url);
+  //
+  //  ws.isAlive = true;
+  //
+  //  ws.on("open", () => {
+  //    this.log.debug(`WebSocket connected for device ${deviceId}`);
+  //
+  //    this.pingIntervals[deviceId] = this.setInterval(() => {
+  //      if (ws.readyState === WebSocket.OPEN) {
+  //        ws.ping();
+  //        ws.isAlive = false;
+  //
+  //        this.pongTimeouts[deviceId] = this.setTimeout(() => {
+  //          if (!ws.isAlive) {
+  //            this.log.warn(
+  //              `WebSocket ping timeout for ${deviceId}, closing connection.`,
+  //            );
+  //            ws.terminate();
+  //          }
+  //        }, 30000);
+  //      }
+  //    }, 120000);
+  //  });
+  //
+  //  ws.on("pong", () => {
+  //    ws.isAlive = true;
+  //    this.clearTimeout(this.pongTimeouts[deviceId]);
+  //  });
+  //
+  //  ws.on("message", async (msg) => {
+  //    if (this.config.wsDebug) {
+  //      this.log.debug(`WebSocket message (${deviceId}): ${msg}`);
+  //    }
+  //    try {
+  //      const data = JSON.parse(msg.toString());
+  //      if (data && data.state) {
+  //        const newState = data.state.reported || data.state;
+  //
+  //        this.deviceStates[deviceId] = this.deepMerge(
+  //          this.deviceStates[deviceId] || {},
+  //          newState,
+  //        );
+  //
+  //        await this.createStatesRecursive(
+  //          `${this.namespace}.${deviceId}.state`,
+  //          this.deviceStates[deviceId],
+  //          "",
+  //        );
+  //      }
+  //    } catch (e) {
+  //      this.log.error(
+  //        `Error processing WebSocket message for device ${deviceId}: ${e.message}`,
+  //      );
+  //    }
+  //  });
+  //
+  //  ws.on("close", () => {
+  //    this.log.warn(
+  //      `WebSocket closed for device ${deviceId}. Retrying in 10 seconds.`,
+  //    );
+  //    this.clearInterval(this.pingIntervals[deviceId]);
+  //    this.clearTimeout(this.pongTimeouts[deviceId]);
+  //
+  //    this.reconnectTimeouts[deviceId] = this.setTimeout(
+  //      () => this.connectWebSocket(deviceId),
+  //      10000,
+  //    );
+  //  });
+  //
+  //  ws.on("error", (err) => {
+  //    this.log.error(`WebSocket error for ${deviceId}: ${err.message}`);
+  //    try {
+  //      ws.terminate();
+  //    } catch {}
+  //  });
+  //
+  //  this.webSockets[deviceId] = ws;
+  //}
+
+  // ---------------- WebSocket Handling ----------------
   connectWebSocket(deviceId) {
-    if (!this.accessToken) {
+    if (!this.accessToken || this._stopRequested) {
       return;
+    }
+
+    if (this.reconnectTimeouts[deviceId]) {
+      this.clearTimeout(this.reconnectTimeouts[deviceId]);
+      delete this.reconnectTimeouts[deviceId];
+    }
+
+    const existingWs = this.webSockets[deviceId];
+    if (existingWs) {
+      try {
+        existingWs._intentionalClose = true;
+        existingWs.terminate();
+      } catch {}
     }
 
     const url = `wss://socket.al-ko.com/v1?Authorization=${this.accessToken}&thingName=${deviceId}`;
     const ws = new WebSocket(url);
 
     ws.isAlive = true;
+    ws._intentionalClose = false;
 
     ws.on("open", () => {
       this.log.debug(`WebSocket connected for device ${deviceId}`);
 
+      if (this.pingIntervals[deviceId]) {
+        this.clearInterval(this.pingIntervals[deviceId]);
+      }
+      if (this.pongTimeouts[deviceId]) {
+        this.clearTimeout(this.pongTimeouts[deviceId]);
+      }
+
       this.pingIntervals[deviceId] = this.setInterval(() => {
         if (ws.readyState === WebSocket.OPEN) {
-          ws.ping();
           ws.isAlive = false;
+          ws.ping();
+
+          if (this.pongTimeouts[deviceId]) {
+            this.clearTimeout(this.pongTimeouts[deviceId]);
+          }
 
           this.pongTimeouts[deviceId] = this.setTimeout(() => {
             if (!ws.isAlive) {
@@ -284,7 +403,10 @@ class AlKoAdapter extends utils.Adapter {
 
     ws.on("pong", () => {
       ws.isAlive = true;
-      this.clearTimeout(this.pongTimeouts[deviceId]);
+      if (this.pongTimeouts[deviceId]) {
+        this.clearTimeout(this.pongTimeouts[deviceId]);
+        delete this.pongTimeouts[deviceId];
+      }
     });
 
     ws.on("message", async (msg) => {
@@ -315,16 +437,35 @@ class AlKoAdapter extends utils.Adapter {
     });
 
     ws.on("close", () => {
+      if (this.pingIntervals[deviceId]) {
+        this.clearInterval(this.pingIntervals[deviceId]);
+        delete this.pingIntervals[deviceId];
+      }
+      if (this.pongTimeouts[deviceId]) {
+        this.clearTimeout(this.pongTimeouts[deviceId]);
+        delete this.pongTimeouts[deviceId];
+      }
+
+      if (this.webSockets[deviceId] === ws) {
+        delete this.webSockets[deviceId];
+      }
+
+      if (this._stopRequested || ws._intentionalClose) {
+        return;
+      }
+
       this.log.warn(
         `WebSocket closed for device ${deviceId}. Retrying in 10 seconds.`,
       );
-      this.clearInterval(this.pingIntervals[deviceId]);
-      this.clearTimeout(this.pongTimeouts[deviceId]);
 
-      this.reconnectTimeouts[deviceId] = this.setTimeout(
-        () => this.connectWebSocket(deviceId),
-        10000,
-      );
+      if (this.reconnectTimeouts[deviceId]) {
+        this.clearTimeout(this.reconnectTimeouts[deviceId]);
+      }
+
+      this.reconnectTimeouts[deviceId] = this.setTimeout(() => {
+        delete this.reconnectTimeouts[deviceId];
+        this.connectWebSocket(deviceId);
+      }, 10000);
     });
 
     ws.on("error", (err) => {
