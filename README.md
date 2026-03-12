@@ -53,6 +53,13 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### 0.3.2 (2026-03-12)
+
+- Improved WebSocket reconnect handling after token refresh
+- Prevented reconnect loops on intentional WebSocket closes
+- Improved API error logging for push requests
+- Added WebSocket close code and reason logging
+
 ### 0.3.1 (2026-03-09)
 
 - Documentation improvements
@@ -67,13 +74,6 @@ Do **not** contact AL-KO customer service regarding this project.
 - Updated ESLint 9, Prettier 3 and TypeScript tooling
 - Updated development dependencies
 - Improved CI pipeline and adapter structure
-- No functional changes
-
-### 0.2.15 (2025-11-02)
-
-- Cleaned up admin/jsonConfig structure for adapter-check
-- Added missing `size` attributes
-- Added `.commitinfo` to `.gitignore`
 - No functional changes
 
 ➡ Full changelog here:  

@@ -48,6 +48,13 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
+### 0.3.2 (2026-03-12)
+
+- Improved WebSocket reconnect handling after token refresh
+- Prevented reconnect loops on intentional WebSocket closes
+- Improved API error logging for push requests
+- Added WebSocket close code and reason logging
+
 ### 0.3.1 (2026-03-09)
 
 - Documentation improvements

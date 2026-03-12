@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -40,6 +40,10 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.2": {
+        "en": "Improved WebSocket reconnect handling, prevented reconnect loops on intentional closes, and improved API error logging for push requests.",
+        "de": "WebSocket-Reconnect-Verhalten verbessert, Reconnect-Schleifen bei absichtlich geschlossenen Verbindungen verhindert und API-Fehlerlogging für Push-Requests verbessert."
+      },
       "0.3.1": {
         "en": "Documentation improvements, corrected license information and updated development dependencies. No functional changes.",
         "de": "Dokumentation verbessert, Lizenzangaben korrigiert und Entwicklungsabhängigkeiten aktualisiert. Keine funktionalen Änderungen."

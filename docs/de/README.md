@@ -48,6 +48,13 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.2 (2026-03-12)
+
+- WebSocket-Reconnect nach Token-Aktualisierung verbessert
+- Reconnect-Schleifen bei absichtlich geschlossenen WebSocket-Verbindungen verhindert
+- API-Fehlerlogging für Push-Requests verbessert
+- Logging für WebSocket-Close-Code und Reason ergänzt
+
 ### 0.3.1 (2026-03-09)
 
 - Verbesserte Dokumentation
