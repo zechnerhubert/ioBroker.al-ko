@@ -436,7 +436,7 @@ class AlKoAdapter extends utils.Adapter {
       }
     });
 
-    ws.on("close", () => {
+    ws.on("close", (code, reason) => {
       if (this.pingIntervals[deviceId]) {
         this.clearInterval(this.pingIntervals[deviceId]);
         delete this.pingIntervals[deviceId];
@@ -455,7 +455,7 @@ class AlKoAdapter extends utils.Adapter {
       }
 
       this.log.warn(
-        `WebSocket closed for device ${deviceId}. Retrying in 10 seconds.`,
+        `WebSocket closed for device ${deviceId}. Code: ${code}, Reason: ${reason?.toString() || "none"}. Retrying in 10 seconds.`,
       );
 
       if (this.reconnectTimeouts[deviceId]) {
