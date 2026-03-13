@@ -413,22 +413,41 @@ class AlKoAdapter extends utils.Adapter {
       if (this.config.wsDebug) {
         this.log.debug(`WebSocket message (${deviceId}): ${msg}`);
       }
+
       try {
         const data = JSON.parse(msg.toString());
-        if (data && data.state) {
-          const newState = data.state.reported || data.state;
 
-          this.deviceStates[deviceId] = this.deepMerge(
-            this.deviceStates[deviceId] || {},
-            newState,
-          );
+        let newState = null;
 
-          await this.createStatesRecursive(
-            `${this.namespace}.${deviceId}.state`,
-            this.deviceStates[deviceId],
-            "",
-          );
+        if (data?.reportedState?.state?.reported) {
+          newState = data.reportedState.state.reported;
+        } else if (
+          data?.reportedState &&
+          typeof data.reportedState === "object" &&
+          !data.reportedState.state &&
+          !data.reportedState.previous &&
+          !data.reportedState.current &&
+          !data.reportedState.metadata
+        ) {
+          newState = data.reportedState;
+        } else if (data?.state?.reported) {
+          newState = data.state.reported;
         }
+
+        if (!newState || typeof newState !== "object") {
+          return;
+        }
+
+        this.deviceStates[deviceId] = this.deepMerge(
+          this.deviceStates[deviceId] || {},
+          newState,
+        );
+
+        await this.createStatesRecursive(
+          `${this.namespace}.${deviceId}.state`,
+          this.deviceStates[deviceId],
+          "",
+        );
       } catch (e) {
         this.log.error(
           `Error processing WebSocket message for device ${deviceId}: ${e.message}`,
