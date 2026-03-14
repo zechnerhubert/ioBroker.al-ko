@@ -1,0 +1,123 @@
+[1mdiff --git a/.github/workflows/test-and-release.yml b/.github/workflows/test-and-release.yml[m
+[1mindex b7e31b3..96cc18d 100644[m
+[1m--- a/.github/workflows/test-and-release.yml[m
+[1m+++ b/.github/workflows/test-and-release.yml[m
+[36m@@ -6,7 +6,7 @@[m [mon:[m
+       - master[m
+     tags:[m
+       - "v[0-9]+.[0-9]+.[0-9]+"[m
+[31m-      - "v[0-9]+.[0-9]+.[0-9]+-*"[m
+[32m+[m[32m      - "v[0-9]+.[0-9]+.[0-9]+-**"[m
+   pull_request:[m
+     branches:[m
+       - master[m
+[1mdiff --git a/CHANGELOG.md b/CHANGELOG.md[m
+[1mindex 9058951..c1464c9 100644[m
+[1m--- a/CHANGELOG.md[m
+[1m+++ b/CHANGELOG.md[m
+[36m@@ -1,6 +1,13 @@[m
+ # Changelog[m
+ [m
+[32m+[m[32m## 0.3.3 (2026-03-13)[m
+[32m+[m[32m- Improved WebSocket reconnect handling[m
+[32m+[m[32m- Fixed processing of AL-KO WebSocket reportedState messages[m
+[32m+[m[32m- Updated Dependabot and workflow configuration[m
+[32m+[m[32m- Updated development dependencies[m
+[32m+[m
+ ## 0.3.2 (2026-03-12)[m
+[32m+[m
+ - Improved WebSocket reconnect handling after token refresh[m
+ - Prevented reconnect loops on intentional WebSocket closes[m
+ - Improved API error logging for push requests[m
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 38f7463..00b9b2c 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -53,28 +53,12 @@[m [mDo **not** contact AL-KO customer service regarding this project.[m
+ [m
+ ## Changelog[m
+ [m
+[31m-### 0.3.2 (2026-03-12)[m
+[32m+[m[32m### 0.3.3 (2026-03-13)[m
+ [m
+[31m-- Improved WebSocket reconnect handling after token refresh[m
+[31m-- Prevented reconnect loops on intentional WebSocket closes[m
+[31m-- Improved API error logging for push requests[m
+[31m-- Added WebSocket close code and reason logging[m
+[31m-[m
+[31m-### 0.3.1 (2026-03-09)[m
+[31m-[m
+[31m-- Documentation improvements[m
+[31m-- Corrected LICENSE information[m
+[31m-- Updated development dependencies[m
+[31m-- Minor CI / workflow cleanup[m
+[31m-- No functional changes[m
+[31m-[m
+[31m-### 0.3.0 (2026-03-09)[m
+[31m-[m
+[31m-- Major maintenance release[m
+[31m-- Updated ESLint 9, Prettier 3 and TypeScript tooling[m
+[32m+[m[32m- Improved WebSocket reconnect handling[m
+[32m+[m[32m- Fixed processing of AL-KO WebSocket reportedState messages[m
+[32m+[m[32m- Updated Dependabot and workflow configuration[m
+ - Updated development dependencies[m
+[31m-- Improved CI pipeline and adapter structure[m
+[31m-- No functional changes[m
+ [m
+ ➡ Full changelog here:  [m
+ [CHANGELOG.md](./CHANGELOG.md)[m
+[1mdiff --git a/io-package.json b/io-package.json[m
+[1mindex 4c3a4c9..99fd9f6 100644[m
+[1m--- a/io-package.json[m
+[1m+++ b/io-package.json[m
+[36m@@ -1,7 +1,7 @@[m
+ {[m
+   "common": {[m
+     "name": "al-ko",[m
+[31m-    "version": "0.3.2",[m
+[32m+[m[32m    "version": "0.3.3",[m
+     "tier": 3,[m
+     "titleLang": {[m
+       "en": "AL-KO",[m
+[36m@@ -40,6 +40,10 @@[m
+       "de": "docs/de/README.md"[m
+     },[m
+     "news": {[m
+[32m+[m[32m      "0.3.3": {[m
+[32m+[m[32m        "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",[m
+[32m+[m[32m        "de": "WebSocket-Handling und Nachrichtenverarbeitung verbessert, Repository-Workflows aktualisiert und Entwicklungsabhängigkeiten aktualisiert."[m
+[32m+[m[32m      },[m
+       "0.3.2": {[m
+         "en": "Improved WebSocket reconnect handling, prevented reconnect loops on intentional closes, and improved API error logging for push requests.",[m
+         "de": "WebSocket-Reconnect-Verhalten verbessert, Reconnect-Schleifen bei absichtlich geschlossenen Verbindungen verhindert und API-Fehlerlogging für Push-Requests verbessert."[m
+[36m@@ -51,18 +55,6 @@[m
+       "0.3.0": {[m
+         "en": "Major maintenance release. Updated ESLint 9, Prettier 3, TypeScript tooling and development dependencies. Improved adapter structure and CI pipeline. No functional changes.",[m
+         "de": "Größeres Wartungsrelease. Aktualisierung von ESLint 9, Prettier 3, TypeScript-Tooling und Entwicklungsabhängigkeiten. Verbesserte Adapterstruktur und CI-Pipeline. Keine funktionalen Änderungen."[m
+[31m-      },[m
+[31m-      "0.2.15": {[m
+[31m-        "en": "Admin config cleanup for adapter-check: removed $schema, corrected structure, added missing size attributes.",[m
+[31m-        "de": "Admin-Konfiguration für adapter-check bereinigt: $schema entfernt, Struktur korrigiert, fehlende size-Attribute ergänzt."[m
+[31m-      },[m
+[31m-      "0.2.14": {[m
+[31m-        "en": "Updated development tooling: release-script v5, plugins v4, ESLint 9, TypeScript 5.9, Prettier 3.",[m
+[31m-        "de": "Entwicklungswerkzeuge aktualisiert: release-script v5, Plugins v4, ESLint 9, TypeScript 5.9, Prettier 3."[m
+[31m-      },[m
+[31m-      "0.2.13": {[m
+[31m-        "en": "Fixed JSON syntax error in io-package.json. No functional changes.",[m
+[31m-        "de": "JSON-Syntaxfehler in io-package.json behoben. Keine funktionalen Änderungen."[m
+       }[m
+     },[m
+     "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex f127cb3..9857a77 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -1,6 +1,6 @@[m
+ {[m
+   "name": "iobroker.al-ko",[m
+[31m-  "version": "0.3.2",[m
+[32m+[m[32m  "version": "0.3.3",[m
+   "description": "Adapter for communication with AL-KO smart garden devices (Robolinho, mowing windows, operationState, etc.)",[m
+   "author": {[m
+     "name": "Hubert Zechner",[m

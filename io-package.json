@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -40,6 +40,10 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.3": {
+        "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",
+        "de": "WebSocket-Handling und Nachrichtenverarbeitung verbessert, Repository-Workflows aktualisiert und Entwicklungsabhängigkeiten aktualisiert."
+      },
       "0.3.2": {
         "en": "Improved WebSocket reconnect handling, prevented reconnect loops on intentional closes, and improved API error logging for push requests.",
         "de": "WebSocket-Reconnect-Verhalten verbessert, Reconnect-Schleifen bei absichtlich geschlossenen Verbindungen verhindert und API-Fehlerlogging für Push-Requests verbessert."
@@ -51,18 +55,6 @@
       "0.3.0": {
         "en": "Major maintenance release. Updated ESLint 9, Prettier 3, TypeScript tooling and development dependencies. Improved adapter structure and CI pipeline. No functional changes.",
         "de": "Größeres Wartungsrelease. Aktualisierung von ESLint 9, Prettier 3, TypeScript-Tooling und Entwicklungsabhängigkeiten. Verbesserte Adapterstruktur und CI-Pipeline. Keine funktionalen Änderungen."
-      },
-      "0.2.15": {
-        "en": "Admin config cleanup for adapter-check: removed $schema, corrected structure, added missing size attributes.",
-        "de": "Admin-Konfiguration für adapter-check bereinigt: $schema entfernt, Struktur korrigiert, fehlende size-Attribute ergänzt."
-      },
-      "0.2.14": {
-        "en": "Updated development tooling: release-script v5, plugins v4, ESLint 9, TypeScript 5.9, Prettier 3.",
-        "de": "Entwicklungswerkzeuge aktualisiert: release-script v5, Plugins v4, ESLint 9, TypeScript 5.9, Prettier 3."
-      },
-      "0.2.13": {
-        "en": "Fixed JSON syntax error in io-package.json. No functional changes.",
-        "de": "JSON-Syntaxfehler in io-package.json behoben. Keine funktionalen Änderungen."
       }
     },
     "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],

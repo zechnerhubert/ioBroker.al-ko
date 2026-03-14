@@ -48,6 +48,14 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.3 (2026-03-13)
+
+- WebSocket-Verarbeitung verbessert
+- Verarbeitung der AL-KO `reportedState` WebSocket-Nachrichten korrigiert
+- Stabileres Wiederverbinden der WebSocket-Verbindung
+- GitHub-Workflows aktualisiert (Dependabot / Automerge)
+- Entwicklungsabhängigkeiten aktualisiert
+
 ### 0.3.2 (2026-03-12)
 
 - WebSocket-Reconnect nach Token-Aktualisierung verbessert

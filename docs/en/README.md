@@ -48,19 +48,12 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
-### 0.3.2 (2026-03-12)
+### 0.3.3 (2026-03-13)
 
-- Improved WebSocket reconnect handling after token refresh
-- Prevented reconnect loops on intentional WebSocket closes
-- Improved API error logging for push requests
-- Added WebSocket close code and reason logging
-
-### 0.3.1 (2026-03-09)
-
-- Documentation improvements
-- Corrected LICENSE information
+- Improved WebSocket reconnect handling
+- Fixed processing of AL-KO WebSocket reportedState messages
+- Updated Dependabot and workflow configuration
 - Updated development dependencies
-- No functional changes
 
 See full changelog here:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)
