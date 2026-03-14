@@ -1,4 +1,4 @@
-/* eslint-env mocha */
+/* global describe, it */
 "use strict";
 
 const { expect } = require("chai");
