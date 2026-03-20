@@ -48,6 +48,11 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.4 (2026-03-20)
+
+- Responsives Layout in der jsonConfig korrigiert (xs/sm/md/lg/xl)
+- Beispielhafte i18n-Einträge (option1/option2) entfernt
+
 ### 0.3.3 (2026-03-13)
 
 - WebSocket-Verarbeitung verbessert
@@ -62,13 +67,6 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 - Reconnect-Schleifen bei absichtlich geschlossenen WebSocket-Verbindungen verhindert
 - API-Fehlerlogging für Push-Requests verbessert
 - Logging für WebSocket-Close-Code und Reason ergänzt
-
-### 0.3.1 (2026-03-09)
-
-- Verbesserte Dokumentation
-- Lizenzangaben korrigiert
-- Entwicklungsabhängigkeiten aktualisiert
-- Keine funktionalen Änderungen
 
 Alle Änderungen siehe vollständigen Changelog:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)

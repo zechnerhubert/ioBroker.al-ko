@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -40,6 +40,10 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.4": {
+        "en": "Fix jsonConfig responsive layout and remove example i18n entries",
+        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt"
+      },
       "0.3.3": {
         "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",
         "de": "WebSocket-Handling und Nachrichtenverarbeitung verbessert, Repository-Workflows aktualisiert und Entwicklungsabhängigkeiten aktualisiert."

@@ -48,12 +48,10 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
-### 0.3.3 (2026-03-13)
+### 0.3.4 (2026-03-20)
 
-- Improved WebSocket reconnect handling
-- Fixed processing of AL-KO WebSocket reportedState messages
-- Updated Dependabot and workflow configuration
-- Updated development dependencies
+- Fix responsive layout in jsonConfig (xs/sm/md/lg/xl)
+- Remove example i18n entries (option1/option2)
 
 See full changelog here:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)
