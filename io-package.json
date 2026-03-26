@@ -55,7 +55,7 @@
       },
       "0.3.4": {
         "en": "Fix jsonConfig responsive layout and remove example i18n entries",
-        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt",
+        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt"
       },
       "0.3.3": {
         "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",
