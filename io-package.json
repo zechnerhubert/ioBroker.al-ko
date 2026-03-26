@@ -55,23 +55,29 @@
       },
       "0.3.4": {
         "en": "Fix jsonConfig responsive layout and remove example i18n entries",
-        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt"
+        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt",
+        "ru": "Исправлено адаптивное отображение jsonConfig и удалены примерные записи i18n",
+        "pt": "Corrigido o layout responsivo do jsonConfig e removidas entradas de exemplo i18n",
+        "nl": "Responsieve layout van jsonConfig gecorrigeerd en voorbeeld i18n-items verwijderd",
+        "fr": "Correction de la mise en page responsive de jsonConfig et suppression des entrées i18n d'exemple",
+        "it": "Corretto il layout responsive di jsonConfig e rimosse le voci i18n di esempio",
+        "es": "Corregido el diseño responsivo de jsonConfig y eliminadas las entradas i18n de ejemplo",
+        "pl": "Poprawiono responsywny układ jsonConfig i usunięto przykładowe wpisy i18n",
+        "uk": "Виправлено адаптивний макет jsonConfig та видалено приклади i18n",
+        "zh-cn": "修复了 jsonConfig 的响应式布局并删除了示例 i18n 条目"
       },
       "0.3.3": {
         "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",
-        "de": "WebSocket-Handling und Nachrichtenverarbeitung verbessert, Repository-Workflows aktualisiert und Entwicklungsabhängigkeiten aktualisiert."
-      },
-      "0.3.2": {
-        "en": "Improved WebSocket reconnect handling, prevented reconnect loops on intentional closes, and improved API error logging for push requests.",
-        "de": "WebSocket-Reconnect-Verhalten verbessert, Reconnect-Schleifen bei absichtlich geschlossenen Verbindungen verhindert und API-Fehlerlogging für Push-Requests verbessert."
-      },
-      "0.3.1": {
-        "en": "Documentation improvements, corrected license information and updated development dependencies. No functional changes.",
-        "de": "Dokumentation verbessert, Lizenzangaben korrigiert und Entwicklungsabhängigkeiten aktualisiert. Keine funktionalen Änderungen."
-      },
-      "0.3.0": {
-        "en": "Major maintenance release. Updated ESLint 9, Prettier 3, TypeScript tooling and development dependencies. Improved adapter structure and CI pipeline. No functional changes.",
-        "de": "Größeres Wartungsrelease. Aktualisierung von ESLint 9, Prettier 3, TypeScript-Tooling und Entwicklungsabhängigkeiten. Verbesserte Adapterstruktur und CI-Pipeline. Keine funktionalen Änderungen."
+        "de": "WebSocket-Handling und Nachrichtenverarbeitung verbessert, Repository-Workflows aktualisiert und Entwicklungsabhängigkeiten aktualisiert.",
+        "ru": "Улучшена обработка WebSocket и сообщений, обновлены workflow репозитория и зависимости разработки",
+        "pt": "Melhorado o tratamento de WebSocket e processamento de mensagens, workflows do repositório atualizados e dependências de desenvolvimento atualizadas",
+        "nl": "WebSocket-afhandeling en berichtverwerking verbeterd, repository-workflows en ontwikkelingsafhankelijkheden bijgewerkt",
+        "fr": "Amélioration de la gestion WebSocket et du traitement des messages, mise à jour des workflows du dépôt et des dépendances de développement",
+        "it": "Migliorata la gestione WebSocket e l'elaborazione dei messaggi, aggiornati i workflow del repository e le dipendenze di sviluppo",
+        "es": "Mejorado el manejo de WebSocket y el procesamiento de mensajes, actualizados los workflows del repositorio y las dependencias de desarrollo",
+        "pl": "Ulepszono obsługę WebSocket i przetwarzanie wiadomości, zaktualizowano workflow repozytorium i zależności deweloperskie",
+        "uk": "Покращено обробку WebSocket і повідомлень, оновлено workflow репозиторію та залежності розробки",
+        "zh-cn": "改进了 WebSocket 处理和消息处理，更新了仓库工作流和开发依赖"
       }
     },
     "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],
