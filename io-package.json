@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.4",
+    "version": "0.3.5",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -40,9 +40,22 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.5": {
+        "en": "Enable npm trusted publishing and fix workflow warnings",
+        "de": "npm Trusted Publishing aktiviert und Workflow-Warnungen behoben",
+        "ru": "Включена публикация npm через Trusted Publishing и исправлены предупреждения workflow",
+        "pt": "Ativado o Trusted Publishing do npm e corrigidos avisos do workflow",
+        "nl": "npm Trusted Publishing ingeschakeld en workflow-waarschuwingen opgelost",
+        "fr": "Activation du Trusted Publishing npm et correction des avertissements du workflow",
+        "it": "Abilitato il Trusted Publishing npm e corretti gli avvisi del workflow",
+        "es": "Habilitado Trusted Publishing de npm y corregidas advertencias del workflow",
+        "pl": "Włączono Trusted Publishing npm i poprawiono ostrzeżenia workflow",
+        "uk": "Увімкнено Trusted Publishing npm та виправлено попередження workflow",
+        "zh-cn": "启用 npm Trusted Publishing 并修复工作流警告"
+      },
       "0.3.4": {
         "en": "Fix jsonConfig responsive layout and remove example i18n entries",
-        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt"
+        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt",
       },
       "0.3.3": {
         "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",

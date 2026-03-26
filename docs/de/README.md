@@ -48,6 +48,11 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.5 (2026-03-26)
+
+- npm Trusted Publishing aktiviert
+- GitHub Actions Workflow-Warnungen behoben
+
 ### 0.3.4 (2026-03-20)
 
 - Responsives Layout in der jsonConfig korrigiert (xs/sm/md/lg/xl)

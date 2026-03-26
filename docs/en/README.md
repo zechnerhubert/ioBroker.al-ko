@@ -48,10 +48,10 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
-### 0.3.4 (2026-03-20)
+### 0.3.5 (2026-03-26)
 
-- Fix responsive layout in jsonConfig (xs/sm/md/lg/xl)
-- Remove example i18n entries (option1/option2)
+- Enable npm trusted publishing
+- Fix GitHub Actions workflow warnings
 
 See full changelog here:  
 ➡ [CHANGELOG.md](../../CHANGELOG.md)

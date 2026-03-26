@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.5 (2026-03-26)
+
+- Enable npm trusted publishing
+- Fix GitHub Actions workflow warnings
+
 ## 0.3.4 (2026-03-20)
 
 - Fix responsive layout in jsonConfig (xs/sm/md/lg/xl)
