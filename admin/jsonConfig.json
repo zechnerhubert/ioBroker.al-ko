@@ -1,18 +1,5 @@
 {
   "type": "panel",
-  "label": {
-    "en": "General",
-    "de": "Allgemein",
-    "ru": "Общие",
-    "pt": "Geral",
-    "nl": "Algemeen",
-    "fr": "Général",
-    "it": "Generale",
-    "es": "General",
-    "pl": "Ogólne",
-    "uk": "Загальні",
-    "zh-cn": "常规"
-  },
   "items": {
     "username": {
       "type": "text",
