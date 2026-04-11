@@ -46,6 +46,45 @@ class AlKoAdapter extends utils.Adapter {
     this.on("stateChange", this.onStateChange.bind(this));
   }
 
+  getType(value) {
+    if (typeof value === "number") {
+      return "number";
+    }
+    if (typeof value === "boolean") {
+      return "boolean";
+    }
+    return "string";
+  }
+
+  getRole(key, value) {
+    const roleOverrides = {
+      batteryLevel: "value.battery",
+      chargingCurrent: "value.current",
+      bladeSpeed: "value.speed",
+      temperature: "value.temperature",
+      rainSensor: "indicator",
+      ecoMode: "indicator",
+      operationState: "text",
+      rssi: "value.signal",
+    };
+
+    if (roleOverrides[key]) {
+      return roleOverrides[key];
+    }
+
+    if (typeof value === "boolean") {
+      return "indicator";
+    }
+    if (typeof value === "number") {
+      return "value";
+    }
+    if (typeof value === "string") {
+      return "text";
+    }
+
+    return "state";
+  }
+
   // ---------------- ID Sanitizer ----------------
   sanitizeId(id) {
     return id
@@ -586,48 +625,48 @@ class AlKoAdapter extends utils.Adapter {
     return whitelist.includes(relPath);
   }
   // ---------------- Role Mapping ----------------
-  mapRole(relPath, type) {
-    if (!relPath) {
-      return "state";
-    }
-
-    const lower = relPath.toLowerCase();
-
-    if (lower.endsWith("starthour") || lower.endsWith("hour")) {
-      return "value.hour";
-    }
-    if (lower.endsWith("startminute") || lower.endsWith("minute")) {
-      return "value.minute";
-    }
-
-    if (type === "boolean") {
-      if (
-        lower.includes("mode") ||
-        lower.includes("enabled") ||
-        lower.includes("manualmowing")
-      ) {
-        return "switch";
-      }
-      return "indicator";
-    }
-
-    if (lower.includes("operationstate") || lower.includes("state")) {
-      return "indicator.status";
-    }
-
-    if (type === "number") {
-      if (lower.includes("battery")) {
-        return "value.battery";
-      }
-      return "value";
-    }
-
-    if (type === "string") {
-      return "text";
-    }
-
-    return "state";
-  }
+  // mapRole(relPath, type) {
+  //  if (!relPath) {
+  //    return "state";
+  //  }
+  //
+  //  const lower = relPath.toLowerCase();
+  //
+  //  if (lower.endsWith("starthour") || lower.endsWith("hour")) {
+  //    return "value.hour";
+  //  }
+  //  if (lower.endsWith("startminute") || lower.endsWith("minute")) {
+  //    return "value.minute";
+  //  }
+  //
+  //  if (type === "boolean") {
+  //    if (
+  //      lower.includes("mode") ||
+  //      lower.includes("enabled") ||
+  //      lower.includes("manualmowing")
+  //    ) {
+  //      return "switch";
+  //    }
+  //    return "indicator";
+  //  }
+  //
+  //  if (lower.includes("operationstate") || lower.includes("state")) {
+  //    return "indicator.status";
+  //  }
+  //
+  //  if (type === "number") {
+  //    if (lower.includes("battery")) {
+  //      return "value.battery";
+  //    }
+  //    return "value";
+  //  }
+  //
+  //  if (type === "string") {
+  //    return "text";
+  //  }
+  //
+  //  return "state";
+  //}
 
   // ---------------- Safe setState wrapper ----------------
   async setStateIfChanged(
@@ -637,21 +676,29 @@ class AlKoAdapter extends utils.Adapter {
     write = false,
     relPath = null,
   ) {
-    let type;
-    if (typeof value === "boolean") {
-      type = "boolean";
-    } else if (typeof value === "number") {
-      type = "number";
-    } else {
-      type = "string";
-    }
-
     id = this.sanitizeId(id);
+
+    const type = this.getType(value);
+    const key = relPath?.split(".").pop() || id.split(".").pop();
+    const role = this.getRole(key, value);
 
     await this.setObjectNotExistsAsync(id, {
       type: "state",
-      common: { type, role: this.mapRole(relPath, type), read: true, write },
+      common: {
+        name: key,
+        type,
+        role,
+        read: true,
+        write,
+      },
       native: {},
+    });
+
+    await this.extendObjectAsync(id, {
+      common: {
+        role,
+        type,
+      },
     });
 
     const prev = this.lastStateValues[id];
@@ -673,6 +720,12 @@ class AlKoAdapter extends utils.Adapter {
     if (!state || this._stopRequested) {
       return;
     }
+
+    // FIX: ack handling
+    if (state.ack) {
+      return;
+    }
+
     if (this.adapterSetStates.has(id)) {
       return;
     }
