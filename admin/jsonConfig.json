@@ -4,6 +4,7 @@
     "username": {
       "type": "text",
       "label": "username",
+      "placeholder": "username_placeholder",
       "xs": 12,
       "sm": 6,
       "md": 6,
