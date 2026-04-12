@@ -47,37 +47,72 @@ class AlKoAdapter extends utils.Adapter {
   }
 
   getType(value) {
+    if (value === null || value === undefined) {
+      return "mixed";
+    }
     if (typeof value === "number") {
       return "number";
     }
     if (typeof value === "boolean") {
       return "boolean";
     }
-    return "string";
+    if (typeof value === "string") {
+      return "string";
+    }
+    return "mixed";
   }
 
   getRole(key, value) {
-    const roleOverrides = {
-      batteryLevel: "value.battery",
-      chargingCurrent: "value.current",
-      bladeSpeed: "value.speed",
-      temperature: "value.temperature",
-      rainSensor: "indicator",
-      ecoMode: "indicator",
-      operationState: "text",
-      rssi: "value.signal",
-    };
+    const k = key.toLowerCase();
 
-    if (roleOverrides[key]) {
-      return roleOverrides[key];
-    }
-
+    // BOOLEAN
     if (typeof value === "boolean") {
+      if (k.includes("connected")) {
+        return "indicator.reachable";
+      }
+      if (k.includes("rain")) {
+        return "indicator";
+      }
+      if (k.includes("error")) {
+        return "indicator";
+      }
       return "indicator";
     }
+
+    // BATTERY
+    if (k.includes("battery")) {
+      if (k.includes("level")) {
+        return "level.battery";
+      }
+      return "value";
+    }
+
+    // TEMPERATURE
+    if (k.includes("temp")) {
+      return "value.temperature";
+    }
+
+    // VOLTAGE
+    if (k.includes("voltage")) {
+      return "value.voltage";
+    }
+
+    // CURRENT
+    if (k.includes("current")) {
+      return "value.current";
+    }
+
+    // SIGNAL
+    if (k.includes("rssi") || k.includes("signal")) {
+      return "value";
+    }
+
+    // NUMBERS
     if (typeof value === "number") {
       return "value";
     }
+
+    // STRINGS
     if (typeof value === "string") {
       return "text";
     }
@@ -698,6 +733,8 @@ class AlKoAdapter extends utils.Adapter {
       common: {
         role,
         type,
+        read: true,
+        write,
       },
     });
 
