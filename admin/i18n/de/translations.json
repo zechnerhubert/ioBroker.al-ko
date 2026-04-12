@@ -1,8 +1,8 @@
 {
-  "username": "Benutzername",
-  "username_placeholder": "AL-KO Benutzername eingeben",
-  "password": "Passwort",
   "clientId": "Client-ID",
   "clientSecret": "Client-Secret",
+  "password": "Passwort",
+  "username": "Benutzername",
+  "username_placeholder": "AL-KO Benutzername eingeben",
   "wsDebug": "WebSocket-Nachrichten protokollieren"
 }

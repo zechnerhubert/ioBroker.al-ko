@@ -29,8 +29,10 @@
       "uk": "Адаптер для газонокосарок AL-KO Robolinho",
       "zh-cn": "AL-KO Robolinho 割草机适配器"
     },
-    "authors": ["Hubert Zechner <hubertiob@posteo.at>"],
-      "licenseInformation": {
+    "authors": [
+      "Hubert Zechner <hubertiob@posteo.at>"
+    ],
+    "licenseInformation": {
       "type": "free",
       "license": "MIT",
       "link": "https://opensource.org/licenses/MIT"
@@ -80,7 +82,13 @@
         "zh-cn": "改进了 WebSocket 处理和消息处理，更新了仓库工作流和开发依赖"
       }
     },
-    "keywords": ["al-ko", "Robolinho", "mower", "garden", "smart-garden"],
+    "keywords": [
+      "al-ko",
+      "Robolinho",
+      "mower",
+      "garden",
+      "smart-garden"
+    ],
     "extIcon": "https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko-128.png",
     "adminUI": {
       "config": "json"
@@ -111,8 +119,14 @@
     "clientSecret": "",
     "wsDebug": false
   },
-  "protectedNative": ["password", "clientSecret"],
-  "encryptedNative": ["password", "clientSecret"],
+  "protectedNative": [
+    "password",
+    "clientSecret"
+  ],
+  "encryptedNative": [
+    "password",
+    "clientSecret"
+  ],
   "objects": [],
   "instanceObjects": []
 }
