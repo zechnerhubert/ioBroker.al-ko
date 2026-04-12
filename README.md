@@ -64,7 +64,7 @@ Do **not** contact AL-KO customer service regarding this project.
 - Remove example i18n entries (option1/option2)
 
 ➡ Full changelog here:  
-[CHANGELOG.md](./CHANGELOG.md)
+[CHANGELOG_OLD.md](./CHANGELOG_OLD.md)
 
 ---
 
