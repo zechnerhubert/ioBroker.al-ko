@@ -1,8 +1,8 @@
 {
-  "clientId": "Client ID",
-  "clientSecret": "Client Secret",
+  "clientId": "ID cliente",
+  "clientSecret": "Segreto del cliente",
   "password": "Password",
-  "username": "Username",
-  "username_placeholder": "Enter your AL-KO account username",
-  "wsDebug": "Enable WebSocket message logging"
+  "username": "Nome utente",
+  "username_placeholder": "Inserisci il nome utente del tuo account AL-KO",
+  "wsDebug": "Abilita la registrazione dei messaggi WebSocket"
 }

@@ -3,6 +3,6 @@
   "clientSecret": "Client-Secret",
   "password": "Passwort",
   "username": "Benutzername",
-  "username_placeholder": "AL-KO Benutzername eingeben",
-  "wsDebug": "WebSocket-Nachrichten protokollieren"
+  "username_placeholder": "Geben Sie den Benutzernamen Ihres AL-KO-Kontos ein",
+  "wsDebug": "Aktivieren Sie die WebSocket-Nachrichtenprotokollierung"
 }
