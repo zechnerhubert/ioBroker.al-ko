@@ -84,7 +84,7 @@ class AlKoAdapter extends utils.Adapter {
       if (k.includes("level")) {
         return "level.battery";
       }
-      return "value";
+      return "value.number";
     }
 
     // TEMPERATURE
@@ -102,22 +102,95 @@ class AlKoAdapter extends utils.Adapter {
       return "value.current";
     }
 
+    // TIME / DURATION
+    if (k.includes("duration")) {
+      return "value.duration";
+    }
+    if (k.includes("hour") || k.includes("minute")) {
+      return "value.time";
+    }
+
     // SIGNAL
     if (k.includes("rssi") || k.includes("signal")) {
-      return "value";
+      return "value.number";
     }
 
-    // NUMBERS
+    // GENERIC NUMBER
     if (typeof value === "number") {
-      return "value";
+      return "value.number";
     }
 
-    // STRINGS
+    // STRING
     if (typeof value === "string") {
       return "text";
     }
 
     return "state";
+  }
+
+  getUnit(key) {
+    const k = key.toLowerCase();
+
+    if (k.includes("voltage")) {
+      return "V";
+    }
+    if (k.includes("temp")) {
+      return "°C";
+    }
+    if (k.includes("current")) {
+      return "A";
+    }
+    if (k.includes("battery")) {
+      return "%";
+    }
+    if (k.includes("duration")) {
+      return "min";
+    }
+    if (k.includes("hour")) {
+      return "h";
+    }
+    if (k.includes("minute")) {
+      return "min";
+    }
+
+    return undefined;
+  }
+
+  async ensureObjectTree(id) {
+    const parts = id.split(".");
+
+    // Device sicherstellen
+    const deviceId = `${parts[0]}.${parts[1]}.${parts[2]}`;
+
+    const deviceObj = await this.getObjectAsync(deviceId);
+    if (!deviceObj) {
+      await this.setObjectAsync(deviceId, {
+        type: "device",
+        common: {
+          name: parts[2],
+          role: "device",
+        },
+        native: {},
+      });
+    }
+
+    let path = deviceId;
+
+    for (let i = 3; i < parts.length - 1; i++) {
+      path += `.${parts[i]}`;
+
+      const obj = await this.getObjectAsync(path);
+      if (!obj) {
+        await this.setObjectAsync(path, {
+          type: "channel",
+          common: {
+            name: parts[i],
+            role: "channel",
+          },
+          native: {},
+        });
+      }
+    }
   }
 
   // ---------------- ID Sanitizer ----------------
@@ -716,6 +789,9 @@ class AlKoAdapter extends utils.Adapter {
     const type = this.getType(value);
     const key = relPath?.split(".").pop() || id.split(".").pop();
     const role = this.getRole(key, value);
+    const unit = this.getUnit(key);
+
+    await this.ensureObjectTree(id);
 
     await this.setObjectNotExistsAsync(id, {
       type: "state",
@@ -723,6 +799,7 @@ class AlKoAdapter extends utils.Adapter {
         name: key,
         type,
         role,
+        unit,
         read: true,
         write,
       },
@@ -733,6 +810,7 @@ class AlKoAdapter extends utils.Adapter {
       common: {
         role,
         type,
+        unit,
         read: true,
         write,
       },
