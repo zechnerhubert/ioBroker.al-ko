@@ -128,29 +128,15 @@ class AlKoAdapter extends utils.Adapter {
     return "state";
   }
 
-  getUnit(key) {
-    const k = key.toLowerCase();
+  getUnit(key, value, relPath = "") {
+    //KEINE Unit für boolean / indicator
+    if (typeof value === "boolean") {
+      return undefined;
+    }
+    const path = relPath.toLowerCase();
 
-    if (k.includes("voltage")) {
-      return "V";
-    }
-    if (k.includes("temp")) {
-      return "°C";
-    }
-    if (k.includes("current")) {
-      return "A";
-    }
-    if (k.includes("battery")) {
+    if (path.endsWith("batterylevel")) {
       return "%";
-    }
-    if (k.includes("duration")) {
-      return "min";
-    }
-    if (k.includes("hour")) {
-      return "h";
-    }
-    if (k.includes("minute")) {
-      return "min";
     }
 
     return undefined;
@@ -789,7 +775,7 @@ class AlKoAdapter extends utils.Adapter {
     const type = this.getType(value);
     const key = relPath?.split(".").pop() || id.split(".").pop();
     const role = this.getRole(key, value);
-    const unit = this.getUnit(key);
+    const unit = this.getUnit(key, value, relPath);
 
     await this.ensureObjectTree(id);
 
