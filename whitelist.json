@@ -130,4 +130,5 @@
   "rainDelay",
   "rainSensitivity",
   "rainSensor"
+  "resetBladesService"
 ]
