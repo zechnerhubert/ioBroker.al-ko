@@ -129,6 +129,6 @@
   "operationState",
   "rainDelay",
   "rainSensitivity",
-  "rainSensor"
+  "rainSensor",
   "resetBladesService"
 ]
