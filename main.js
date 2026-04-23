@@ -346,7 +346,7 @@ class AlKoAdapter extends utils.Adapter {
             stateData.state.reported || stateData.state;
 
           await this.createStatesRecursive(
-            `${this.namespace}.${deviceId}.state`,
+            `${this.namespace}.${deviceId}`,
             this.deviceStates[deviceId],
             "",
           );
@@ -577,7 +577,7 @@ class AlKoAdapter extends utils.Adapter {
         );
 
         await this.createStatesRecursive(
-          `${this.namespace}.${deviceId}.state`,
+          `${this.namespace}.${deviceId}`,
           this.deviceStates[deviceId],
           "",
         );
@@ -847,7 +847,7 @@ class AlKoAdapter extends utils.Adapter {
 
     const parts = id.split(".");
     const deviceId = parts[2];
-    const relPathArr = parts.slice(4);
+    const relPathArr = parts.slice(3);
 
     this.pendingPushes.add(id);
 
