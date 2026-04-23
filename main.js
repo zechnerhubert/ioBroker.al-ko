@@ -62,11 +62,14 @@ class AlKoAdapter extends utils.Adapter {
     return "mixed";
   }
 
-  getRole(key, value) {
+  getRole(key, value, write) {
     const k = key.toLowerCase();
 
     // BOOLEAN
     if (typeof value === "boolean") {
+      if (write) {
+        return "switch";
+      }
       if (k.includes("connected")) {
         return "indicator.reachable";
       }
@@ -107,7 +110,7 @@ class AlKoAdapter extends utils.Adapter {
       return "value.duration";
     }
     if (k.includes("hour") || k.includes("minute")) {
-      return "value.time";
+      return "level";
     }
 
     // SIGNAL
@@ -774,7 +777,7 @@ class AlKoAdapter extends utils.Adapter {
 
     const type = this.getType(value);
     const key = relPath?.split(".").pop() || id.split(".").pop();
-    const role = this.getRole(key, value);
+    const role = this.getRole(key, value, write);
     const unit = this.getUnit(key, value, relPath);
 
     await this.ensureObjectTree(id);
