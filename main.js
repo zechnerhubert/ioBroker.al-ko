@@ -120,7 +120,7 @@ class AlKoAdapter extends utils.Adapter {
 
     // GENERIC NUMBER
     if (typeof value === "number") {
-      return "value.number";
+      return write ? "level" : "value";
     }
 
     // STRING
