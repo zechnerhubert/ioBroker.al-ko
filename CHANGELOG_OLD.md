@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.6 (2026-04-26)
+- Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
+- Fixed whitelist handling for writable states
+- Improved object structure according to review feedback
+
 ## 0.3.5 (2026-03-26)
 
 - Enable npm trusted publishing

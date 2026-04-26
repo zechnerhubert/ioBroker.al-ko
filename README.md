@@ -53,15 +53,16 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### 0.3.6
+- Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
+- Fixed whitelist handling for writable states
+- Improved object structure according to review feedback
+
 ### 0.3.5 (2026-03-26)
 
 - Enable npm trusted publishing
 - Fix GitHub Actions workflow warnings
 
-### 0.3.4 (2026-03-20)
-
-- Fix responsive layout in jsonConfig (xs/sm/md/lg/xl)
-- Remove example i18n entries (option1/option2)
 
 ➡ Full changelog here:  
 [CHANGELOG_OLD.md](./CHANGELOG_OLD.md)

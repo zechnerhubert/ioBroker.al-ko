@@ -48,6 +48,12 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.6 (2026-04-26)
+
+- Ungültige State-Rollen korrigiert (`value.number` entfernt, korrekte Verwendung von `value` und `level`)
+- Whitelist für schreibbare States korrigiert
+- Objektstruktur gemäß Review-Anforderungen verbessert
+
 ### 0.3.5 (2026-03-26)
 
 - npm Trusted Publishing aktiviert
@@ -74,7 +80,7 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 - Logging für WebSocket-Close-Code und Reason ergänzt
 
 Alle Änderungen siehe vollständigen Changelog:  
-➡ [CHANGELOG.md](../../CHANGELOG.md)
+➡ [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md)
 
 Wesentliche Neuerungen:
 

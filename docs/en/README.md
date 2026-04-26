@@ -48,13 +48,18 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
+### 0.3.6 (2026-04-26)
+- Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
+- Fixed whitelist handling for writable states
+- Improved object structure according to review feedback
+
 ### 0.3.5 (2026-03-26)
 
 - Enable npm trusted publishing
 - Fix GitHub Actions workflow warnings
 
 See full changelog here:  
-➡ [CHANGELOG.md](../../CHANGELOG.md)
+➡ [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md)
 
 Key updates:
 

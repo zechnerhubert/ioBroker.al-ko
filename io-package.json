@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -42,6 +42,19 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.6": {
+        "en": "Fix state roles (remove invalid value.number, align value/level), correct whitelist handling for writable states, and finalize object structure according to review feedback",
+        "de": "State-Rollen korrigiert (value.number entfernt, value/level angepasst), Whitelist für schreibbare States korrigiert und Objektstruktur gemäß Review-Anforderungen finalisiert",
+        "ru": "Исправлены роли состояний (удалён value.number, выровнены value/level), исправлена whitelist для записываемых состояний и завершена структура объектов согласно требованиям ревью",
+        "pt": "Corrigidas as roles dos estados (removido value.number, ajustado value/level), corrigida a whitelist para estados graváveis e finalizada a estrutura de objetos conforme revisão",
+        "nl": "State-rollen gecorrigeerd (value.number verwijderd, value/level aangepast), whitelist voor schrijfbare states gecorrigeerd en objectstructuur volgens review afgerond",
+        "fr": "Correction des rôles d’état (suppression de value.number, ajustement value/level), correction de la whitelist des états modifiables et finalisation de la structure d’objets selon la revue",
+        "it": "Corretti i ruoli degli stati (rimosso value.number, allineati value/level), corretta la whitelist per stati scrivibili e finalizzata la struttura degli oggetti secondo la revisione",
+        "es": "Corregidos los roles de estado (eliminado value.number, ajustado value/level), corregida la whitelist para estados escribibles y finalizada la estructura de objetos según la revisión",
+        "pl": "Poprawiono role stanów (usunięto value.number, dostosowano value/level), poprawiono whitelistę dla zapisywalnych stanów i zakończono strukturę obiektów zgodnie z uwagami",
+        "uk": "Виправлено ролі станів (видалено value.number, узгоджено value/level), виправлено whitelist для записуваних станів та завершено структуру об'єктів відповідно до зауважень",
+        "zh-cn": "修复状态角色（移除 value.number，调整为 value/level），修复可写状态白名单，并根据审查意见完善对象结构"
+      },
       "0.3.5": {
         "en": "Enable npm trusted publishing and fix workflow warnings",
         "de": "npm Trusted Publishing aktiviert und Workflow-Warnungen behoben",
