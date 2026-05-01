@@ -1,26 +1,30 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "cron"
-      cronjob: "0 2 17 * *"
-      timezone: "Europe/Berlin"
-    
+      interval: 'cron'
+      cronjob: '0 2 17 * *'
+      timezone: 'Europe/Berlin'
+
     cooldown:
       default: 7
-      
+
     open-pull-requests-limit: 15
     assignees:
       - zechnerhubert
     versioning-strategy: increase
+    ignore:
+      - dependency-name: '@types/node'
+        update-types:
+          - 'version-update:semver-major'
 
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: '/'
     schedule:
-      interval: "cron"
-      cronjob: "0 3 23 * *"
-      timezone: "Europe/Berlin"
+      interval: 'cron'
+      cronjob: '0 3 23 * *'
+      timezone: 'Europe/Berlin'
     open-pull-requests-limit: 15
     assignees:
       - zechnerhubert
