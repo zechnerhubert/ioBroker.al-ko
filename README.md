@@ -53,6 +53,9 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.3.6
 - Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
 - Fixed whitelist handling for writable states
