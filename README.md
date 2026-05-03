@@ -69,6 +69,8 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ---
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
