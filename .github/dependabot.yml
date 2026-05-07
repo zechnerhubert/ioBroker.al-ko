@@ -6,7 +6,11 @@ updates:
       interval: "cron"
       cronjob: "0 2 17 * *"
       timezone: "Europe/Berlin"
-    
+    ignore:
+      - dependency-name: "@types/node"
+        update-types:
+          - "version-update:semver-major"
+          
     cooldown:
       default: 7
       
