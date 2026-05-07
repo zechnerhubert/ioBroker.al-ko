@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.6",
+    "version": "0.3.7",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -42,6 +42,19 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.7": {
+        "en": "Update dependencies (axios security fixes), require Node.js >= 22, improve stability",
+        "de": "Abhängigkeiten aktualisiert (Axios Sicherheitsfixes), Node.js >= 22 erforderlich, Stabilität verbessert",
+        "ru": "Обновлены зависимости (исправления безопасности axios), требуется Node.js >= 22, повышена стабильность",
+        "pt": "Atualizadas as dependências (correções de segurança do axios), requer Node.js >= 22, melhorias de estabilidade",
+        "nl": "Afhankelijkheden bijgewerkt (axios beveiligingsfixes), Node.js >= 22 vereist, stabiliteit verbeterd",
+        "fr": "Mise à jour des dépendances (correctifs de sécurité axios), Node.js >= 22 requis, amélioration de la stabilité",
+        "it": "Aggiornate le dipendenze (fix di sicurezza axios), richiesto Node.js >= 22, migliorata la stabilità",
+        "es": "Dependencias actualizadas (correcciones de seguridad de axios), se requiere Node.js >= 22, mejoras de estabilidad",
+        "pl": "Zaktualizowano zależności (poprawki bezpieczeństwa axios), wymagany Node.js >= 22, poprawiona stabilność",
+        "uk": "Оновлено залежності (виправлення безпеки axios), потрібен Node.js >= 22, покращено стабільність",
+        "zh-cn": "更新依赖（axios 安全修复），需要 Node.js >= 22，提高稳定性"
+      },
       "0.3.6": {
         "en": "Fix state roles (remove invalid value.number, align value/level), correct whitelist handling for writable states, and finalize object structure according to review feedback",
         "de": "State-Rollen korrigiert (value.number entfernt, value/level angepasst), Whitelist für schreibbare States korrigiert und Objektstruktur gemäß Review-Anforderungen finalisiert",

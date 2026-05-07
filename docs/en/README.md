@@ -48,6 +48,11 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
+### 0.3.7 (2026-05-07)
+- Updated dependencies (including axios security fixes)
+- Require Node.js >= 22
+- Stability improvements
+
 ### 0.3.6 (2026-04-26)
 - Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
 - Fixed whitelist handling for writable states

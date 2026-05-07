@@ -48,6 +48,11 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.7 (2026-05-07)
+- Abhängigkeiten aktualisiert (inkl. Axios Sicherheitsfixes)
+- Node.js >= 22 erforderlich
+- Stabilitätsverbesserungen
+
 ### 0.3.6 (2026-04-26)
 
 - Ungültige State-Rollen korrigiert (`value.number` entfernt, korrekte Verwendung von `value` und `level`)
