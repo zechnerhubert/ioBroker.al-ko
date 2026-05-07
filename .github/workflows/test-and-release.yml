@@ -34,6 +34,9 @@ jobs:
         node-version: [22.x, 24.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
+      - name: Clean npm cache
+        run: npm cache clean --force
+        
       - uses: ioBroker/testing-action-adapter@v1
         with:
           node-version: ${{ matrix.node-version }}
