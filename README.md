@@ -53,6 +53,10 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### 0.3.9 (2026-05-07)
+- Fixed missing changelog entry for 0.3.8
+- Version alignment
+
 ### 0.3.8 (2026-05-07)
 - Fixed CI/npm publish issues
 - Updated dependencies

@@ -48,6 +48,10 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.9 (2026-05-07)
+- Fehlenden Changelog-Eintrag für 0.3.8 ergänzt
+- Versionsabgleich
+
 ### 0.3.8 (2026-05-07)
 - CI/npm Publish-Probleme behoben
 - Abhängigkeiten aktualisiert
