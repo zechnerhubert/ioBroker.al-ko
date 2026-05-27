@@ -48,6 +48,11 @@ It is a **community-developed project**.
 
 ## Changes (Summary)
 
+### 0.3.8 (2026-05-07)
+- Fixed CI/npm publish issues
+- Updated dependencies
+- Stability improvements
+
 ### 0.3.7 (2026-05-07)
 - Updated dependencies (including axios security fixes)
 - Require Node.js >= 22
@@ -57,11 +62,6 @@ It is a **community-developed project**.
 - Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
 - Fixed whitelist handling for writable states
 - Improved object structure according to review feedback
-
-### 0.3.5 (2026-03-26)
-
-- Enable npm trusted publishing
-- Fix GitHub Actions workflow warnings
 
 See full changelog here:  
 ➡ [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md)

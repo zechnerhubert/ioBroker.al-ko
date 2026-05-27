@@ -48,6 +48,11 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.8 (2026-05-07)
+- CI/npm Publish-Probleme behoben
+- Abhängigkeiten aktualisiert
+- Stabilitätsverbesserungen
+
 ### 0.3.7 (2026-05-07)
 - Abhängigkeiten aktualisiert (inkl. Axios Sicherheitsfixes)
 - Node.js >= 22 erforderlich
@@ -64,25 +69,6 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 - npm Trusted Publishing aktiviert
 - GitHub Actions Workflow-Warnungen behoben
 
-### 0.3.4 (2026-03-20)
-
-- Responsives Layout in der jsonConfig korrigiert (xs/sm/md/lg/xl)
-- Beispielhafte i18n-Einträge (option1/option2) entfernt
-
-### 0.3.3 (2026-03-13)
-
-- WebSocket-Verarbeitung verbessert
-- Verarbeitung der AL-KO `reportedState` WebSocket-Nachrichten korrigiert
-- Stabileres Wiederverbinden der WebSocket-Verbindung
-- GitHub-Workflows aktualisiert (Dependabot / Automerge)
-- Entwicklungsabhängigkeiten aktualisiert
-
-### 0.3.2 (2026-03-12)
-
-- WebSocket-Reconnect nach Token-Aktualisierung verbessert
-- Reconnect-Schleifen bei absichtlich geschlossenen WebSocket-Verbindungen verhindert
-- API-Fehlerlogging für Push-Requests verbessert
-- Logging für WebSocket-Close-Code und Reason ergänzt
 
 Alle Änderungen siehe vollständigen Changelog:  
 ➡ [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md)

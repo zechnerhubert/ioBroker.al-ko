@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.7",
+    "version": "0.3.8",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -42,6 +42,19 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.8": {
+        "en": "Fix CI/npm publish issues, update dependencies, improve stability",
+        "de": "CI/npm Publish-Probleme behoben, Abhängigkeiten aktualisiert, Stabilität verbessert",
+        "ru": "Исправлены проблемы CI/npm publish, обновлены зависимости, улучшена стабильность",
+        "pt": "Corrigidos problemas de CI/npm publish, dependências atualizadas, melhorias de estabilidade",
+        "nl": "CI/npm publish problemen opgelost, afhankelijkheden bijgewerkt, stabiliteit verbeterd",
+        "fr": "Correction des problèmes CI/npm publish, mise à jour des dépendances, amélioration de la stabilité",
+        "it": "Corretti problemi CI/npm publish, aggiornate le dipendenze, migliorata la stabilità",
+        "es": "Corregidos problemas de CI/npm publish, dependencias actualizadas, mejoras de estabilidad",
+        "pl": "Naprawiono problemy CI/npm publish, zaktualizowano zależności, poprawiono stabilność",
+        "uk": "Виправлено проблеми CI/npm publish, оновлено залежності, покращено стабільність",
+        "zh-cn": "修复 CI/npm 发布问题，更新依赖，提高稳定性"
+      },
       "0.3.7": {
         "en": "Update dependencies (axios security fixes), require Node.js >= 22, improve stability",
         "de": "Abhängigkeiten aktualisiert (Axios Sicherheitsfixes), Node.js >= 22 erforderlich, Stabilität verbessert",
@@ -67,45 +80,6 @@
         "pl": "Poprawiono role stanów (usunięto value.number, dostosowano value/level), poprawiono whitelistę dla zapisywalnych stanów i zakończono strukturę obiektów zgodnie z uwagami",
         "uk": "Виправлено ролі станів (видалено value.number, узгоджено value/level), виправлено whitelist для записуваних станів та завершено структуру об'єктів відповідно до зауважень",
         "zh-cn": "修复状态角色（移除 value.number，调整为 value/level），修复可写状态白名单，并根据审查意见完善对象结构"
-      },
-      "0.3.5": {
-        "en": "Enable npm trusted publishing and fix workflow warnings",
-        "de": "npm Trusted Publishing aktiviert und Workflow-Warnungen behoben",
-        "ru": "Включена публикация npm через Trusted Publishing и исправлены предупреждения workflow",
-        "pt": "Ativado o Trusted Publishing do npm e corrigidos avisos do workflow",
-        "nl": "npm Trusted Publishing ingeschakeld en workflow-waarschuwingen opgelost",
-        "fr": "Activation du Trusted Publishing npm et correction des avertissements du workflow",
-        "it": "Abilitato il Trusted Publishing npm e corretti gli avvisi del workflow",
-        "es": "Habilitado Trusted Publishing de npm y corregidas advertencias del workflow",
-        "pl": "Włączono Trusted Publishing npm i poprawiono ostrzeżenia workflow",
-        "uk": "Увімкнено Trusted Publishing npm та виправлено попередження workflow",
-        "zh-cn": "启用 npm Trusted Publishing 并修复工作流警告"
-      },
-      "0.3.4": {
-        "en": "Fix jsonConfig responsive layout and remove example i18n entries",
-        "de": "jsonConfig responsive Layout korrigiert und Beispiel-i18n-Einträge entfernt",
-        "ru": "Исправлено адаптивное отображение jsonConfig и удалены примерные записи i18n",
-        "pt": "Corrigido o layout responsivo do jsonConfig e removidas entradas de exemplo i18n",
-        "nl": "Responsieve layout van jsonConfig gecorrigeerd en voorbeeld i18n-items verwijderd",
-        "fr": "Correction de la mise en page responsive de jsonConfig et suppression des entrées i18n d'exemple",
-        "it": "Corretto il layout responsive di jsonConfig e rimosse le voci i18n di esempio",
-        "es": "Corregido el diseño responsivo de jsonConfig y eliminadas las entradas i18n de ejemplo",
-        "pl": "Poprawiono responsywny układ jsonConfig i usunięto przykładowe wpisy i18n",
-        "uk": "Виправлено адаптивний макет jsonConfig та видалено приклади i18n",
-        "zh-cn": "修复了 jsonConfig 的响应式布局并删除了示例 i18n 条目"
-      },
-      "0.3.3": {
-        "en": "Improved WebSocket handling and message processing, updated repository workflows, and updated development dependencies.",
-        "de": "WebSocket-Handling und Nachrichtenverarbeitung verbessert, Repository-Workflows aktualisiert und Entwicklungsabhängigkeiten aktualisiert.",
-        "ru": "Улучшена обработка WebSocket и сообщений, обновлены workflow репозитория и зависимости разработки",
-        "pt": "Melhorado o tratamento de WebSocket e processamento de mensagens, workflows do repositório atualizados e dependências de desenvolvimento atualizadas",
-        "nl": "WebSocket-afhandeling en berichtverwerking verbeterd, repository-workflows en ontwikkelingsafhankelijkheden bijgewerkt",
-        "fr": "Amélioration de la gestion WebSocket et du traitement des messages, mise à jour des workflows du dépôt et des dépendances de développement",
-        "it": "Migliorata la gestione WebSocket e l'elaborazione dei messaggi, aggiornati i workflow del repository e le dipendenze di sviluppo",
-        "es": "Mejorado el manejo de WebSocket y el procesamiento de mensajes, actualizados los workflows del repositorio y las dependencias de desarrollo",
-        "pl": "Ulepszono obsługę WebSocket i przetwarzanie wiadomości, zaktualizowano workflow repozytorium i zależności deweloperskie",
-        "uk": "Покращено обробку WebSocket і повідомлень, оновлено workflow репозиторію та залежності розробки",
-        "zh-cn": "改进了 WebSocket 处理和消息处理，更新了仓库工作流和开发依赖"
       }
     },
     "keywords": [
