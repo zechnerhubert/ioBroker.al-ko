@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-check@v1
         with:
-          node-version: "22.10.0"
+          node-version: "22.13.0"
           lint: true
 
   adapter-tests:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [22.10.0, 24.0.0]
+        node-version: [22.13.0, 24.0.0]
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Clean npm cache
@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: "22.10.0"
+          node-version: "22.13.0"
 
       - name: Fix npm (promise-retry bug)
         run: |
@@ -67,6 +67,6 @@ jobs:
 
       - uses: ioBroker/testing-action-deploy@v1
         with:
-          node-version: "22.10.0"
+          node-version: "22.13.0"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           sentry: false

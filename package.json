@@ -1,6 +1,6 @@
 {
   "name": "iobroker.al-ko",
-  "version": "0.3.9",
+  "version": "0.3.09",
   "description": "Adapter for communication with AL-KO smart garden devices (Robolinho, mowing windows, operationState, etc.)",
   "author": {
     "name": "Hubert Zechner",
@@ -25,7 +25,7 @@
     "url": "https://github.com/zechnerhubert/ioBroker.al-ko/issues"
   },
   "engines": {
-    "node": ">= 22"
+    "node": "^22.13.0 || >=24"
   },
   "main": "main.js",
   "files": [
