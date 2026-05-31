@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-check@v1
         with:
-          node-version: "22.x"
+          node-version: "22.10.0"
           lint: true
 
   adapter-tests:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
+        node-version: [22.10.0, 24.0.0]
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Clean npm cache

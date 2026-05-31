@@ -1,0 +1,8 @@
+{
+    "clientId": "Klant-ID",
+    "clientSecret": "Klantgeheim",
+    "password": "Wachtwoord",
+    "username": "Gebruikersnaam",
+    "username_placeholder": "Vul de gebruikersnaam van uw AL-KO-account in",
+    "wsDebug": "Schakel WebSocket-berichtregistratie in"
+}

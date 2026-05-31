@@ -1,8 +1,0 @@
-{
-  "clientId": "ID клієнта",
-  "clientSecret": "Секрет клієнта",
-  "password": "Пароль",
-  "username": "Ім'я користувача",
-  "username_placeholder": "Введіть ім’я користувача облікового запису AL-KO",
-  "wsDebug": "Увімкнути журнал повідомлень WebSocket"
-}

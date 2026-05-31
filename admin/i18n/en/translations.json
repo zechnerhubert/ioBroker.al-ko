@@ -1,8 +1,0 @@
-{
-  "username": "Username",
-  "username_placeholder": "Enter your AL-KO account username",
-  "password": "Password",
-  "clientId": "Client ID",
-  "clientSecret": "Client Secret",
-  "wsDebug": "Enable WebSocket message logging"
-}
