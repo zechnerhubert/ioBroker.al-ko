@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.9",
+    "version": "0.3.10",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -42,18 +42,18 @@
       "de": "docs/de/README.md"
     },
     "news": {
-      "0.3.9": {
-        "en": "Fix missing changelog entry for 0.3.8 and align versioning",
-        "de": "Fehlenden Changelog-Eintrag für 0.3.8 ergänzt und Version korrigiert",
-        "ru": "Исправлена отсутствующая запись changelog для 0.3.8 и синхронизированы версии",
-        "pt": "Corrigida a ausência de changelog para 0.3.8 e alinhamento de versão",
-        "nl": "Ontbrekende changelog voor 0.3.8 toegevoegd en versie gecorrigeerd",
-        "fr": "Correction de l'entrée manquante du changelog pour 0.3.8 et alignement de version",
-        "it": "Corretta voce mancante del changelog per 0.3.8 e allineata la versione",
-        "es": "Corregida la entrada faltante del changelog para 0.3.8 y alineación de versión",
-        "pl": "Poprawiono brakujący wpis changelog dla 0.3.8 i wyrównano wersję",
-        "uk": "Виправлено відсутній запис changelog для 0.3.8 та узгоджено версії",
-        "zh-cn": "修复 0.3.8 缺失的更新日志并对齐版本"
+      "0.3.10": {
+        "en": "Migrate i18n to short format, align tsconfig with Node.js 22, update Node.js requirement to >=22.13.0 and stabilize CI",
+        "de": "i18n auf Kurzformat umgestellt, tsconfig auf Node.js 22 angepasst, Node.js-Anforderung auf >=22.13.0 erhöht und CI stabilisiert",
+        "ru": "Миграция i18n на короткий формат, согласование tsconfig с Node.js 22, обновлено требование Node.js >=22.13.0 и стабилизация CI",
+        "pt": "Migração do i18n para formato curto, alinhamento do tsconfig com Node.js 22, requisito Node.js >=22.13.0 e estabilização do CI",
+        "nl": "i18n naar kort formaat gemigreerd, tsconfig afgestemd op Node.js 22, Node.js vereiste >=22.13.0 en CI gestabiliseerd",
+        "fr": "Migration i18n vers format court, alignement tsconfig avec Node.js 22, Node.js >=22.13.0 requis et stabilisation CI",
+        "it": "Migrazione i18n al formato breve, allineamento tsconfig con Node.js 22, requisito Node.js >=22.13.0 e stabilizzazione CI",
+        "es": "Migración de i18n a formato corto, alineación de tsconfig con Node.js 22, requisito Node.js >=22.13.0 y estabilización CI",
+        "pl": "Migracja i18n do krótkiego formatu, dostosowanie tsconfig do Node.js 22, wymagany Node.js >=22.13.0 i stabilizacja CI",
+        "uk": "Міграція i18n до короткого формату, узгодження tsconfig з Node.js 22, вимога Node.js >=22.13.0 та стабілізація CI",
+        "zh-cn": "将 i18n 迁移到短格式，tsconfig 对齐 Node.js 22，更新 Node.js 要求到 >=22.13.0 并稳定 CI"
       },
       "0.3.8": {
         "en": "Fix CI/npm publish issues, update dependencies, improve stability",

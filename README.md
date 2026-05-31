@@ -53,6 +53,12 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### 0.3.10 (2026-05-07)
+- Migrated i18n to short format
+- Aligned tsconfig with Node.js 22
+- Updated Node.js requirement to >=22.13.0
+- Stabilized CI configuration
+
 ### 0.3.9 (2026-05-07)
 - Fixed missing changelog entry for 0.3.8
 - Version alignment

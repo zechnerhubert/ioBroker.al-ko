@@ -48,6 +48,12 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.10 (2026-05-07)
+- i18n auf Kurzformat umgestellt
+- tsconfig auf Node.js 22 angepasst
+- Node.js-Anforderung auf >=22.13.0 erhöht
+- CI-Konfiguration stabilisiert
+
 ### 0.3.9 (2026-05-07)
 - Fehlenden Changelog-Eintrag für 0.3.8 ergänzt
 - Versionsabgleich
