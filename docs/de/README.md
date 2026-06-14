@@ -48,6 +48,12 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.11 (2026-05-07)
+- CI-Probleme behoben und Workflow stabilisiert
+- Release-Tools aktualisiert
+- Node.js >= 22.13.0 erforderlich
+- Codequalität verbessert (eslint/prettier)
+
 ### 0.3.10 (2026-05-07)
 - i18n auf Kurzformat umgestellt
 - tsconfig auf Node.js 22 angepasst

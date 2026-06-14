@@ -1,6 +1,6 @@
 {
   "name": "iobroker.al-ko",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "description": "Adapter for communication with AL-KO smart garden devices (Robolinho, mowing windows, operationState, etc.)",
   "author": {
     "name": "Hubert Zechner",
@@ -64,7 +64,8 @@
     "@iobroker/eslint-config": "^2.3.4",
     "@iobroker/testing": "^5.2.2",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.19.20"
+    "@types/node": "^22.19.20",
+    "prettier": "^3.8.3"
   },
   "readmeFilename": "README.md"
 }

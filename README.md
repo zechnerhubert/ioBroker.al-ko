@@ -53,6 +53,12 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### 0.3.11 (2026-05-07)
+- Fixed CI issues and stabilized workflow
+- Updated release tooling
+- Require Node.js >= 22.13.0
+- Improved code quality (eslint/prettier)
+
 ### 0.3.10 (2026-05-07)
 - Migrated i18n to short format
 - Aligned tsconfig with Node.js 22
@@ -73,10 +79,6 @@ Do **not** contact AL-KO customer service regarding this project.
 - Require Node.js >= 22
 - Stability improvements
 
-### 0.3.6 (2026-04-26)
-- Fixed invalid state roles (`value.number` removed, correct usage of `value` and `level`)
-- Fixed whitelist handling for writable states
-- Improved object structure according to review feedback
 
 ➡ Full changelog here:  
 [CHANGELOG_OLD.md](./CHANGELOG_OLD.md)

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.10",
+    "version": "0.3.11",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -42,6 +42,19 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.11": {
+        "en": "Fix CI issues, update release tooling, require Node.js >=22.13.0 and improve code quality (eslint/prettier)",
+        "de": "CI-Probleme behoben, Release-Tools aktualisiert, Node.js >=22.13.0 erforderlich und Codequalität verbessert (eslint/prettier)",
+        "ru": "Исправлены проблемы CI, обновлены инструменты релиза, требуется Node.js >=22.13.0 и улучшено качество кода",
+        "pt": "Corrigidos problemas de CI, ferramentas de release atualizadas, requer Node.js >=22.13.0 e melhorias na qualidade do código",
+        "nl": "CI-problemen opgelost, release-tools bijgewerkt, Node.js >=22.13.0 vereist en codekwaliteit verbeterd",
+        "fr": "Correction des problèmes CI, mise à jour des outils de release, Node.js >=22.13.0 requis et amélioration de la qualité du code",
+        "it": "Corretti problemi CI, aggiornati strumenti di release, richiesto Node.js >=22.13.0 e migliorata la qualità del codice",
+        "es": "Corregidos problemas de CI, herramientas de release actualizadas, se requiere Node.js >=22.13.0 y mejoras en la calidad del código",
+        "pl": "Naprawiono problemy CI, zaktualizowano narzędzia release, wymagany Node.js >=22.13.0 i poprawiono jakość kodu",
+        "uk": "Виправлено проблеми CI, оновлено інструменти релізу, потрібен Node.js >=22.13.0 та покращено якість коду",
+        "zh-cn": "修复 CI 问题，更新发布工具，要求 Node.js >=22.13.0 并提升代码质量"
+      },
       "0.3.10": {
         "en": "Migrate i18n to short format, align tsconfig with Node.js 22, update Node.js requirement to >=22.13.0 and stabilize CI",
         "de": "i18n auf Kurzformat umgestellt, tsconfig auf Node.js 22 angepasst, Node.js-Anforderung auf >=22.13.0 erhöht und CI stabilisiert",
@@ -54,45 +67,6 @@
         "pl": "Migracja i18n do krótkiego formatu, dostosowanie tsconfig do Node.js 22, wymagany Node.js >=22.13.0 i stabilizacja CI",
         "uk": "Міграція i18n до короткого формату, узгодження tsconfig з Node.js 22, вимога Node.js >=22.13.0 та стабілізація CI",
         "zh-cn": "将 i18n 迁移到短格式，tsconfig 对齐 Node.js 22，更新 Node.js 要求到 >=22.13.0 并稳定 CI"
-      },
-      "0.3.8": {
-        "en": "Fix CI/npm publish issues, update dependencies, improve stability",
-        "de": "CI/npm Publish-Probleme behoben, Abhängigkeiten aktualisiert, Stabilität verbessert",
-        "ru": "Исправлены проблемы CI/npm publish, обновлены зависимости, улучшена стабильность",
-        "pt": "Corrigidos problemas de CI/npm publish, dependências atualizadas, melhorias de estabilidade",
-        "nl": "CI/npm publish problemen opgelost, afhankelijkheden bijgewerkt, stabiliteit verbeterd",
-        "fr": "Correction des problèmes CI/npm publish, mise à jour des dépendances, amélioration de la stabilité",
-        "it": "Corretti problemi CI/npm publish, aggiornate le dipendenze, migliorata la stabilità",
-        "es": "Corregidos problemas de CI/npm publish, dependencias actualizadas, mejoras de estabilidad",
-        "pl": "Naprawiono problemy CI/npm publish, zaktualizowano zależności, poprawiono stabilność",
-        "uk": "Виправлено проблеми CI/npm publish, оновлено залежності, покращено стабільність",
-        "zh-cn": "修复 CI/npm 发布问题，更新依赖，提高稳定性"
-      },
-      "0.3.7": {
-        "en": "Update dependencies (axios security fixes), require Node.js >= 22, improve stability",
-        "de": "Abhängigkeiten aktualisiert (Axios Sicherheitsfixes), Node.js >= 22 erforderlich, Stabilität verbessert",
-        "ru": "Обновлены зависимости (исправления безопасности axios), требуется Node.js >= 22, повышена стабильность",
-        "pt": "Atualizadas as dependências (correções de segurança do axios), requer Node.js >= 22, melhorias de estabilidade",
-        "nl": "Afhankelijkheden bijgewerkt (axios beveiligingsfixes), Node.js >= 22 vereist, stabiliteit verbeterd",
-        "fr": "Mise à jour des dépendances (correctifs de sécurité axios), Node.js >= 22 requis, amélioration de la stabilité",
-        "it": "Aggiornate le dipendenze (fix di sicurezza axios), richiesto Node.js >= 22, migliorata la stabilità",
-        "es": "Dependencias actualizadas (correcciones de seguridad de axios), se requiere Node.js >= 22, mejoras de estabilidad",
-        "pl": "Zaktualizowano zależności (poprawki bezpieczeństwa axios), wymagany Node.js >= 22, poprawiona stabilność",
-        "uk": "Оновлено залежності (виправлення безпеки axios), потрібен Node.js >= 22, покращено стабільність",
-        "zh-cn": "更新依赖（axios 安全修复），需要 Node.js >= 22，提高稳定性"
-      },
-      "0.3.6": {
-        "en": "Fix state roles (remove invalid value.number, align value/level), correct whitelist handling for writable states, and finalize object structure according to review feedback",
-        "de": "State-Rollen korrigiert (value.number entfernt, value/level angepasst), Whitelist für schreibbare States korrigiert und Objektstruktur gemäß Review-Anforderungen finalisiert",
-        "ru": "Исправлены роли состояний (удалён value.number, выровнены value/level), исправлена whitelist для записываемых состояний и завершена структура объектов согласно требованиям ревью",
-        "pt": "Corrigidas as roles dos estados (removido value.number, ajustado value/level), corrigida a whitelist para estados graváveis e finalizada a estrutura de objetos conforme revisão",
-        "nl": "State-rollen gecorrigeerd (value.number verwijderd, value/level aangepast), whitelist voor schrijfbare states gecorrigeerd en objectstructuur volgens review afgerond",
-        "fr": "Correction des rôles d’état (suppression de value.number, ajustement value/level), correction de la whitelist des états modifiables et finalisation de la structure d’objets selon la revue",
-        "it": "Corretti i ruoli degli stati (rimosso value.number, allineati value/level), corretta la whitelist per stati scrivibili e finalizzata la struttura degli oggetti secondo la revisione",
-        "es": "Corregidos los roles de estado (eliminado value.number, ajustado value/level), corregida la whitelist para estados escribibles y finalizada la estructura de objetos según la revisión",
-        "pl": "Poprawiono role stanów (usunięto value.number, dostosowano value/level), poprawiono whitelistę dla zapisywalnych stanów i zakończono strukturę obiektów zgodnie z uwagami",
-        "uk": "Виправлено ролі станів (видалено value.number, узгоджено value/level), виправлено whitelist для записуваних станів та завершено структуру об'єктів відповідно до зауважень",
-        "zh-cn": "修复状态角色（移除 value.number，调整为 value/level），修复可写状态白名单，并根据审查意见完善对象结构"
       }
     },
     "keywords": [
