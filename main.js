@@ -344,6 +344,8 @@ class AlKoAdapter extends utils.Adapter {
         });
 
         const stateData = await this.getDeviceStatus(deviceId);
+        await this.getDeviceInfo(deviceId);
+        await this.getDeviceAttributes(deviceId);
         if (stateData?.state) {
           this.deviceStates[deviceId] =
             stateData.state.reported || stateData.state;
@@ -390,14 +392,44 @@ class AlKoAdapter extends utils.Adapter {
     });
 
     this.log.debug(`Status fetched for device ${deviceId}`);
-
-    this.log.info("========== COMPLETE DEVICE STATUS ==========");
-    this.log.info(JSON.stringify(res.data, null, 2));
-    this.log.info("===========================================");
-    
     return res.data;
   }
 
+  async getDeviceInfo(deviceId) {
+    await this.refreshAuth();
+    const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}`;
+
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        Accept: "application/json",
+      },
+    });
+
+    this.log.info("========== DEVICE INFO ==========");
+    this.log.info(JSON.stringify(res.data, null, 2));
+    this.log.info("================================");
+
+    return res.data;
+  }
+
+  async getDeviceAttributes(deviceId) {
+    await this.refreshAuth();
+    const url = `https://api.al-ko.com/v1/iot/things/${encodeURIComponent(deviceId)}/attributes`;
+
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`,
+        Accept: "application/json",
+      },
+    });
+
+    this.log.info("======= DEVICE ATTRIBUTES =======");
+    this.log.info(JSON.stringify(res.data, null, 2));
+    this.log.info("================================");
+
+    return res.data;
+  }
   // ---------------- WebSocket Handling ----------------
   // alte Version
 
