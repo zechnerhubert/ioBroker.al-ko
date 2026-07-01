@@ -344,6 +344,10 @@ class AlKoAdapter extends utils.Adapter {
         });
 
         const stateData = await this.getDeviceStatus(deviceId);
+        const deviceInfo = await this.getDeviceInfo(deviceId);
+
+        await this.createInfoStates(deviceId, deviceInfo);
+
         if (stateData?.state) {
           this.deviceStates[deviceId] =
             stateData.state.reported || stateData.state;
@@ -405,6 +409,55 @@ class AlKoAdapter extends utils.Adapter {
     });
 
     return res.data;
+  }
+
+  async createInfoStates(deviceId, info) {
+    if (!info || typeof info !== "object") {
+      return;
+    }
+
+    const infoPath = `${this.namespace}.${deviceId}.info`;
+
+    await this.setObjectNotExistsAsync(infoPath, {
+      type: "channel",
+      common: {
+        name: "Device information",
+        role: "channel",
+      },
+      native: {},
+    });
+
+    const infoFields = [
+      "thingModel",
+      "thingType",
+      "articleNumber",
+      "serialNumber",
+      "serialNumberMain",
+      "hardwareVersion",
+      "hardwareVersionMain",
+      "firmwareVersion",
+      "firmwareMain",
+      "firmwareMainLocalization",
+      "firmwareWifi",
+      "firmwareWifiDriver",
+      "articleNumberWifi",
+      "serialNumberWifi",
+      "hardwareVersionWifi",
+      "productionDate",
+      "fotaMode",
+    ];
+
+    for (const field of infoFields) {
+      if (info[field] !== undefined && info[field] !== null) {
+        await this.setStateIfChanged(
+          `${infoPath}.${field}`,
+          info[field],
+          true,
+          false,
+          `info.${field}`,
+        );
+      }
+    }
   }
 
   // ---------------- WebSocket Handling ----------------
