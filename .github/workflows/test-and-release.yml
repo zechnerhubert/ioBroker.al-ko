@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: ioBroker/testing-action-check@v2
         with:
-          node-version: "22.13.0"
+          node-version: "24.0.0"
           lint: true
 
   adapter-tests:
