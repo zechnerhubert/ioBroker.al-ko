@@ -416,6 +416,7 @@ class AlKoAdapter extends utils.Adapter {
       return;
     }
 
+    const attributes = info.thingAttributes || info;
     const infoPath = `${this.namespace}.${deviceId}.info`;
 
     await this.setObjectNotExistsAsync(infoPath, {
@@ -448,10 +449,10 @@ class AlKoAdapter extends utils.Adapter {
     ];
 
     for (const field of infoFields) {
-      if (info[field] !== undefined && info[field] !== null) {
+      if (attributes[field] !== undefined && attributes[field] !== null) {
         await this.setStateIfChanged(
           `${infoPath}.${field}`,
-          info[field],
+          attributes[field],
           true,
           false,
           `info.${field}`,
