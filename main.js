@@ -390,6 +390,11 @@ class AlKoAdapter extends utils.Adapter {
     });
 
     this.log.debug(`Status fetched for device ${deviceId}`);
+
+    this.log.info("========== COMPLETE DEVICE STATUS ==========");
+    this.log.info(JSON.stringify(res.data, null, 2));
+    this.log.info("===========================================");
+    
     return res.data;
   }
 
