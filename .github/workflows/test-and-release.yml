@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [22.13.0, 24.0.0]
+        node-version: [22.x, 22.13.0, 24.x, 24.0.0, 26.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Clean npm cache
@@ -67,6 +67,6 @@ jobs:
 
       - uses: ioBroker/testing-action-deploy@v1
         with:
-          node-version: "22.13.0"
+          node-version: '24.x'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           sentry: false
