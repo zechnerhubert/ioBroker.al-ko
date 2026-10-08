@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "al-ko",
-    "version": "0.3.11",
+    "version": "0.3.12",
     "tier": 3,
     "titleLang": {
       "en": "AL-KO",
@@ -42,6 +42,19 @@
       "de": "docs/de/README.md"
     },
     "news": {
+      "0.3.12": {
+        "en": "Updated test and development dependencies and adapted the CI test environment to current ioBroker requirements",
+        "de": "Test- und Entwicklungsabhängigkeiten aktualisiert und CI-Testumgebung an aktuelle ioBroker-Anforderungen angepasst",
+        "ru": "Обновлены тестовые зависимости и зависимости разработки, а среда тестирования CI адаптирована к текущим требованиям ioBroker",
+        "pt": "Dependências de teste e desenvolvimento atualizadas e ambiente de teste CI adaptado aos requisitos atuais do ioBroker",
+        "nl": "Test- en ontwikkelingsafhankelijkheden bijgewerkt en CI-testomgeving aangepast aan de huidige ioBroker-vereisten",
+        "fr": "Mise à jour des dépendances de test et de développement et adaptation de l'environnement de test CI aux exigences actuelles d'ioBroker",
+        "it": "Aggiornate le dipendenze di test e sviluppo e adattato l'ambiente di test CI ai requisiti attuali di ioBroker",
+        "es": "Actualizadas las dependencias de prueba y desarrollo y adaptado el entorno de pruebas CI a los requisitos actuales de ioBroker",
+        "pl": "Zaktualizowano zależności testowe i deweloperskie oraz dostosowano środowisko testowe CI do aktualnych wymagań ioBroker",
+        "uk": "Оновлено тестові залежності та залежності розробки, а середовище тестування CI адаптовано до актуальних вимог ioBroker",
+        "zh-cn": "更新了测试和开发依赖项，并使 CI 测试环境适应当前的 ioBroker 要求"
+      },
       "0.3.11": {
         "en": "Fix CI issues, update release tooling, require Node.js >=22.13.0 and improve code quality (eslint/prettier)",
         "de": "CI-Probleme behoben, Release-Tools aktualisiert, Node.js >=22.13.0 erforderlich und Codequalität verbessert (eslint/prettier)",

@@ -48,6 +48,11 @@ AL-KO bietet **keinen offiziellen Support** hierfür.
 
 ## Änderungen (Auszug)
 
+### 0.3.12 (2026-10-08)
+- Test- und Entwicklungsabhängigkeiten aktualisiert
+- ioBroker-Testumgebung auf die aktuellen Anforderungen angepasst
+- Node.js-22-Testversion auf mindestens 22.19.0 aktualisiert
+
 ### 0.3.11 (2026-05-07)
 - CI-Probleme behoben und Workflow stabilisiert
 - Release-Tools aktualisiert
